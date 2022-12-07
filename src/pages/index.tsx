@@ -185,12 +185,13 @@ const HomePageBanner = () => {
               Cars
             </ButtonTabSelector>
           </div>
-          <div className=" bg-gray-400 bg-opacity-30 ring-opacity-30 ring-white  ring-4 ring-offset-4 container shadow-lg p-8 rounded-3xl ">
+          <div className="bg-gray-400 bg-opacity-30 ring-opacity-30 ring-white  ring-4 ring-offset-4 container shadow-lg p-8 rounded-3xl ">
             <TabPanel hidden={selectedTab !== "flights"}>
-              <div className="bg-blue fifthScreen:pt-[-10px] sm:mb-[-20px] lg:mb-[-35px]  ">
+              <div className="bg-blue thirdScreen:mb-[-210px] thirdScreen:h-[350px]  ">
                 <iframe
-                  // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[104px]"
-                  className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[200px]"
+                  // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[160px] fourthScreen:h-[164px] fifthScreen:h-[104px]"
+                  // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[160px] fourthScreen:h-[164px] fifthScreen:h-[200px]"
+                  className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-full"
                   scrolling="no"
                   frameBorder="0"
                   src="//www.travelpayouts.com/widgets/22205c47ab682a18e67bf3138082cce3.html?v=2203"
@@ -198,10 +199,11 @@ const HomePageBanner = () => {
               </div>
             </TabPanel>
             <TabPanel hidden={selectedTab !== "hotels"}>
-              <div className="bg-blue fifthScreen:pt-[-10px] mb-[-30px]">
+              <div className="bg-blue thirdScreen:mb-[-210px] thirdScreen:h-[350px]">
                 <iframe
                   // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[104px] "
-                  className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[200px]"
+                  // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[200px]"
+                  className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-full"
                   scrolling="no"
                   frameBorder="0"
                   src="//www.travelpayouts.com/widgets/c2fcc9c9f099c9a7e5502aa4dea71d3d.html?v=2267"
@@ -209,7 +211,7 @@ const HomePageBanner = () => {
               </div>
             </TabPanel>
             <TabPanel hidden={selectedTab !== "cars"}>
-              <div className="bg-blue">
+              <div className="bg-blue thirdScreen:mb-[-180px] thirdScreen:h-[300px]">
                 <iframe
                   className="w-full  h-[310px] firstScreen:h-[310px] secondScreen:h-[310px] thirdScreen:h-[310px] fourthScreen:h-[220px] fifthScreen:h-[220px] "
                   scrolling="no"
