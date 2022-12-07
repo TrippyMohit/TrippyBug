@@ -1,0 +1,4 @@
+export const PostIcon = <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.66797 14.6667V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M2.66797 10.0002C2.66797 10.0002 3.33464 9.3335 5.33464 9.3335C7.33464 9.3335 8.66797 10.6668 10.668 10.6668C12.668 10.6668 13.3346 10.0002 13.3346 10.0002V2.00016C13.3346 2.00016 12.668 2.66683 10.668 2.66683C8.66797 2.66683 7.33464 1.3335 5.33464 1.3335C3.33464 1.3335 2.66797 2.00016 2.66797 2.00016V10.0002Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
