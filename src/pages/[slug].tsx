@@ -8,8 +8,6 @@ import {
 } from "../services/cms-api";
 import ErrorPage from "next/error";
 import Link from "next/link";
-import DOMPurify from "dompurify";
-import Typography from "@mui/material/Typography";
 
 import {
   CalendarIcon,
@@ -30,7 +28,7 @@ import {
 import Image from "next/image";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../common";
 import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
@@ -89,13 +87,6 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   }
   if (router.isFallback) {
     return <div>Loading Post</div>;
-  }
-
-  const postRef = useRef(post?.content);
-  console.log(postRef.current);
-
-  function cleanData(userInput) {
-    return DOMPurify.sanitize(userInput);
   }
 
   return (
