@@ -10,9 +10,7 @@ import { createRef, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { getPostsByCategoryName } from "../services/cms-api";
 
-export default function Hotels({
-  trendingBlogs,
-}) {
+export default function Hotels({ trendingBlogs }) {
   return (
     <>
       <div className="flex flex-col gap-16 ">
@@ -21,10 +19,7 @@ export default function Hotels({
           {/* <HotelAndApartments /> */}
           {/* <HotelRecommendations /> */}
           {/* <PropertyTypes /> */}
-        <TrendingBlogs trendingBlogs={trendingBlogs} />
-    
-        
-
+          <TrendingBlogs trendingBlogs={trendingBlogs} />
           <HotelsNearby />
           <JoinTravel />
           {/* <DreamVacation />
@@ -43,9 +38,9 @@ const HotelBanner = () => {
     <div className="flex flex-col">
       <div className="relative lg:min-h-[60vh] lg:mx-24 mx-8 lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 lg:p-16">
         <div className=" flex-1 flex flex-col gap-9 z-10 ">
-          <div className="flex flex-col  lg:w-2/3 w-full gap-6">
+          {/* <div className="flex flex-col  lg:w-2/3 w-full gap-6">
             <h1 className="text-3xl tracking-wider lg:text-6xl lg:leading-[70px] lg:text-gray-900 font-bold">
-              Spend your vacation with{" "}
+              Spend your vacation with
               <span className="lg:text-gray-900 text-orange-400 lg:font-sans font-salsa">
                 TrippyBug
               </span>
@@ -54,7 +49,7 @@ const HotelBanner = () => {
               Enter a country, a city or even just a landmark and we&apos;ll
               find the right tours for you
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="py-64 z-0 lg:flex hidden">
           <Image
@@ -77,12 +72,12 @@ const HotelBanner = () => {
       <div className="w-full flex flex-col z-30 container -mt-32 ">
         <div className="bg-gray-200 bg-opacity-70 ring-opacity-30 ring-offset-4 container shadow-lg p-8 rounded-3xl">
           <div className="bg-white">
-          <iframe
-                 className="w-full  h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[104px] "
-                 scrolling="no"
-                  frameBorder="0"
-                  src="//www.travelpayouts.com/widgets/c2fcc9c9f099c9a7e5502aa4dea71d3d.html?v=2267"
-                ></iframe>
+            <iframe
+              className="w-full  h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[104px] "
+              scrolling="no"
+              frameBorder="0"
+              src="//www.travelpayouts.com/widgets/c2fcc9c9f099c9a7e5502aa4dea71d3d.html?v=2267"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -275,8 +270,6 @@ const PropertyTypesCard = ({ title, excerpt, featuredImage }) => {
   );
 };
 
-
-
 const TrendingBlogs = ({ trendingBlogs }) => {
   const trendingCarouselSettings = {
     slidesToShow: 4,
@@ -323,13 +316,13 @@ const TrendingBlogs = ({ trendingBlogs }) => {
         />
       </div>
       <div className="flex flex-col">
-          <h1 className="font-caveat text-orange-400 font-bold lg:text-center text-left lg:text-7xl text-5xl">
-            Hotels
-          </h1>
-          <h1 className=" text-gray-900 lg:text-center font-bold text-left lg:text-7xl text-4xl">
-            Our Recommendations
-          </h1>
-        </div>
+        <h1 className="font-caveat text-orange-400 font-bold lg:text-center text-left lg:text-7xl text-5xl">
+          Hotels
+        </h1>
+        <h1 className=" text-gray-900 lg:text-center font-bold text-left lg:text-7xl text-4xl">
+          Our Recommendations
+        </h1>
+      </div>
       <div className="relative flex container w-full mx-auto pt-16 pb-8 gap-10 lg:flex-row-reverse items-center flex-col ">
         <div className="flex flex-1 justify-between w-full lg:w-9/12">
           <div className="relative w-full">
@@ -355,17 +348,17 @@ const TrendingBlogs = ({ trendingBlogs }) => {
             </Slider>
           </div>
           <button
-          className="items-center justify-center bg-gray-50/[0.5] lg:flex  w-16 h-16 rounded-full  absolute z-50 top-[400px] left-5  text-3xl text-gray-600"
-          onClick={previousSlide}
-        >
-          &lt;
-        </button>
-        <button
-          className="items-center justify-center  lg:flex bg-gray-50/[0.5] w-16 h-16 rounded-full absolute z-50 top-[400px] right-5 text-3xl text-gray-600"
-          onClick={nextSlide}
-        >
-          &gt;
-        </button>
+            className="items-center justify-center bg-gray-50/[0.5] lg:flex  w-16 h-16 rounded-full  absolute z-50 top-[400px] left-5  text-3xl text-gray-600"
+            onClick={previousSlide}
+          >
+            &lt;
+          </button>
+          <button
+            className="items-center justify-center  lg:flex bg-gray-50/[0.5] w-16 h-16 rounded-full absolute z-50 top-[400px] right-5 text-3xl text-gray-600"
+            onClick={nextSlide}
+          >
+            &gt;
+          </button>
         </div>
       </div>
     </div>
@@ -384,10 +377,9 @@ const TrendingBlogCard = ({
     <div
       className={classNames(
         "flex flex-col gap-6  items-start justify-between w-full ",
-        { "lg:pt-0": index % 2 == 1, }
+        { "lg:pt-0": index % 2 == 1 }
       )}
     >
-     
       <Link href={link}>
         {featuredImage && (
           <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
@@ -413,16 +405,6 @@ const TrendingBlogCard = ({
     </div>
   );
 };
-
-
-
-
-
-
-
-
-
-
 
 const HotelsNearby = () => {
   return (
@@ -529,19 +511,20 @@ const JoinTravel = () => {
     <div className="relative">
       <div className="relative flex">
         <div className="relative flex-1  bg-orange-300 bg-opacity-30 flex justify-center">
-          
-       
-
-             
-                
-<div className="lg:w-6/12 mx-8 mt-24 w-full flex flex-col gap-2">
-    <div className="font-bold  tracking-wider text-2xl">Join Our Community</div>
-    <div className="  tracking-wider text-xl">Get in touch and let our team help you put things together and plan your travel.</div>
-    <div className="lg:w-60 w-60 "><Link href="/register"><Button>Join Now</Button></Link></div>
-
-
-
-</div>
+          <div className="lg:w-6/12 mx-8 mt-24 w-full flex flex-col gap-2">
+            <div className="font-bold  tracking-wider text-2xl">
+              Join Our Community
+            </div>
+            <div className="  tracking-wider text-xl">
+              Get in touch and let our team help you put things together and
+              plan your travel.
+            </div>
+            <div className="lg:w-60 w-60 ">
+              <Link href="/register">
+                <Button>Join Now</Button>
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="relative sm:w-[0vh] lg:w-[50vh] h-96">
           <Image
@@ -556,15 +539,8 @@ const JoinTravel = () => {
   );
 };
 
-
-
-
-
-
-
 export async function getStaticProps() {
-  const trendingBlogs = await getPostsByCategoryName("trending")
-  
+  const trendingBlogs = await getPostsByCategoryName("trending");
 
   return {
     props: {
@@ -573,4 +549,3 @@ export async function getStaticProps() {
     revalidate: 10,
   };
 }
-

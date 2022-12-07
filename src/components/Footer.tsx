@@ -2,6 +2,7 @@ import { Button } from "../common";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 import {
   FacebookIcon,
   TwitterIcon,
@@ -16,7 +17,7 @@ import {
 } from "react-icons/ai";
 export const Footer = () => {
   return (
-    <div className="relative mt-64 flex flex-col">
+    <div className="relative mt-50 flex flex-col">
       <div className="h-[460px] relative bg-[#003531] -mt-16 ">
         <Image
           alt=""
@@ -28,8 +29,10 @@ export const Footer = () => {
       </div>
       <div className="bg-[#003531] flex flex-col text-white p-10 relative ">
         <div className="flex justify-between container relative text-white font-normal text-xl font-poppins">
-          <div className="w-full flex lg:flex-row flex-col 
-           gap-4  justify-between relative ">
+          <div
+            className="w-full flex lg:flex-row flex-col 
+           gap-4  justify-between relative "
+          >
             <div className="flex flex-col  gap-1">
               <div className="font-bold tracking-wide leading-10">PRODUCT</div>
               <div>
