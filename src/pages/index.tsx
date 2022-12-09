@@ -4,6 +4,7 @@ import { createRef, useEffect, useState } from "react";
 import { IconBox } from "../components/IconBox";
 import LookingForInspiration from "../components/LookingForInspiration";
 import TrendingBlogs from "../components/TrendingBlogs";
+import JoinTravel from "../components/JoinTravel";
 
 import {
   CarIcon,
@@ -892,39 +893,6 @@ const MoreDestinationCard = ({ featuredImage, title, link }) => {
         </div>
       </div>
     </Link>
-  );
-};
-
-const JoinTravel = () => {
-  return (
-    <div className="relative">
-      <div className="relative flex">
-        <div className="relative flex-1  bg-orange-300 bg-opacity-30 flex justify-center">
-          <div className="lg:w-6/12 mx-8 mt-24 w-full flex flex-col gap-2">
-            <div className="font-bold  tracking-wider text-2xl">
-              Join Our Community
-            </div>
-            <div className="  tracking-wider text-xl">
-              Get in touch and let our team help you put things together and
-              plan your travel.
-            </div>
-            <div className="lg:w-60 w-60 ">
-              <Link href="/register">
-                <Button>Join Now</Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="relative sm:w-[0vh] lg:w-[50vh] h-96">
-          <Image
-            alt=""
-            src="/assets/images/travel-bee.gif"
-            objectFit="cover"
-            layout="fill"
-          />
-        </div>
-      </div>
-    </div>
   );
 };
 

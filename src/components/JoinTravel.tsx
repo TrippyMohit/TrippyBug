@@ -11,8 +11,7 @@ const JoinTravel = () => {
               Join Our Community
             </div>
             <div className="  tracking-wider text-xl">
-              Get in touch and let our team help you put things together and
-              plan your travel.
+              Share your stories or chat with travellers around the world.
             </div>
             <div className="lg:w-60 w-60 ">
               <Link href="/register">
