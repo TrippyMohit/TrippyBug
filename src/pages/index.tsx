@@ -2,6 +2,8 @@ import classNames from "classnames";
 import Image from "next/image";
 import { createRef, useEffect, useState } from "react";
 import { IconBox } from "../components/IconBox";
+import LookingForInspiration from "../components/LookingForInspiration";
+import TrendingBlogs from "../components/TrendingBlogs";
 
 import {
   CarIcon,
@@ -18,6 +20,7 @@ import { format } from "date-fns";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
 export default function Home({
+  airlinesBlogs,
   trendingBlogs,
   topDestinations,
   moreDestinations,
@@ -30,12 +33,12 @@ export default function Home({
     <>
       <HomePageBanner />
       <div className="flex flex-col gap-20 lg:pt-24 ">
-        {/* <NextTrip /> */}
         <TrendingBlogs trendingBlogs={trendingBlogs} />
         <Gallery posts={gallery} />
         <TopDestination topDestinations={topDestinations} />
         <ExploreWorldBlogs exploreTheWorld={exploreTheWorld} />
-        <MoreDestination moreDestinations={moreDestinations} />
+        {/* <MoreDestination moreDestinations={moreDestinations} /> */}
+        <LookingForInspiration lookingForInspiration={lookingForInspiration} />
         <JoinTravel />
         <WhereToStart />
         <ExploreWebStories />
@@ -227,200 +230,6 @@ const HomePageBanner = () => {
   );
 };
 
-const NextTrip = () => {
-  return (
-    <div className="p-10  flex w-full  flex-col gap-10 container lg:px-16">
-      <div className=" gap-10 flex flex-col font-bold lg:items-center items-start">
-        <div className="flex flex-col">
-          <h1 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
-            Next Trip
-          </h1>
-          <h1 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
-            In 3 Steps
-          </h1>
-        </div>
-        <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
-      </div>
-
-      <div className="flex lg:flex-row flex-col">
-        <div className="flex flex-col">
-          <IconBox
-            icon={MapIcon}
-            bgColor="#F68E20"
-            title="Choose Destination"
-            content="Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Urna, tortor tempus. "
-          />
-
-          <IconBox
-            icon={WalletIcon}
-            bgColor="#41D6C7"
-            title="Make Payments"
-            content="Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Urna, tortor tempus. "
-          />
-          <IconBox
-            icon={CarIcon}
-            bgColor="#F0BB1F"
-            title="Reach Airport"
-            content="Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Urna, tortor tempus. "
-          />
-        </div>
-        <div className="relative lg:w-1/2 w-full lg:flex hidden">
-          <Image
-            alt=""
-            src="/assets/images/next_trip_bg.svg"
-            objectFit="contain"
-            layout="fill"
-          />
-          <Image
-            alt=""
-            src="/assets/images/passport-travel.gif"
-            objectFit="contain"
-            layout="fill"
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TrendingBlogs = ({ trendingBlogs }) => {
-  const trendingCarouselSettings = {
-    slidesToShow: 4,
-    autoplay: false,
-    autoplaySpeed: 3000,
-    speed: 1000,
-    dots: false,
-    arrows: false,
-    centermode: true,
-    infinite: true,
-    lazyLoad: "ondemand",
-    touchThreshold: 100,
-    swipeToSlide: true,
-    focusOnSelect: true,
-    draggable: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-  const trendingBlogsRef = createRef<Slider>();
-
-  const previousSlide = () => {
-    trendingBlogsRef?.current.slickPrev();
-  };
-
-  const nextSlide = () => {
-    trendingBlogsRef?.current?.slickNext();
-  };
-
-  return (
-    <div className="relative lg:pb-10 p-10">
-      <div className="w-full z-0 lg:flex hidden h-full">
-        <Image
-          alt=""
-          src="/assets/images/trending-blog-bg.svg"
-          objectFit="cover"
-          objectPosition={"0 0"}
-          layout="fill"
-        />
-      </div>
-      <div className="flex items-center flex-col">
-        <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
-          Trending
-        </h1>
-        <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
-      </div>
-
-      <div className="relative flex container w-full mx-auto pt-16 pb-8 gap-10 lg:flex-row-reverse items-center flex-col ">
-        <div className="flex flex-1 justify-between w-full lg:w-9/12">
-          <div className="relative w-full">
-            <Slider {...trendingCarouselSettings} ref={trendingBlogsRef}>
-              {trendingBlogs?.map((post, index) => (
-                <TrendingBlogCard
-                  key={index}
-                  date={
-                    <div className=" gap-2 font-semibold">
-                      <span className="text-5xl">
-                        {new Date(post.node.date).getDate()}
-                      </span>
-                      {format(new Date(post.node.date), "MMM")}
-                    </div>
-                  }
-                  index={index}
-                  featuredImage={post?.node?.featuredImage?.node?.sourceUrl}
-                  postTitle={post?.node?.title}
-                  excerpt={post?.node?.excerpt}
-                  link={post?.node?.slug}
-                />
-              ))}
-            </Slider>
-          </div>
-          <button
-            className="items-center justify-center bg-gray-200 lg:flex  w-16 h-16 rounded-full  absolute z-50 top-[400px]  left-0 ml-[-20px]  text-3xl text-gray-600"
-            onClick={previousSlide}
-          >
-            &lt;
-          </button>
-          <button
-            className="items-center justify-center  lg:flex bg-gray-200 w-16 h-16 rounded-full absolute z-50 top-[400px] right-2 text-3xl text-gray-600"
-            onClick={nextSlide}
-          >
-            &gt;
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TrendingBlogCard = ({
-  date,
-  featuredImage,
-  postTitle,
-  excerpt,
-  link,
-  index,
-}) => {
-  return (
-    <div
-      className={classNames(
-        "flex flex-col gap-6 items-start justify-between w-full ",
-        { "lg:pt-0": index % 2 == 1 }
-      )}
-    >
-      <Link href={link}>
-        {featuredImage && (
-          <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
-            <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
-          </div>
-        )}
-      </Link>
-
-      <div className="flex flex-col gap-2 w-[90%]">
-        <Link href={link}>
-          <h3 className="font-semibold text-gray-900 text-xl hover:text-orange-500 cursor-pointer">
-            {postTitle}
-          </h3>
-        </Link>
-        <div
-          className=" text-gray-500"
-          dangerouslySetInnerHTML={{ __html: excerpt }}
-        />
-        <div className="font-medium text-orange-500 cursor-pointer">
-          <Link href={link}>More</Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const TopDestination = ({ topDestinations }) => {
   const topDestinationCarouselSettings = {
     slidesToShow: 4,
@@ -570,7 +379,9 @@ const Gallery = ({ posts }) => {
     <div className="relative p-10 container">
       {/* Mobile */}
       <div className="relative flex lg:hidden flex-col gap-6">
-        <h1 className="text-3xl font-bold">Gallery</h1>
+        <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+          Gallery
+        </h1>
         <div className=" relative grid grid-cols-12 gap-4">
           {posts[0]?.node?.featuredImage?.node?.sourceUrl && (
             <div className="col-span-3  w-full relative min-h-[260px] rounded-md overflow-hidden ">
@@ -641,9 +452,13 @@ const Gallery = ({ posts }) => {
         </div>
       </div>
       {/* Large Device */}
-      <h1 className="hidden lg:block text-gray-900 text-7xl font-bold text-center mb-8">
-        Gallery
-      </h1>
+      <div className="flex flex-col items-center">
+        <h1 className=" pb-4 font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+          Gallery
+        </h1>
+        <div className="mb-6 w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
+      </div>
+
       <div className="hidden lg:flex gap-4 justify-between">
         <div className="flex-1 grid gap-4 my-20">
           <div className=" col-span-12 flex flex-col gap-4">
@@ -920,14 +735,15 @@ const ExploreWorldBlogs = ({ exploreTheWorld }) => {
               ))}
             </Slider>
           </div>
+
           <button
-            className="items-center justify-center bg-gray-200 lg:flex w-16 h-16 rounded-full  absolute z-50 top-[250px]  left-0   text-3xl text-gray-600"
+            className=" items-center justify-center bg-gray-200 lg:flex w-16 h-16 rounded-full absolute  z-50 top-[250px] left-0 text-3xl text-gray-600"
             onClick={previousSlide}
           >
             &lt;
           </button>
           <button
-            className="items-center justify-center   lg:flex  bg-gray-200  w-16 h-16 rounded-full absolute z-50 top-[250px] right-0  text-3xl text-gray-600"
+            className="items-center justify-center lg:flex bg-gray-200 w-16 h-16 rounded-full absolute z-50 top-[250px] right-0  text-3xl text-gray-600"
             onClick={nextSlide}
           >
             &gt;
@@ -975,7 +791,7 @@ const ExploreWorldBlogCard = ({
   );
 };
 
-const MoreDestination = ({ moreDestinations }) => {
+const MoreDestination = ({ moreDestinations, lookingForInspiration }) => {
   const moreDestinationCarouselSettings = {
     slidesToShow: 4,
     autoplay: true,
@@ -1009,15 +825,15 @@ const MoreDestination = ({ moreDestinations }) => {
     <div>
       <div className="flex flex-col items-center">
         <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold">
-          More
+          Looking
         </h1>
         <h1 className="mb-6 text-gray-900 lg:text-7xl text-4xl lg:text-center  text-center font-bold">
-          Destinations
+          for Inspiration
         </h1>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
 
-      <div className="relative container flex flex-1 p-10 gap-10 w-full items-center">
+      {/* <div className="relative container flex flex-1 p-10 gap-10 w-full items-center">
         <div className="flex relative w-full overflow-hidden">
           <div className="relative w-full">
             <Slider
@@ -1047,7 +863,7 @@ const MoreDestination = ({ moreDestinations }) => {
             &gt;
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -1133,7 +949,7 @@ const WhereToStart = () => {
               <div className="flex lg:text-9xl text-3xl ">SURE</div>
               <div className="flex flex-col lg:text-4xl text-xs lg:pt-3">
                 <div className="flex items-center gap-2">
-                  WHERE{" "}
+                  WHERE
                   <div className="h-8 w-8">
                     <span className="text-teal-600 lg:flex hidden">
                       {CompassIcon}
@@ -1192,6 +1008,7 @@ export async function getStaticProps() {
   const popularRecommendedHotels = await getPostsByCategoryName(
     "popular-recommended-hotels"
   );
+
   // const topDestinations = await getPostsByCategoryName("top-destinations");
   // const moreDestinations = await getPostsByCategoryName("more-destinations");
 

@@ -14,7 +14,9 @@ import {
   AiFillTwitterCircle,
   AiFillInstagram,
   AiFillLinkedin,
+  AiFillYoutube,
 } from "react-icons/ai";
+import { BsPinterest } from "react-icons/bs";
 export const Footer = () => {
   return (
     <div className="relative mt-50 flex flex-col">
@@ -33,7 +35,7 @@ export const Footer = () => {
             className="w-full flex lg:flex-row flex-col 
            gap-4  justify-between relative "
           >
-            <div className="flex flex-col  gap-1">
+            <div className="flex flex-col gap-1">
               <div className="font-bold tracking-wide leading-10">PRODUCT</div>
               <div>
                 <Link href={"/flights"}> Flights</Link>
@@ -79,14 +81,14 @@ export const Footer = () => {
               </div>
             </div>
             {/* social media icons */}
-            <div className="pt-6 lg:mt-[-25px] flex flex-row lg:flex-col justify-center items-end gap-10">
+            <div className="pt-8 lg:pt-0 lg:mt-[-25px] flex flex-row lg:flex-col justify-center items-end gap-10">
               <div>
                 <a
                   href={"https://www.facebook.com/Trippy-bug-103271632296237"}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <BsFacebook className="h-[35px] w-[35px]" />
+                  <BsFacebook className="h-[30px] w-[30px]" />
                 </a>
               </div>
               <div>
@@ -95,7 +97,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillTwitterCircle className="h-[35px] w-[35px]" />
+                  <AiFillTwitterCircle className="h-[30px] w-[30px]" />
                 </a>
               </div>
               <div>
@@ -104,7 +106,25 @@ export const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillInstagram className="h-[35px] w-[35px]" />
+                  <AiFillInstagram className="h-[30px] w-[30px]" />
+                </a>
+              </div>
+              <div>
+                <a
+                  href={"https://www.youtube.com/@trippybug2314/featured"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiFillYoutube className="h-[30px] w-[30px]" />
+                </a>
+              </div>
+              <div>
+                <a
+                  href={"https://pin.it/3i9ptbI"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BsPinterest className="h-[30px] w-[30px]" />
                 </a>
               </div>
               <div>
@@ -113,7 +133,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillLinkedin className="h-[35px] w-[35px]" />
+                  <AiFillLinkedin className="h-[30px] w-[30px]" />
                 </a>
               </div>
             </div>
