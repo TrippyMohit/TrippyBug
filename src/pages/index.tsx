@@ -169,7 +169,8 @@ const HomePageBanner = () => {
           </div>
         </div>
         <div className="  w-full flex flex-col gap-4 lg:gap-0 z-30 container -mt-32 ">
-          <div className="pt-[25px] pb-[5px] flex justify-center ml-4 lg:justify-start lg:ml-0 w-full ">
+          {/* <-------buttons------> */}
+          <div className="pt-[25px] pb-[5px] flex justify-center ml-0  lg:justify-start lg:ml-0 w-full ">
             <ButtonTabSelector
               isActive={selectedTab === "flights"}
               onClick={() => setSelectedTab("flights")}

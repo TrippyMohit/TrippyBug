@@ -158,17 +158,6 @@ export default function ContactUs() {
               </div>
             </form>
           </div>
-          <div className="flex flex-row gap-4">
-            <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
-              <div className="w-5 h-5 text-orange-400">{FacebookIcon}</div>
-            </div>
-            <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
-              <div className="w-5 h-5 text-orange-400">{InstagramIcon}</div>
-            </div>
-            <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
-              <div className="w-5 h-5 text-orange-400">{TwitterIcon}</div>
-            </div>
-          </div>
         </div>
 
         <div className="flex flex-col gap-10">
@@ -183,20 +172,8 @@ export default function ContactUs() {
               <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
                 <div className="w-5 h-5 text-orange-400">{MailIcon}</div>
               </div>
-              <p>hello@gmail.com</p>
+              <p>bugtrippy@gmail.com</p>
             </div>
-            {/* <div className="flex gap-3 items-center">
-              <div className="bg-orange-100 flex justify-center p-3 rounded-full">
-                <div className="w-5 h-5 ">{PhoneIcon}</div>
-              </div>
-              <p>+977 9876543210</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
-                <div className="w-5 h-5 text-orange-400">{MapPinIcon}</div>
-              </div>
-              <p>Zero km, Pokhara</p>
-            </div> */}
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "../icons";
-
+import JoinTravel from "../components/JoinTravel";
 export default function AboutUs() {
   return (
     <>
@@ -41,7 +41,7 @@ export default function AboutUs() {
           <div className="container m-auto ">
             <div className="flex flex-col font-sans gap-5 text-xl text-gray-400 text-justify">
               <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
-                PLAN YOUR WAY (1.0)
+                PLAN YOUR WAY
               </h1>
 
               <p>
@@ -52,7 +52,7 @@ Trippybug says, give us the chance to unload all the minute baggage of every tra
   `}
               </p>
               <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
-                DESIGN WITH CHILL (2.0)
+                DESIGN WITH CHILL
               </h1>
 
               <p>
@@ -92,7 +92,7 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
               </p>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex ">
             <div className="absolute w-full z-10 mb-24">
               <Image
                 alt=""
@@ -122,7 +122,7 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
               />
             </div>
           </div>
-          <div className="container m-auto ">
+          <div className="container m-auto pb-8 ">
             <div className="flex flex-col font-sans gap-2 text-xl mt-16 text-gray-400 text-justify">
               <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
                 Why Choose Us
@@ -137,8 +137,8 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
               </p>
             </div>
           </div>
-
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 container m-auto gap-16 ">
+          {/* <------why chosse  cards--------> */}
+          {/* <div className="grid lg:grid-cols-3 md:grid-cols-2 container m-auto gap-16 ">
             <WhyChooseUsCard
               icon={AwardIcon}
               title="Best Options"
@@ -169,9 +169,10 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
               title="24/7 Support"
               excerpt="We provide you with plenty of  options to choose from"
             />
-          </div>
+          </div> */}
         </div>
       </div>
+      <JoinTravel />
     </>
   );
 }

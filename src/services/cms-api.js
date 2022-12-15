@@ -1,35 +1,35 @@
 // const API_URL = process.env.WORDPRESS_API_URL
-const API_URL="https://cms.trippybug.com"
+const API_URL = "https://cms.trippybug.com";
 
-async function fetchAPI(query = '', { variables } = {}) {
-	const headers = { 'Content-Type': 'application/json' }
+async function fetchAPI(query = "", { variables } = {}) {
+  const headers = { "Content-Type": "application/json" };
 
-	if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
-		headers[
-			'Authorization'
-		] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
-	}
+  if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
+    headers[
+      "Authorization"
+    ] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
+  }
 
-	// WPGraphQL Plugin must be enabled
-	const res = await fetch(`${API_URL}/graphql`, {
-		headers,
-		method: 'POST',
-		body: JSON.stringify({
-			query,
-			variables,
-		}),
-	})
+  // WPGraphQL Plugin must be enabled
+  const res = await fetch(`${API_URL}/graphql`, {
+    headers,
+    method: "POST",
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  });
 
-	const json = await res.json()
-	if (json.errors) {
-		throw new Error('Failed to fetch API')
-	}
-	return json.data
+  const json = await res.json();
+  if (json.errors) {
+    throw new Error("Failed to fetch API");
+  }
+  return json.data;
 }
 
-export async function getPreviewPost(id, idType = 'DATABASE_ID') {
-	const data = await fetchAPI(
-		`
+export async function getPreviewPost(id, idType = "DATABASE_ID") {
+  const data = await fetchAPI(
+    `
     query PreviewPost($id: ID!, $idType: PostIdType!) {
       post(id: $id, idType: $idType) {
         databaseId
@@ -37,15 +37,15 @@ export async function getPreviewPost(id, idType = 'DATABASE_ID') {
         status
       }
     }`,
-		{
-			variables: { id, idType },
-		}
-	)
-	return data.post
+    {
+      variables: { id, idType },
+    }
+  );
+  return data.post;
 }
 
 export async function getAllPostsWithSlug() {
-	const data = await fetchAPI(`
+  const data = await fetchAPI(`
     {
       posts(first: 100, , where: { orderby: { field: DATE, order: DESC } }) {
         edges {
@@ -55,12 +55,12 @@ export async function getAllPostsWithSlug() {
         }
       }
     }
-  `)
-	return data?.posts
+  `);
+  return data?.posts;
 }
 
 export async function getAllCategoriesWithSlug() {
-	const data = await fetchAPI(`
+  const data = await fetchAPI(`
     {
       categories(first: 100, where: { }) {
         edges {
@@ -70,13 +70,13 @@ export async function getAllCategoriesWithSlug() {
         }
       }
     }
-  `)
-	return data?.categories
+  `);
+  return data?.categories;
 }
 
 export async function getAllPostsForHome(preview) {
-	const data = await fetchAPI(
-		`query AllPosts {
+  const data = await fetchAPI(
+    `query AllPosts {
       posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
@@ -104,20 +104,20 @@ export async function getAllPostsForHome(preview) {
       }
     }
   `,
-		{
-			variables: {
-				onlyEnabled: !preview,
-				preview,
-			},
-		}
-	)
+    {
+      variables: {
+        onlyEnabled: !preview,
+        preview,
+      },
+    }
+  );
 
-	return data?.posts
+  return data?.posts;
 }
 
 export async function getPostsByCategoryId(categoryId) {
-	const data = await fetchAPI(
-		`
+  const data = await fetchAPI(
+    `
 		query PostsByCategoryId {
 			posts(
 				where: {categoryId: ${categoryId}, orderby: {field: DATE, order: DESC}}
@@ -151,14 +151,14 @@ export async function getPostsByCategoryId(categoryId) {
 			}
 		}
 		`
-	)
+  );
 
-	return data.posts;
+  return data.posts;
 }
 
 export async function getPostsByCategoryName(categoryName) {
-	const data = await fetchAPI(
-		`
+  const data = await fetchAPI(
+    `
 		query PostsByCategoryName {
 			posts(
 				where: {categoryName: "${categoryName}",orderby: {field: DATE, order: DESC}}
@@ -197,15 +197,14 @@ export async function getPostsByCategoryName(categoryName) {
 			}
 		}
 		`
-	)
+  );
 
-	return data.posts;
+  return data.posts;
 }
 
-
 export async function getRecentPosts() {
-	const data = await fetchAPI(
-		`query RecentPosts {
+  const data = await fetchAPI(
+    `query RecentPosts {
 			posts(
 				last: 5
 			) {
@@ -234,13 +233,13 @@ export async function getRecentPosts() {
 			}
 		  } 
 		`
-	)
-	return data.posts;
+  );
+  return data.posts;
 }
 
-export async function getMorePosts(postId = '', categoryId) {
-	const data = await fetchAPI(
-		`
+export async function getMorePosts(postId = "", categoryId) {
+  const data = await fetchAPI(
+    `
 		query MorePosts {
 			posts(
 				where: {categoryId: ${categoryId}, notIn: "${postId}", orderby: {field: DATE, order: DESC}}
@@ -263,22 +262,22 @@ export async function getMorePosts(postId = '', categoryId) {
 			}
 		}
 		`
-	)
+  );
 
-	return data.posts;
+  return data.posts;
 }
 
 export async function getPostBySlug(slug, preview, previewData) {
-	const postPreview = preview && previewData?.post
-	// The slug may be the id of an unpublished post
-	const isId = Number.isInteger(Number(slug))
-	const isSamePost = isId
-		? Number(slug) === postPreview.id
-		: slug === postPreview.slug
-	const isDraft = isSamePost && postPreview?.status === 'draft'
-	const isRevision = isSamePost && postPreview?.status === 'publish'
-	const data = await fetchAPI(
-		`
+  const postPreview = preview && previewData?.post;
+  // The slug may be the id of an unpublished post
+  const isId = Number.isInteger(Number(slug));
+  const isSamePost = isId
+    ? Number(slug) === postPreview.id
+    : slug === postPreview.slug;
+  const isDraft = isSamePost && postPreview?.status === "draft";
+  const isRevision = isSamePost && postPreview?.status === "publish";
+  const data = await fetchAPI(
+    `
     fragment AuthorFields on User {
       name
       firstName
@@ -354,9 +353,9 @@ export async function getPostBySlug(slug, preview, previewData) {
         ...PostFields
         content
         ${
-		// Only some of the fields of a revision are considered as there are some inconsistencies
-		isRevision
-			? `
+          // Only some of the fields of a revision are considered as there are some inconsistencies
+          isRevision
+            ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -372,39 +371,39 @@ export async function getPostBySlug(slug, preview, previewData) {
           }
         }
         `
-			: ''
-		}
+            : ""
+        }
       }
     }
   `,
-		{
-			variables: {
-				id: isDraft ? postPreview.id : slug,
-				idType: isDraft ? 'DATABASE_ID' : 'SLUG',
-			},
-		}
-	)
+    {
+      variables: {
+        id: isDraft ? postPreview.id : slug,
+        idType: isDraft ? "DATABASE_ID" : "SLUG",
+      },
+    }
+  );
 
-	// Draft posts may not have an slug
-	if (isDraft) data.post.slug = postPreview.id
-	// Apply a revision (changes in a published post)
-	if (isRevision && data.post.revisions) {
-		const revision = data.post.revisions.edges[0]?.node
+  // Draft posts may not have an slug
+  if (isDraft) data.post.slug = postPreview.id;
+  // Apply a revision (changes in a published post)
+  if (isRevision && data.post.revisions) {
+    const revision = data.post.revisions.edges[0]?.node;
 
-		if (revision) Object.assign(data.post, revision)
-		delete data.post.revisions
-	}
+    if (revision) Object.assign(data.post, revision);
+    delete data.post.revisions;
+  }
 
-	// Filter out the main post
-	// data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
-	// // If there are still 3 posts, remove the last one
-	// if (data.posts.edges.length > 2) data.posts.edges.pop()
+  // Filter out the main post
+  // data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
+  // // If there are still 3 posts, remove the last one
+  // if (data.posts.edges.length > 2) data.posts.edges.pop()
 
-	return data
+  return data;
 }
 
-export async function commentOnPost(){
-	const data=await fetchAPI(`
+export async function commentOnPost() {
+  const data = await fetchAPI(`
 	mutation CREATE_COMMENT {
 		createComment(input: {
 		  commentOn: 2756, 
@@ -423,14 +422,14 @@ export async function commentOnPost(){
 			}
 		  }
 		}
-	  }`)
-	  return data
+	  }`);
+  return data;
 }
 
 export async function getAllCategoriesForHome(ids = [], preview) {
-	const _ids = `[${ids.join(',')}]`
-	const data = await fetchAPI(
-		`query AllCategories {
+  const _ids = `[${ids.join(",")}]`;
+  const data = await fetchAPI(
+    `query AllCategories {
 			categories(first: 100, where: {exclude: "1", orderby: TERM_ORDER, include: ${_ids} }) {
 				edges {
 				node {
@@ -469,22 +468,22 @@ export async function getAllCategoriesForHome(ids = [], preview) {
 				}
 			}
 		}`,
-		{
-			variables: {
-				onlyEnabled: !preview,
-				preview,
-			}
-		}
-	)
+    {
+      variables: {
+        onlyEnabled: !preview,
+        preview,
+      },
+    }
+  );
 
-	return data?.categories
+  return data?.categories;
 }
 
 export async function getCategoriesForSidebar(ids = []) {
-	const _ids = `[${ids.join(',')}]`
+  const _ids = `[${ids.join(",")}]`;
 
-	const data = await fetchAPI(
-		`query AllCategories {
+  const data = await fetchAPI(
+    `query AllCategories {
 			categories(first: 10, where: {exclude: "1", orderby: TERM_ORDER, include: ${_ids} }) {
 				edges {
 					node {
@@ -498,14 +497,14 @@ export async function getCategoriesForSidebar(ids = []) {
 				}
 			}
 		}`
-	)
+  );
 
-	return data?.categories
+  return data?.categories;
 }
 
 export async function getCategoryBySlug(slug) {
-	const data = await fetchAPI(
-		`query NewQuery {
+  const data = await fetchAPI(
+    `query NewQuery {
 			category(id: "${slug}", idType: SLUG) {
 				categoryId
 				count
@@ -525,7 +524,7 @@ export async function getCategoryBySlug(slug) {
 				}
 			}
 		}`
-	)
+  );
 
-	return data;
+  return data;
 }

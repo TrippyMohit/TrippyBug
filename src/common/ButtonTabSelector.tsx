@@ -12,7 +12,7 @@ export const ButtonTabSelector = ({
 }) => (
   <button
     className={classNames(
-      "mr-8 group inline-flex items-center py-4 border-b-2 font-semibold text-sm leading-5 cursor-pointer whitespace-nowrap rounded-xl px-10 ",
+      "mr-2 lg:mr-8 group inline-flex items-center py-4 border-b-2 font-semibold text-sm leading-5 cursor-pointer whitespace-nowrap rounded-xl px-10 ",
       {
         "bg-orange-500 text-white focus:outline-none focus:text-white focus:bg-orange-500":
           isActive,
