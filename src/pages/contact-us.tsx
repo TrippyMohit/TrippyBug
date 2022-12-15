@@ -4,16 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import JoinTravel from "./index";
 import Community from "../components/Community";
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  MapPinIcon,
-  PhoneIcon,
-  TwitterIcon,
-} from "../icons";
+import { MailIcon } from "../icons";
+import emailjs from "@emailjs/browser";
 
 const generalFaq = [
   {
@@ -33,8 +25,45 @@ const generalFaq = [
       "Aut corporis rerum ut eos cumque autem consequatur. Unde dolores officiis omnis molestias quibusdam et maiores labore laborum. Molestiae commodi omnis perferendis at. Sunt exercitationem optio ipsam doloremque eveniet culpa dolorem.",
   },
 ];
+
+const Result = () => {
+  return (
+    <p className=" font-bold text-2xl text-gray-600  ">
+      Your Message have been successfully sent. we'll contact you soon.
+    </p>
+  );
+};
+
 export default function ContactUs() {
-  const [expand, setExpand] = useState(0);
+  const [result, showResult] = useState(false);
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_jf7ewb6",
+        "template_h09tyin",
+        // form.current,
+        e.target,
+        "-6-r5yeY9u3iMB7kW"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+    showResult(true);
+  };
+
+  //hide result
+  setTimeout(() => {
+    showResult(false);
+  }, 5000);
+
   return (
     <div className="  w-full overflow-hidden">
       <div className=" absolute w-48 h-48 top-[20vh] right-24 md:flex hidden ">
@@ -46,6 +75,7 @@ export default function ContactUs() {
           objectPosition={"100% 0"}
         />
       </div>
+
       <div className="absolute w-1/3 h-full  top-[40vh] right-0  overflow-hidden md:flex md:float-right hidden ">
         <div className="relative w-full h-full -right-64">
           <Image
@@ -58,58 +88,6 @@ export default function ContactUs() {
         </div>
       </div>
       <div className="container flex flex-col   md:p-0 p-10 gap-16 mt-20">
-        {/* <div className="flex flex-col gap-10">
-          <div className="flex flex-col">
-            <h1 className="  font-bold text-4xl text-gray-600  ">
-              Hi, how can we help you ?
-            </h1>
-            <p className="text-base font-normal flex  text-gray-400">
-              Need some help? We are here for you.
-            </p>
-          </div>
-          <div className="flex flex-col">
-            <div className=" md:w-1/2 w-full flex float-left ">
-              <div className="flex flex-col w-full gap-4 ">
-                <>
-                  {generalFaq.map((faq, i) => {
-                    return (
-                      <div key={i} className="rounded-md flex  flex-col gap-4">
-                        <div
-                          className="p-5 text-xl relative text-gray-600 font-medium rounded-md bg-gray-50 flex justify-between"
-                          onClick={() => {
-                            expand == i ? setExpand(null) : setExpand(i);
-                          }}
-                        >
-                          <div> {faq.question}</div>
-                          <div className="1/6">
-                            {expand == i ? (
-                              <div className="w-7">{ChevronUpIcon}</div>
-                            ) : (
-                              <div className="w-7">{ChevronDownIcon}</div>
-                            )}
-                          </div>
-                        </div>
-                        <div
-                          className={classNames("p-4", {
-                            "flex text-gray-500 transition-all ease-in-out duration-1000":
-                              expand == i,
-                            hidden: expand != i,
-                          })}
-                        >
-                          {" "}
-                          {faq.answer}
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div className="text-orange-500">
-                    Can’t find your question ? Try searchin in FAQ’s.
-                  </div>
-                </>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div className="flex flex-col gap-10">
           <div>
             <h1 className="  font-bold text-4xl text-gray-600  ">Contact us</h1>
@@ -118,7 +96,8 @@ export default function ContactUs() {
             </p>
           </div>
           <div className=" md:w-1/2 w-full">
-            <form>
+            {/* <---------- Form -------------> */}
+            <form onSubmit={sendEmail}>
               <div className=" flex flex-col gap-5 ">
                 <div className="flex flex-col gap-3 ">
                   <div className="flex flex-col gap-1.5">
@@ -126,9 +105,24 @@ export default function ContactUs() {
                       Your Name
                     </label>
                     <input
+                      required
                       type="text"
                       placeholder="Your Name"
                       className="border focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                      autoComplete="off"
+                      name="name"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
+                      Your phone number
+                    </label>
+                    <input
+                      type="number"
+                      placeholder="Your Phone Number"
+                      className="border focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                      autoComplete="off"
+                      name="phone"
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
@@ -136,24 +130,31 @@ export default function ContactUs() {
                       Your Email
                     </label>
                     <input
+                      required
                       type="email"
                       placeholder="Your Email"
                       className="border focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                      autoComplete="off"
+                      name="email"
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
                       Your Message
                     </label>
-                    <textarea
+                    <input
+                      required
                       id="message"
                       placeholder="Your Message"
                       className="border focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full h-20 rounded-md"
+                      autoComplete="off"
+                      name="message"
                     />
                   </div>
                   <button className=" py-3 lg:w-1/4 w-full  bg-orange-400 hover:bg-orange-500 rounded-md text-white text-xl font-bold focus:outline-none focus:shadow-outline">
-                    <Link href="#">Send</Link>
+                    SUBMIT
                   </button>
+                  <div className="row">{result ? <Result /> : null}</div>
                 </div>
               </div>
             </form>

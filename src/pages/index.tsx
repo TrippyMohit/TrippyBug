@@ -62,10 +62,10 @@ const HomePageBanner = () => {
                   Plan your Trip with Trippy
                   <span className="text-orange-500">Bug</span>
                 </h1>
-                <p className="font-sans text-xl text-gray-400 hidden lg:flex">
+                {/* <p className="font-sans text-xl text-gray-400 hidden lg:flex">
                   Et omnis et quia et optio et veniam sed eum. Voluptate omnis
                   sed. Voluptate omnis sed.
-                </p>
+                </p> */}
               </div>
               <div className="hidden lg:flex gap-20  ">
                 <div className="w-1/2 flex flex-col">
