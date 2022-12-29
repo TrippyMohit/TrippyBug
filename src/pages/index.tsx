@@ -90,13 +90,13 @@ const HomePageBanner = () => {
                   <div className=" h-20 w-20 rounded-full relative border-4 border-white">
                     <Image
                       alt=""
-                      src="/assets/images/healthy_travel.png"
+                      src="/assets/images/hotelLogo.jpg"
                       objectFit="contain"
                       layout="fill"
                     />
                   </div>
                   <h3 className=" text-lg font-semibold text-gray-800 ">
-                    International Flights
+                    International Hotels
                   </h3>
                   {/* <p className=" text-sm text-gray-700 ">
                     Molestiae ea dolorem numquam.
