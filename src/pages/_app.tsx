@@ -3,11 +3,11 @@ import Head from "next/head";
 import "../styles/globals.css";
 import { AppHeader, Footer } from "../components";
 import { useRouter } from "next/router";
-import { SessionProvider } from "next-auth/react";
-import { SnackbarProvider } from "notistack";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import { Provider } from "react-redux";
+import { store } from "../../app/store";
 import {
   ArrowUpIcon,
   FacebookIcon,
@@ -95,239 +95,231 @@ function MyApp({ Component, pageProps }) {
         </title>
       </Head>
       <div className="max-h-screen" id="top">
-        <SessionProvider session={pageProps.session}>
-          <SnackbarProvider maxSnack={3}>
-            {!hideHeader && <AppHeader />}
-            <div
-              className="flex flex-col"
-              onClick={() => setOpenRightMenu(false)}
-            >
-              <Script
-                strategy="afterInteractive"
-                src="https://www.googletagmanager.com/gtag/js?id=G-73GCGT5MYF"
-              />
-              <Script id="google-analytics">
-                {`window.dataLayer = window.dataLayer || [];
+        {!hideHeader && <AppHeader />}
+        <div className="flex flex-col" onClick={() => setOpenRightMenu(false)}>
+          <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-73GCGT5MYF"
+          />
+          <Script id="google-analytics">
+            {`window.dataLayer = window.dataLayer || [];
              function gtag(){dataLayer.push(arguments);}
              gtag('js', new Date());
              gtag('config', 'G-73GCGT5MYF')`}
-              </Script>
+          </Script>
 
-              <Script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js"></Script>
+          <Script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js"></Script>
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </div>
 
-              <Component {...pageProps} />
-            </div>
+        {!hideFooter && <Footer />}
 
-            {!hideFooter && <Footer />}
+        <div className="hidden sticky overflow-visible h-0 bottom-4  2xl:flex items-end justify-end pr-4 z-50 ">
+          <div className="flex flex-col gap-4 items-end ">
+            {openRightmenu && (
+              <div className="-mb-24 bg-white max-w-2xl p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col gap-6 items-center text-center z-50 text-gray-600">
+                <div className="relative">
+                  <Link href="/">
+                    <a>
+                      <Image
+                        src="/assets/images/logo.png"
+                        width={203}
+                        height={88}
+                        objectFit="contain"
+                        alt="TrippyBug logo"
+                      />
+                    </a>
+                  </Link>
+                </div>
+                <div className="tracking-wider leading-7">
+                  Trippy Bug is best site for all travellers. It helps
+                  traveleres to navigate their visit to any part of world.
+                </div>
+                <div className="flex flex-col gap-4">
+                  <div className="text-xl font-bold tracking-wider">
+                    Join our Community
+                  </div>
 
-            <div className="hidden sticky overflow-visible h-0 bottom-4  2xl:flex items-end justify-end pr-4 z-50 ">
-              <div className="flex flex-col gap-4 items-end ">
-                {openRightmenu && (
-                  <div className="-mb-24 bg-white max-w-2xl p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col gap-6 items-center text-center z-50 text-gray-600">
-                    <div className="relative">
-                      <Link href="/">
-                        <a>
-                          <Image
-                            src="/assets/images/logo.png"
-                            width={203}
-                            height={88}
-                            objectFit="contain"
-                            alt="TrippyBug logo"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-                    <div className="tracking-wider leading-7">
-                      Trippy Bug is best site for all travellers. It helps
-                      traveleres to navigate their visit to any part of world.
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      <div className="text-xl font-bold tracking-wider">
-                        Join our Community
-                      </div>
-
-                      <div className="flex gap-4">
-                        <Link
-                          href="https://www.facebook.com/bugtrippyy"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                            <div className="w-4 h-6 text-white ">
-                              {FacebookIcon}
-                            </div>
-                          </div>
-                        </Link>
-
-                        <Link
-                          href="https://www.instagram.com/trippybugofficial/"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                            <div className="w-6 h-6 text-white flex">
-                              {InstagramIcon}
-                            </div>
-                          </div>
-                        </Link>
-
-                        <Link
-                          href="https://twitter.com/bug_trippy"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                            <div className="w-6 h-6 text-white flex">
-                              {TwitterIcon}
-                            </div>
-                          </div>
-                        </Link>
-
-                        <Link
-                          href="https://www.linkedin.com/in/trippybug/"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                            <div className="w-6 h-6 text-white flex">
-                              {LinkedinIcon}
-                            </div>
-                          </div>
-                        </Link>
-
-                        <Link
-                          href="https://www.youtube.com/channel/UCbW5fgHsAnk3Ds7iQW85XPg"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                            <div className="w-6 h-6 text-white flex">
-                              {YouTubeIcon}
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <Link href="/community">
-                      <a>
-                        <div className="px-20 w-sm rounded-full text-orange-500 bg-orange-100 py-4 font-bold text-lg">
-                          Join Now
+                  <div className="flex gap-4">
+                    <Link
+                      href="https://www.facebook.com/bugtrippyy"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                        <div className="w-4 h-6 text-white ">
+                          {FacebookIcon}
                         </div>
-                      </a>
+                      </div>
                     </Link>
 
-                    <div className="flex flex-col  text-lg font-semibold gap-2">
-                      <div>Quick Links</div>
-
-                      <div className=" grid grid-cols-3 items-center">
-                        <Link href="/blogs">
-                          <a className="px-4 py-2 hover:bg-orange-100 cursor-pointer hover:text-orange-500 rounded-lg">
-                            Blogs
-                          </a>
-                        </Link>
-                        <Link href="/gallery">
-                          <a className="flex items-center rounded-lg justify-center py-2  hover:bg-orange-100 cursor-pointer hover:text-orange-500">
-                            Gallery
-                          </a>
-                        </Link>
-                        <Link href="/faq">
-                          <a className="px-4 py-2 hover:bg-orange-100 rounded-lg cursor-pointer hover:text-orange-500">
-                            FAQ
-                          </a>
-                        </Link>
-                      </div>
-
-                      <div className=" grid grid-cols-4 gap-1 items-center">
-                        <div></div>
-                        <Link href="/contact-us">
-                          <a className="px-4 py-2 rounded-lg  hover:bg-orange-100 cursor-pointer hover:text-orange-500">
-                            Contact
-                          </a>
-                        </Link>
-                        <Link href="/about">
-                          <a className="px-4 py-2 rounded-lg hover:bg-orange-100 cursor-pointer hover:text-orange-500">
-                            About Us
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="text-lg font-semibold">Contact Us</div>
-
-                      <div className="flex gap-4">
-                        <Link
-                          href="viber://add?number=91987654320"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <a>
-                            <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                              <div className="w-7 h-7 text-white flex">
-                                {ViberIcon}
-                              </div>
-                            </div>
-                          </a>
-                        </Link>
-
-                        <Link
-                          href="https://wa.me/+91987654320"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <a>
-                            <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                              <div className="w-5 h-5 text-white flex">
-                                {WhatsappIcon}
-                              </div>
-                            </div>
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-8 justify-between text-lg font-semibold">
-                      <div>+91 987654320 </div>
-
-                      <div>hello@trippybug.com</div>
-                    </div>
-
-                    <Link href="/">
-                      <a>
-                        <div className="font-semibold text-lg cursor-pointer">
-                          www.trippy<span className="text-orange-400">bug</span>
-                          .com{" "}
+                    <Link
+                      href="https://www.instagram.com/trippybugofficial/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                        <div className="w-6 h-6 text-white flex">
+                          {InstagramIcon}
                         </div>
-                      </a>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="https://twitter.com/bug_trippy"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                        <div className="w-6 h-6 text-white flex">
+                          {TwitterIcon}
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="https://www.linkedin.com/in/trippybug/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                        <div className="w-6 h-6 text-white flex">
+                          {LinkedinIcon}
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="https://www.youtube.com/channel/UCbW5fgHsAnk3Ds7iQW85XPg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                        <div className="w-6 h-6 text-white flex">
+                          {YouTubeIcon}
+                        </div>
+                      </div>
                     </Link>
                   </div>
-                )}
-
-                <Link href="#top">
-                  <div className="w-16 h-16 cursor-pointer bg-orange-100 rounded-full items-center justify-center relative flex">
-                    <div className="h-6 w-6 text-orange-400 ">
-                      {ArrowUpIcon}
+                </div>
+                <Link href="/community">
+                  <a>
+                    <div className="px-20 w-sm rounded-full text-orange-500 bg-orange-100 py-4 font-bold text-lg">
+                      Join Now
                     </div>
-                  </div>
+                  </a>
                 </Link>
 
-                <button
-                  onClick={() => setOpenRightMenu(!openRightmenu)}
-                  className="w-16 h-16 cursor-pointer bg-orange-400 rounded-full items-center justify-center relative flex "
-                >
-                  <Image
-                    src="/assets/images/bug-icon.png"
-                    // layout="fill"
-                    height={57}
-                    width={44}
-                    // objectFit="contain"
-                    alt="TrippyBug logo"
-                  />
-                </button>
+                <div className="flex flex-col  text-lg font-semibold gap-2">
+                  <div>Quick Links</div>
+
+                  <div className=" grid grid-cols-3 items-center">
+                    <Link href="/blogs">
+                      <a className="px-4 py-2 hover:bg-orange-100 cursor-pointer hover:text-orange-500 rounded-lg">
+                        Blogs
+                      </a>
+                    </Link>
+                    <Link href="/gallery">
+                      <a className="flex items-center rounded-lg justify-center py-2  hover:bg-orange-100 cursor-pointer hover:text-orange-500">
+                        Gallery
+                      </a>
+                    </Link>
+                    <Link href="/faq">
+                      <a className="px-4 py-2 hover:bg-orange-100 rounded-lg cursor-pointer hover:text-orange-500">
+                        FAQ
+                      </a>
+                    </Link>
+                  </div>
+
+                  <div className=" grid grid-cols-4 gap-1 items-center">
+                    <div></div>
+                    <Link href="/contact-us">
+                      <a className="px-4 py-2 rounded-lg  hover:bg-orange-100 cursor-pointer hover:text-orange-500">
+                        Contact
+                      </a>
+                    </Link>
+                    <Link href="/about">
+                      <a className="px-4 py-2 rounded-lg hover:bg-orange-100 cursor-pointer hover:text-orange-500">
+                        About Us
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="text-lg font-semibold">Contact Us</div>
+
+                  <div className="flex gap-4">
+                    <Link
+                      href="viber://add?number=91987654320"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <a>
+                        <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                          <div className="w-7 h-7 text-white flex">
+                            {ViberIcon}
+                          </div>
+                        </div>
+                      </a>
+                    </Link>
+
+                    <Link
+                      href="https://wa.me/+91987654320"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <a>
+                        <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
+                          <div className="w-5 h-5 text-white flex">
+                            {WhatsappIcon}
+                          </div>
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex gap-8 justify-between text-lg font-semibold">
+                  <div>+91 987654320 </div>
+
+                  <div>hello@trippybug.com</div>
+                </div>
+
+                <Link href="/">
+                  <a>
+                    <div className="font-semibold text-lg cursor-pointer">
+                      www.trippy<span className="text-orange-400">bug</span>
+                      .com{" "}
+                    </div>
+                  </a>
+                </Link>
               </div>
-            </div>
-          </SnackbarProvider>
-        </SessionProvider>
+            )}
+
+            <Link href="#top">
+              <div className="w-16 h-16 cursor-pointer bg-orange-100 rounded-full items-center justify-center relative flex">
+                <div className="h-6 w-6 text-orange-400 ">{ArrowUpIcon}</div>
+              </div>
+            </Link>
+
+            <button
+              onClick={() => setOpenRightMenu(!openRightmenu)}
+              className="w-16 h-16 cursor-pointer bg-orange-400 rounded-full items-center justify-center relative flex "
+            >
+              <Image
+                src="/assets/images/bug-icon.png"
+                // layout="fill"
+                height={57}
+                width={44}
+                // objectFit="contain"
+                alt="TrippyBug logo"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

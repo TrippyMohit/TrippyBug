@@ -36,47 +36,47 @@ import { formatDistance } from "date-fns";
 
 export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   const [isMount, setIsMount] = useState(false);
-  const { enqueueSnackbar } = useSnackbar();
+  // const { enqueueSnackbar } = useSnackbar();
   const [showShare, setShowShare] = useState(false);
   const blogUrl = `https://www.trippybug.com/${post.slug}`;
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(blogUrl);
-    enqueueSnackbar("Link copied to your clipboard", {
-      variant: "success",
-    });
-  };
+  // const copyToClipboard = () => {
+  //   navigator.clipboard.writeText(blogUrl);
+  //   enqueueSnackbar("Link copied to your clipboard", {
+  //     variant: "success",
+  //   });
+  // };
 
-  const currentUser = useSession();
+  // const currentUser = useSession();
   const [content, setContent] = useState("");
-  const handleComment = (e) => {
-    e.preventDefault();
-    axios
-      .post(
-        `${API_URL}/wp-json/wp/v2/comments`,
-        {
-          post: post?.postId,
-          author_name: currentUser?.data?.user?.name,
-          author_email: currentUser?.data?.user?.email,
-          content: content,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then(function () {
-        enqueueSnackbar("Your comment has been sucessfully submitted.", {
-          variant: "success",
-        });
-        setContent("");
-      })
-      .catch(function (error) {
-        enqueueSnackbar(error.response.data.message, {
-          variant: "error",
-        });
-      });
-  };
+  // const handleComment = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post(
+  //       `${API_URL}/wp-json/wp/v2/comments`,
+  //       {
+  //         post: post?.postId,
+  //         author_name: currentUser?.data?.user?.name,
+  //         author_email: currentUser?.data?.user?.email,
+  //         content: content,
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     )
+  //     .then(function () {
+  //       enqueueSnackbar("Your comment has been sucessfully submitted.", {
+  //         variant: "success",
+  //       });
+  //       setContent("");
+  //     })
+  //     .catch(function (error) {
+  //       enqueueSnackbar(error.response.data.message, {
+  //         variant: "error",
+  //       });
+  //     });
+  // };
 
   const router = useRouter();
   if (!post) {
@@ -89,11 +89,6 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   if (router.isFallback) {
     return <div>Loading Post</div>;
   }
-
-  // console.log(post);
-  // console.log(post.title);
-  // console.log(post?.seo?.metaDesc);
-  // console.log(post?.seo?.opengraphImage?.sourceUrl);
 
   return (
     <>
@@ -196,7 +191,7 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
                       <div className="w-5 h-5">{WhatsappIcon}</div> WhatsApp
                     </a>
                     <button
-                      onClick={copyToClipboard}
+                      // onClick={copyToClipboard}
                       className="flex gap-2 items-center"
                     >
                       <div className="w-5 h-5">{SaveIcon}</div> Share Link
@@ -275,8 +270,10 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
                   value={content}
                 ></textarea>
                 <div className="flex">
-                  <div className="flex">
-                    <Button onClick={(e) => handleComment(e)}>
+                  <div className="flex pb-16 ">
+                    <Button
+                    // onClick={(e) => handleComment(e)}
+                    >
                       Add a Comment
                     </Button>
                   </div>

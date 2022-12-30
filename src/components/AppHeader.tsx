@@ -19,16 +19,20 @@ import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Script from "next/script";
-import { useSession } from "next-auth/react";
-
+import { getAuth, signOut } from "firebase/auth";
+import app from "../../firebase";
 export const AppHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
-
+  const [authState, setAuthState] = useState(false);
+  const [user, setUser] = useState({});
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userImage, setUserImage] = useState("/assets/images/bug-icon.png");
   const route = useRouter();
-  const { data: session } = useSession();
+  const auth = getAuth(app);
   const menu = [
     {
       label: "Services",
@@ -96,6 +100,41 @@ export const AppHeader = () => {
       ],
     },
   ];
+
+  // signout function
+  const signOutFunction = () => {
+    signOut(auth)
+      .then(() => {
+        setAuthState(false);
+        route.push("/");
+      })
+      .catch((error) => {
+        // An error happened.
+        alert(error.message);
+      });
+  };
+
+  // auth state changed
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setAuthState(true);
+        setUser(user);
+        setUserName(
+          user.displayName || user?.email.slice(0, user.email.indexOf("@"))
+        );
+        setUserEmail(user.email);
+        setUserImage(user?.photoURL || userImage);
+        console.log(user);
+      } else {
+        setAuthState(false);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    setIsAvatarMenuOpen(false);
+  }, [route.asPath]);
 
   return (
     <>
@@ -207,100 +246,92 @@ export const AppHeader = () => {
         </div>
 
         <div className="w-3/12 flex justify-end gap-4 leading-7">
-          {session ? (
-            <>
-              {/* <Link href="/dashboard">
-                <button className="px-9 py-3 rounded-2xl text-black font-bold hidden lg:flex">
-                  Dashboard
-                </button>
-              </Link>
-              <Link href="/logout">
-                <button className="px-9 py-3 lg:bg-orange-500 rounded-2xl lg:text-white font-bold bg-transparent text-orange-500">
-                  Logout
-                </button>
-              </Link> */}
-              <button
-                className="flex gap-4 items-center relative pr-10"
-                onClick={() => setIsAvatarMenuOpen(!isAvatarMenuOpen)}
-              >
-                <div className="font-semibold">
-                  {session?.user?.name?.split(" ")?.[0]}
-                </div>
-                <div className="relative">
-                  <div className=" relative w-12 h-12 border-2 border-white rounded-full overflow-hidden ">
-                    {session?.user?.image && (
-                      <Image
-                        src={session?.user?.["image"]}
-                        layout="fill"
-                        objectFit="cover"
-                      />
-                    )}
-                  </div>
-                </div>
-
-                <section
-                  className={classNames("absolute top-16 right-10 flex z-50", {
-                    hidden: !isAvatarMenuOpen,
-                    flex: isAvatarMenuOpen,
-                  })}
+          <>
+            {authState ? (
+              <>
+                <button
+                  className="flex gap-4 items-center relative pr-10"
+                  onClick={() => setIsAvatarMenuOpen(!isAvatarMenuOpen)}
                 >
-                  <div className="bg-white shadow-lg border border-gray-200 flex w-96 flex-col gap-4 items-center overflow-hidden justify-start p-6 rounded-lg">
-                    <div className="relative">
-                      <div className=" relative w-24 h-24 border-2 border-white rounded-full overflow-hidden">
-                        {session?.user?.image && (
+                  <div className="relative">
+                    <div className=" relative w-12 h-12 border-2 border-white rounded-full overflow-hidden ">
+                      <Image src={userImage} layout="fill" objectFit="cover" />
+                    </div>
+                  </div>
+
+                  <section
+                    className={classNames(
+                      "absolute top-16 right-10 flex z-50",
+                      {
+                        hidden: !isAvatarMenuOpen,
+                        flex: isAvatarMenuOpen,
+                      }
+                    )}
+                  >
+                    <div className="bg-white shadow-lg border border-gray-200 flex w-96 flex-col gap-4 items-center overflow-hidden justify-start p-6 rounded-lg">
+                      <div className="relative">
+                        <div className=" relative w-24 h-24 border-2 border-white rounded-full overflow-hidden">
                           <Image
-                            src={session?.user?.image}
+                            src={userImage}
                             layout="fill"
                             objectFit="cover"
                           />
-                        )}
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col ">
-                      <div className="font-semibold">{session?.user?.name}</div>
-                      <div className="font-normal">user</div>
-                    </div>
+                      <div className="flex flex-col ">
+                        <div className="font-semibold">{userName}</div>
+                        <div className="font-normal">{userEmail}</div>
+                      </div>
 
-                    <div className="flex items-start flex-col gap-4 w-full justify-center font-normal">
-                      <Link href="/dashboard">
-                        <div className="flex gap-4 items-center cursor-pointer">
-                          <div className="w-6 h-6">{UserOutlineIcon}</div>
-                          <div>View Profile</div>
-                        </div>
-                      </Link>
+                      <div className="flex items-start flex-col gap-4 w-full justify-center font-normal">
+                        <Link href="/userprofile">
+                          <div className="flex gap-4 items-center cursor-pointer">
+                            <div className="w-6 h-6">{UserOutlineIcon}</div>
+                            <div>View Profile</div>
+                          </div>
+                        </Link>
 
-                      <Link href="/dashboard/settings">
-                        <div className="flex gap-4 items-center cursor-pointer">
-                          <div className="w-6 h-6">{GearIcon}</div>
-                          <div>Settings</div>
-                        </div>
-                      </Link>
+                        <Link href="/dashboard/settings">
+                          <div className="flex gap-4 items-center cursor-pointer">
+                            <div className="w-6 h-6">{GearIcon}</div>
+                            <div>Settings</div>
+                          </div>
+                        </Link>
 
-                      <Link href="/logout">
-                        <div className="flex gap-4 items-center cursor-pointer text-orange-600">
+                        <div
+                          onClick={signOutFunction}
+                          className="flex gap-4 items-center cursor-pointer text-orange-600"
+                        >
                           <div className="w-6 h-6">{LogoutIcon}</div>
                           <div>Logout</div>
                         </div>
-                      </Link>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </button>
-            </>
-          ) : (
-            <>
+                  </section>
+                </button>
+              </>
+            ) : (
               <Link href="/register">
                 <button className="px-9 py-3 rounded-2xl text-black font-bold hidden lg:flex">
                   Register
                 </button>
               </Link>
+            )}
+            {authState ? (
+              <button
+                onClick={signOutFunction}
+                className="px-9 lg:bg-orange-500 rounded-2xl lg:text-white font-bold bg-transparent text-orange-500"
+              >
+                Logout
+              </button>
+            ) : (
               <Link href="/login">
                 <button className="px-9 lg:bg-orange-500 rounded-2xl lg:text-white font-bold bg-transparent text-orange-500">
                   Login
                 </button>
               </Link>
-            </>
-          )}
+            )}
+          </>
         </div>
         <Script
           async
