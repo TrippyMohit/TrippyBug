@@ -28,11 +28,12 @@ import {
 } from "../icons";
 import Image from "next/image";
 import axios from "axios";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Button } from "../common";
 import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 
 export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   const [isMount, setIsMount] = useState(false);
