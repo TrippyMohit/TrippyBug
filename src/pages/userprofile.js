@@ -229,25 +229,25 @@ const PostCard = ({ post }) => {
           <div className="font-normal text-sm text-gray-400">Post Location</div>
 
           {/* <-------------------GRID----------------------------> */}
-          <div class="grid grid-rows-2 grid-flow-col gap-x-2">
-            <div class="row-span-2 ...">
+          <div className="grid grid-rows-2 grid-flow-col gap-x-2">
+            <div className="row-span-2 ...">
               {" "}
               <img
-                class="object-contain  lg:h-80 lg:w-80 h-40 w-40"
+                className="object-contain  lg:h-80 lg:w-80 h-40 w-40"
                 alt=""
                 src="/assets/images/share-and-express.png"
               />
             </div>
-            <div class="col-span-1 ...">
+            <div className="col-span-1 ...">
               <img
-                class="object-contain lg:h-40 lg:w-40 h-20 w-20"
+                className="object-contain lg:h-40 lg:w-40 h-20 w-20"
                 alt=""
                 src="/assets/images/share-and-express.png"
               />
             </div>
-            <div class="row-span-1 col-span-1 ...">
+            <div className="row-span-1 col-span-1 ...">
               <img
-                class="object-contain lg:h-40 lg:w-40 h-20 w-20 ..."
+                className="object-contain lg:h-40 lg:w-40 h-20 w-20 ..."
                 alt=""
                 src="/assets/images/share-and-express.png"
               />
