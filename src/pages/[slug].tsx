@@ -91,8 +91,11 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
     return <div>Loading Post</div>;
   }
 
+  console.log(router.asPath);
+  console.log(``);
   return (
     <>
+      <h1>{`https://www.trippybug.com${router.asPath}`}</h1>
       <Head>
         <title>{post?.title}</title>
         <meta property="og:title" content={post?.title} key="title" />
@@ -103,6 +106,10 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
         <meta
           property="og:image"
           content={post?.seo?.opengraphImage?.sourceUrl}
+        />
+        <link
+          rel="canonical"
+          href={`https://www.trippybug.com${router.asPath}`}
         />
       </Head>
       <div className="container flex lg:flex-row flex-col pt-10 gap-10">

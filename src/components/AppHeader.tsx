@@ -291,7 +291,7 @@ export const AppHeader = () => {
                           </div>
                         </Link>
 
-                        <Link href="/dashboard/settings">
+                        <Link href="userprofile">
                           <div className="flex gap-4 items-center cursor-pointer">
                             <div className="w-6 h-6">{GearIcon}</div>
                             <div>Settings</div>
