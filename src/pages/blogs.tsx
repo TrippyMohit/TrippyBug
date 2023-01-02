@@ -1,10 +1,15 @@
 import { CommentIcon, LikeIcon, SaveIcon } from "../icons";
-import { getPostsByCategoryName } from "../services/cms-api";
+import {
+  getPostsByCategoryName,
+  getAllPostsWithSlug,
+  getAllPostsForHome,
+} from "../services/cms-api";
 import { formatDistance } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { async } from "@firebase/util";
 export default function Blogs({ blogPosts }) {
   return (
     <>
@@ -16,10 +21,11 @@ export default function Blogs({ blogPosts }) {
     </>
   );
 }
+
 const PostCard = ({ post }) => {
   return (
     <Link href={`/${post?.node?.slug}`}>
-      <div className="flex flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
+      <div className="flex cursor-pointer flex-col  justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
         <div className="flex justify-between w-full">
           <div className="flex gap-5">
             {post?.node?.author?.node?.avatar?.url && (
@@ -46,9 +52,9 @@ const PostCard = ({ post }) => {
         </div>
 
         <div className="flex flex-col gap-2 tracking-wider  flex-1 justify-between">
-          <div className="font-semibold text-2xl text-gray-900 ">
+          <h1 className="font-semibold text-2xl text-gray-900 ">
             {post?.node?.title}
-          </div>
+          </h1>
 
           <div className="relative w-full flex-1 min-h-[200px]">
             <Image
@@ -86,7 +92,9 @@ const PostCard = ({ post }) => {
 };
 
 export async function getStaticProps() {
-  const blogPosts = await getPostsByCategoryName("trending");
+  // const blogPosts = await getPostsByCategoryName("trending");
+  // const blogPosts = await getAllPostsWithSlug();
+  const blogPosts = await getAllPostsForHome();
 
   return {
     props: {
