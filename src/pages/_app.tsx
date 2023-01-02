@@ -8,6 +8,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { store } from "../../app/store";
+import { MailIcon } from "../icons";
 import {
   ArrowUpIcon,
   FacebookIcon,
@@ -116,7 +117,8 @@ function MyApp({ Component, pageProps }) {
 
         {!hideFooter && <Footer />}
 
-        <div className="hidden sticky overflow-visible h-0 bottom-4  2xl:flex items-end justify-end pr-4 z-50 ">
+        {/* Bee Modal         */}
+        <div className="hidden sticky overflow-visible h-0 bottom-4  xl:flex items-end justify-end pr-4 z-50 ">
           <div className="flex flex-col gap-4 items-end ">
             {openRightmenu && (
               <div className="-mb-24 bg-white max-w-2xl p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col gap-6 items-center text-center z-50 text-gray-600">
@@ -124,7 +126,7 @@ function MyApp({ Component, pageProps }) {
                   <Link href="/">
                     <a>
                       <Image
-                        src="/assets/images/logo.png"
+                        src="/assets/images/newLogo.png"
                         width={203}
                         height={88}
                         objectFit="contain"
@@ -134,8 +136,7 @@ function MyApp({ Component, pageProps }) {
                   </Link>
                 </div>
                 <div className="tracking-wider leading-7">
-                  Trippy Bug is best site for all travellers. It helps
-                  traveleres to navigate their visit to any part of world.
+                  Share your stories or chat with travellers around the world
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="text-xl font-bold tracking-wider">
@@ -237,7 +238,7 @@ function MyApp({ Component, pageProps }) {
                     <div></div>
                     <Link href="/contact-us">
                       <a className="px-4 py-2 rounded-lg  hover:bg-orange-100 cursor-pointer hover:text-orange-500">
-                        Contact
+                        Contact Us
                       </a>
                     </Link>
                     <Link href="/about">
@@ -248,51 +249,20 @@ function MyApp({ Component, pageProps }) {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center">
-                  <div className="text-lg font-semibold">Contact Us</div>
-
-                  <div className="flex gap-4">
-                    <Link
-                      href="viber://add?number=91987654320"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <a>
-                        <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                          <div className="w-7 h-7 text-white flex">
-                            {ViberIcon}
-                          </div>
-                        </div>
-                      </a>
-                    </Link>
-
-                    <Link
-                      href="https://wa.me/+91987654320"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <a>
-                        <div className="w-9 h-9 cursor-pointer bg-orange-500 rounded-full items-center justify-center relative flex">
-                          <div className="w-5 h-5 text-white flex">
-                            {WhatsappIcon}
-                          </div>
-                        </div>
-                      </a>
-                    </Link>
+                <div className="flex items-center gap-2">
+                  <div className="flex bg-orange-100 justify-center items-center  w-10 h-10  text-orange-400 rounded-full">
+                    <div className="w-5 h-5 text-orange-400">{MailIcon}</div>
                   </div>
-                </div>
-
-                <div className="flex gap-8 justify-between text-lg font-semibold">
-                  <div>+91 987654320 </div>
-
-                  <div>hello@trippybug.com</div>
+                  <p className="font-semibold text-lg cursor-pointer">
+                    bugtrippy@gmail.com
+                  </p>
                 </div>
 
                 <Link href="/">
                   <a>
                     <div className="font-semibold text-lg cursor-pointer">
                       www.trippy<span className="text-orange-400">bug</span>
-                      .com{" "}
+                      .com
                     </div>
                   </a>
                 </Link>
@@ -301,7 +271,9 @@ function MyApp({ Component, pageProps }) {
 
             <Link href="#top">
               <div className="w-16 h-16 cursor-pointer bg-orange-100 rounded-full items-center justify-center relative flex">
-                <div className="h-6 w-6 text-orange-400 ">{ArrowUpIcon}</div>
+                <div className="h-6 w-6 absolute top-6 text-orange-400 ">
+                  {ArrowUpIcon}
+                </div>
               </div>
             </Link>
 
