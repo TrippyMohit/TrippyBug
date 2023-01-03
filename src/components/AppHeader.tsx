@@ -23,6 +23,7 @@ import React, { useState, useEffect } from "react";
 import Script from "next/script";
 import { getAuth, signOut } from "firebase/auth";
 import app from "../../firebase";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 export const AppHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);

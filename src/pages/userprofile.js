@@ -9,6 +9,7 @@ import { formatDistance } from "date-fns";
 import { useState } from "react";
 import { getAuth } from "firebase/auth";
 import app from "../../firebase";
+import { useRouter } from "next/router";
 import {
   CarIcon,
   FlightIcon,
@@ -50,7 +51,7 @@ export default function UserProfile({
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userImage, setUserImage] = useState("/assets/images/bug-icon.png");
-
+  const router = useRouter();
   function handle(e) {
     setSelectedTab("your-posts"), setIsOpen(false);
   }
@@ -79,6 +80,8 @@ export default function UserProfile({
         );
         setUserEmail(user.email);
         setUserImage(user?.photoURL || userImage);
+      } else if (!authState) {
+        router.push("/login");
       } else {
         setAuthState(false);
         setUser("");
