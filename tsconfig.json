@@ -18,6 +18,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/register.js", "src/components/AppHeader.tsx", "src/pages/login.jsx", "src/pages/[slug].jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/register.js", "src/components/AppHeader.tsx", "src/pages/login.jsx", "src/pages/[slug].jsx", "src/components/PopularRecommendedHotels.js", "src/components/PopularRecommendedHotels.tsx"],
   "exclude": ["node_modules"]
 }

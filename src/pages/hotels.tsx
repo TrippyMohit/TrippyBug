@@ -1,5 +1,5 @@
 import { Rating } from "../components";
-import PopularRecommendedHotels from "./PopularRecommendedHotels";
+import PopularRecommendedHotels from "../components/PopularRecommendedHotels";
 import JoinTravel from "../components/JoinTravel";
 import Image from "next/image";
 import React from "react";

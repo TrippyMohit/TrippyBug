@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Head from "next/head";
 import {
   getAllPostsWithSlug,
@@ -9,7 +8,7 @@ import {
 } from "../services/cms-api";
 import ErrorPage from "next/error";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 import {
   CalendarIcon,
   ClockIcon,
@@ -39,7 +38,7 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   const [isMount, setIsMount] = useState(false);
   // const { enqueueSnackbar } = useSnackbar();
   const [showShare, setShowShare] = useState(false);
-  const blogUrl = `https://www.trippybug.com/${post.slug}`;
+  const blogUrl = `https://www.trippybug.com/${post?.slug}`;
   // const copyToClipboard = () => {
   //   navigator.clipboard.writeText(blogUrl);
   //   enqueueSnackbar("Link copied to your clipboard", {
@@ -78,8 +77,8 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   //       });
   //     });
   // };
-
   const router = useRouter();
+
   if (!post) {
     return <ErrorPage statusCode={404} />;
   }
@@ -91,7 +90,7 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
     return <div>Loading Post</div>;
   }
 
-  console.log(post);
+  console.log(blogUrl);
 
   return (
     <>

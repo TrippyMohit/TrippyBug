@@ -528,29 +528,3 @@ export async function getCategoryBySlug(slug) {
 
   return data;
 }
-
-// It is difficult to say what is causing this error without more context. The error message "Application error: a client-side exception has occurred (see the browser console for more information)" suggests that something went wrong in the client-side code of your project.
-
-// There are many possible reasons for this error to occur. It could be due to a syntax error in your code, an unhandled exception, an issue with a third-party library that you are using, or a problem with the environment in which your code is running.
-
-// To troubleshoot this error, you will need to look at the browser console for more information. In most modern web browsers, you can open the browser console by pressing the F12 key or by right-clicking on the page and selecting "Inspect" from the context menu. The console will show any errors or messages that have been logged by your code or by the browser. This should give you some clues as to what is causing the error.
-
-// You may also want to check the server logs or any other relevant logs to see if there are any additional clues there. It might also be helpful to debug your code by adding log statements or using a debugger to step through your code and see where the error is occurring.
-
-// It is still difficult to say what is causing the error without more context. Some things you might want to consider as potential causes of the error include:
-
-// Syntax errors in your code
-// Issues with the WordPress GraphQL API or the WordPress website
-// Network issues that are preventing your code from being able to reach the WordPress website
-// Problems with the environment in which your code is running, such as missing dependencies or incorrect configuration
-// One thing that stands out as potentially problematic in the code you provided is this line:
-
-// Copy code
-// posts(first: 100, , where: { orderby: { field: DATE, order: DESC } })
-
-// posts(first: 100, , where: { orderby: { field: DATE, order: DESC } })
-// There is an extra comma between first: 100 and where: { ... }, which could be causing a syntax error. You should remove this comma to fix the error.
-
-// It's also a good idea to check the browser console for any additional error messages or warnings that might provide more information about the cause of the problem. You may also want to check the server logs or any other relevant logs for additional clues.
-
-// Regenerate response
