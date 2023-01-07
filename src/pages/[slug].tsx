@@ -79,17 +79,17 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   // };
   const router = useRouter();
 
-  if (!post) {
-    return <ErrorPage statusCode={404} />;
-  }
+  // if (!post) {
+  //   return <ErrorPage statusCode={404} />;
+  // }
 
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />;
-  }
-  if (router.isFallback) {
-    return <div>Loading Post</div>;
-  }
-
+  // if (!router.isFallback && !post?.slug) {
+  //   return <ErrorPage statusCode={404} />;
+  // }
+  // if (router.isFallback) {
+  //   return <div>Loading Post</div>;
+  // }
+  // console.log(post);
   return (
     <>
       <Head>
