@@ -90,8 +90,6 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
     return <div>Loading Post</div>;
   }
 
-  console.log(blogUrl);
-
   return (
     <>
       <Head>
