@@ -27,7 +27,6 @@ import {
 } from "../icons";
 import Image from "next/image";
 import axios from "axios";
-// import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Button } from "../common";
 import { useSnackbar } from "notistack";
@@ -44,17 +43,19 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
 
   const router = useRouter();
 
-  if (!post) {
-    return <ErrorPage statusCode={404} />;
-  }
+  useEffect(() => {
+    const errors = () => {
+      if (!post) {
+        return <ErrorPage statusCode={404} />;
+      } else if (!router.isFallback && !post?.slug) {
+        return <ErrorPage statusCode={404} />;
+      } else if (router.isFallback) {
+        return <div>Loading Post</div>;
+      }
+    };
+    errors();
+  }, []);
 
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />;
-  }
-  // if (router.isFallback) {
-  //   return <div>Loading Post</div>;
-  // }
-  // console.log(router);
   return (
     <>
       <Head>
