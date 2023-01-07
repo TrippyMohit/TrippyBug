@@ -36,60 +36,25 @@ import { AiOutlineConsoleSql } from "react-icons/ai";
 
 export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   const [isMount, setIsMount] = useState(false);
-  // const { enqueueSnackbar } = useSnackbar();
+
   const [showShare, setShowShare] = useState(false);
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
-  // const copyToClipboard = () => {
-  //   navigator.clipboard.writeText(blogUrl);
-  //   enqueueSnackbar("Link copied to your clipboard", {
-  //     variant: "success",
-  //   });
-  // };
 
-  // const currentUser = useSession();
   const [content, setContent] = useState("");
-  // const handleComment = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post(
-  //       `${API_URL}/wp-json/wp/v2/comments`,
-  //       {
-  //         post: post?.postId,
-  //         author_name: currentUser?.data?.user?.name,
-  //         author_email: currentUser?.data?.user?.email,
-  //         content: content,
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     )
-  //     .then(function () {
-  //       enqueueSnackbar("Your comment has been sucessfully submitted.", {
-  //         variant: "success",
-  //       });
-  //       setContent("");
-  //     })
-  //     .catch(function (error) {
-  //       enqueueSnackbar(error.response.data.message, {
-  //         variant: "error",
-  //       });
-  //     });
-  // };
+
   const router = useRouter();
 
-  // if (!post) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  if (!post) {
+    return <ErrorPage statusCode={404} />;
+  }
 
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  if (!router.isFallback && !post?.slug) {
+    return <ErrorPage statusCode={404} />;
+  }
   // if (router.isFallback) {
   //   return <div>Loading Post</div>;
   // }
-  // console.log(post);
+  // console.log(router);
   return (
     <>
       <Head>
