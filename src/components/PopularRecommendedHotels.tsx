@@ -39,6 +39,8 @@ const PopularRecommendedHotels = ({ popularRecommendedHotels }) => {
     PopularRecommendedHotelsRef?.current?.slickNext();
   };
 
+  console.log(popularRecommendedHotels);
+
   return (
     <div className="relative flex w-full flex-col gap-12 container pb-10 ">
       <div className=" gap-10 flex flex-col font-bold lg:items-center items-start">

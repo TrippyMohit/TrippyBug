@@ -162,7 +162,7 @@ export async function getPostsByCategoryName(categoryName) {
 		query PostsByCategoryName {
 			posts(
 				where: {categoryName: "${categoryName}",orderby: {field: DATE, order: DESC}}
-				first: 100
+				first: 6
 			) {
 				edges {
 					node {
