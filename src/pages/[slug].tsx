@@ -176,14 +176,15 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
             {/*  excerpt and featured image*/}
             {/* Main Post Images , and description */}
             <div className="flex flex-col gap-10">
-              <div className="relative w-full h-[400px]">
-                <img
+              {/* featured Image */}
+              {/* <div className="relative w-full h-[400px]">
+                <Image
                   alt="Featured Image"
                   src={post?.featuredImage?.node?.sourceUrl}
-                  // objectFit="cover"
-                  // layout="fill"
+                  objectFit="cover"
+                  layout="fill"
                 />
-              </div>
+              </div> */}
 
               <article
                 className="postArticle"
