@@ -46,7 +46,8 @@ export default function SinglePost({
   const [showShare, setShowShare] = useState(false);
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
-  const [content, setContent] = useState("");
+  // content for comment
+  // const [content, setContent] = useState("");
 
   const router = useRouter();
 
@@ -62,8 +63,6 @@ export default function SinglePost({
     };
     errors();
   }, []);
-
-  console.log(featuredImage);
 
   return (
     <>
@@ -188,8 +187,7 @@ export default function SinglePost({
               <div className="relative w-full h-[400px]">
                 <Image
                   alt="Featured Image"
-                  // src={post?.featuredImage?.node?.sourceUrl}
-                  src={`${featuredImage}`}
+                  src={post?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
                 />
@@ -246,10 +244,10 @@ export default function SinglePost({
               <div className="flex flex-col w-full gap-4">
                 <textarea
                   className="border p-4"
-                  onChange={(e) => setContent(e.target.value)}
+                  // onChange={(e) => setContent(e.target.value)}
                   rows={6}
                   placeholder="Leave a Comment"
-                  value={content}
+                  // value={content}
                 ></textarea>
                 <div className="flex">
                   <div className="flex pb-16 ">
