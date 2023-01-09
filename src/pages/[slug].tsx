@@ -46,7 +46,7 @@ export default function SinglePost({
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
   const [content, setContent] = useState("");
-  const [featuredImage, setFeaturedImage] = useState("");
+  const [featuredImage, setFeaturedImage] = useState(" ");
   const router = useRouter();
 
   useEffect(() => {
@@ -64,10 +64,12 @@ export default function SinglePost({
 
   useEffect(() => {
     const getFeaturedImage = () => {
-      setFeaturedImage(WpFeaturedImage);
+      setFeaturedImage(post?.featuredImage?.node?.sourceUrl);
     };
     getFeaturedImage();
   }, []);
+
+  console.log(featuredImage);
 
   return (
     <>
@@ -190,14 +192,9 @@ export default function SinglePost({
             <div className="flex flex-col gap-10">
               {/* featured Image */}
               <div className="relative w-full h-[400px]">
-                {/* <Image
-                  alt="Featured Image"
-                  src={post?.featuredImage?.node?.sourceUrl}
-                  objectFit="cover"
-                  layout="fill"
-                /> */}
                 <Image
                   alt="Featured Image"
+                  // src={post?.featuredImage?.node?.sourceUrl}
                   src={featuredImage}
                   objectFit="cover"
                   layout="fill"
