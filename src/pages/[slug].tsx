@@ -97,11 +97,12 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
                   <div className="text-lg font-bold text-gray-500">
                     {post?.author?.node?.name}
                   </div>
-                  <div className="text-gray-400">
+                  {/* Time */}
+                  {/* <div className="text-gray-400">
                     {formatDistance(new Date(post?.date), new Date(), {
                       addSuffix: true,
                     })}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
