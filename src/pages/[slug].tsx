@@ -56,6 +56,8 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
     errors();
   }, []);
 
+  console.log(post?.featuredImage?.node?.sourceUrl);
+
   return (
     <>
       <Head>
@@ -175,11 +177,11 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
             {/* Main Post Images , and description */}
             <div className="flex flex-col gap-10">
               <div className="relative w-full h-[400px]">
-                <Image
-                  alt=""
+                <img
+                  alt="Featured Image"
                   src={post?.featuredImage?.node?.sourceUrl}
-                  objectFit="cover"
-                  layout="fill"
+                  // objectFit="cover"
+                  // layout="fill"
                 />
               </div>
 
