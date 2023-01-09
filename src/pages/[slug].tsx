@@ -33,7 +33,13 @@ import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 
-export default function SinglePost({ post, comments, API_URL, recentPosts }) {
+export default function SinglePost({
+  post,
+  comments,
+  API_URL,
+  recentPosts,
+  featuredImage,
+}) {
   const [isMount, setIsMount] = useState(false);
 
   const [showShare, setShowShare] = useState(false);
@@ -56,7 +62,7 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
     errors();
   }, []);
 
-  console.log(post?.featuredImage?.node?.sourceUrl);
+  // console.log(featuredImage);
 
   return (
     <>
@@ -179,9 +185,15 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
             <div className="flex flex-col gap-10">
               {/* featured Image */}
               <div className="relative w-full h-[400px]">
-                <Image
+                {/* <Image
                   alt="Featured Image"
                   src={post?.featuredImage?.node?.sourceUrl}
+                  objectFit="cover"
+                  layout="fill"
+                /> */}
+                <Image
+                  alt="Featured Image"
+                  src={featuredImage}
                   objectFit="cover"
                   layout="fill"
                 />
@@ -370,6 +382,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       noMeta: true,
       comments: data?.post?.comments,
       postId: data?.post?.postId,
+      featuredImage: data?.post?.featuredImage?.node?.sourceUrl,
       // API_URL: process.env.WORDPRESS_API_URL
       API_URL: "https://cms.trippybug.com",
     },
