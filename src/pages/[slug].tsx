@@ -46,7 +46,7 @@ export default function SinglePost({
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
   const [content, setContent] = useState("");
-  const [featuredImage, setFeaturedImage] = useState(WpFeaturedImage);
+  const [featuredImage, setFeaturedImage] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -62,7 +62,12 @@ export default function SinglePost({
     errors();
   }, []);
 
-  console.log(featuredImage);
+  useEffect(() => {
+    const getFeaturedImage = () => {
+      setFeaturedImage(WpFeaturedImage);
+    };
+    getFeaturedImage();
+  }, []);
 
   return (
     <>
