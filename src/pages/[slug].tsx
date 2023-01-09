@@ -32,13 +32,14 @@ import { Button } from "../common";
 import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
 import { AiOutlineConsoleSql } from "react-icons/ai";
+import { features } from "process";
 
 export default function SinglePost({
   post,
   comments,
   API_URL,
   recentPosts,
-  WpFeaturedImage,
+  featuredImage,
 }) {
   const [isMount, setIsMount] = useState(false);
 
@@ -46,7 +47,7 @@ export default function SinglePost({
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
   const [content, setContent] = useState("");
-  const [featuredImage, setFeaturedImage] = useState(" ");
+
   const router = useRouter();
 
   useEffect(() => {
@@ -60,13 +61,6 @@ export default function SinglePost({
       }
     };
     errors();
-  }, []);
-
-  useEffect(() => {
-    const getFeaturedImage = () => {
-      setFeaturedImage(post?.featuredImage?.node?.sourceUrl);
-    };
-    getFeaturedImage();
   }, []);
 
   console.log(featuredImage);
@@ -195,7 +189,7 @@ export default function SinglePost({
                 <Image
                   alt="Featured Image"
                   // src={post?.featuredImage?.node?.sourceUrl}
-                  src={featuredImage}
+                  src={`${featuredImage}`}
                   objectFit="cover"
                   layout="fill"
                 />
@@ -384,7 +378,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       noMeta: true,
       comments: data?.post?.comments,
       postId: data?.post?.postId,
-      WpFeaturedImage: data?.post?.featuredImage?.node?.sourceUrl,
+      featuredImage: data?.post?.featuredImage?.node?.sourceUrl,
       // API_URL: process.env.WORDPRESS_API_URL
       API_URL: "https://cms.trippybug.com",
     },
