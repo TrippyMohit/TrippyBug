@@ -47,7 +47,7 @@ export default function SinglePost({
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
   // content for comment
-  // const [content, setContent] = useState("");
+  const [content, setContent] = useState("");
 
   const router = useRouter();
 
@@ -244,10 +244,10 @@ export default function SinglePost({
               <div className="flex flex-col w-full gap-4">
                 <textarea
                   className="border p-4"
-                  // onChange={(e) => setContent(e.target.value)}
+                  onChange={(e) => setContent(e.target.value)}
                   rows={6}
                   placeholder="Leave a Comment"
-                  // value={content}
+                  value={content}
                 ></textarea>
                 <div className="flex">
                   <div className="flex pb-16 ">
