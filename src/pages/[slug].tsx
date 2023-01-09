@@ -186,7 +186,7 @@ export default function SinglePost({
               {/* featured Image */}
               <div className="relative w-full h-[400px]">
                 <Image
-                  alt="Featured Image"
+                  alt=""
                   src={post?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
