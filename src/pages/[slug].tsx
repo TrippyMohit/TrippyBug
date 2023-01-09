@@ -33,14 +33,21 @@ import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { features } from "process";
+import Script from "next/script";
 
-export default function SinglePost({
-  post,
-  comments,
-  API_URL,
-  recentPosts,
-  featuredImage,
-}) {
+const StructuredData = ({ data }) => {
+  return (
+    <Head>
+      <script
+        key="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+    </Head>
+  );
+};
+
+export default function SinglePost({ post, comments, API_URL, recentPosts }) {
   const [isMount, setIsMount] = useState(false);
 
   const [showShare, setShowShare] = useState(false);
@@ -64,6 +71,31 @@ export default function SinglePost({
     errors();
   }, []);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.trippybug.com${router.asPath}`,
+    },
+    headline: post?.title,
+    description: post?.seo?.metaDesc,
+    image: post?.seo?.opengraphImage?.sourceUrl,
+    author: {
+      "@type": "Organization",
+      name: "TrippyBug",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
+      },
+    },
+    datePublished: post?.date,
+  };
+
   return (
     <>
       <Head>
@@ -82,6 +114,7 @@ export default function SinglePost({
           href={`https://www.trippybug.com${router.asPath}`}
         />
       </Head>
+      <StructuredData data={structuredData} />
       <div className="container flex lg:flex-row flex-col pt-10 gap-10">
         <div className="w-full lg:w-3/4">
           <div className=" flex flex-col w-full gap-4">
@@ -184,18 +217,14 @@ export default function SinglePost({
             {/* Main Post Images , and description */}
             <div className="flex flex-col gap-10">
               {/* featured Image */}
-              {/* <div className="relative w-full h-[400px]">
+              <div className="relative w-full h-[400px]">
                 <Image
-                  alt=" "
+                  alt=""
                   src={post?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
                 />
-              </div> */}
-              <img
-                src={post?.featuredImage?.node?.sourceUrl}
-                alt="featured Image"
-              />
+              </div>
 
               <article
                 className="postArticle"
@@ -380,7 +409,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       noMeta: true,
       comments: data?.post?.comments,
       postId: data?.post?.postId,
-      featuredImage: data?.post?.featuredImage?.node?.sourceUrl,
+
       // API_URL: process.env.WORDPRESS_API_URL
       API_URL: "https://cms.trippybug.com",
     },

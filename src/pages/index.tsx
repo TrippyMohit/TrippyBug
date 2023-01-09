@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
+
 import { createRef, useEffect, useState } from "react";
 import { IconBox } from "../components/IconBox";
 import LookingForInspiration from "../components/LookingForInspiration";

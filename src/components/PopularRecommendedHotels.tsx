@@ -57,8 +57,6 @@ const PopularRecommendedHotels = ({ popularRecommendedHotels }) => {
           {...PopularRecommendedHotelsCarouselSettings}
           ref={PopularRecommendedHotelsRef}
         >
-          {console.log(popularRecommendedHotels)}
-
           {popularRecommendedHotels?.map((post: any) => (
             <BlogCard
               key={post?.node?.slug}
