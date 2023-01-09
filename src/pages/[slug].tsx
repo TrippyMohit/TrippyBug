@@ -38,7 +38,7 @@ export default function SinglePost({
   comments,
   API_URL,
   recentPosts,
-  featuredImage,
+  WpFeaturedImage,
 }) {
   const [isMount, setIsMount] = useState(false);
 
@@ -46,7 +46,7 @@ export default function SinglePost({
   const blogUrl = `https://www.trippybug.com/${post?.slug}`;
 
   const [content, setContent] = useState("");
-
+  const [featuredImage, setFeaturedImage] = useState(WpFeaturedImage);
   const router = useRouter();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function SinglePost({
     errors();
   }, []);
 
-  // console.log(featuredImage);
+  console.log(featuredImage);
 
   return (
     <>
@@ -382,7 +382,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       noMeta: true,
       comments: data?.post?.comments,
       postId: data?.post?.postId,
-      featuredImage: data?.post?.featuredImage?.node?.sourceUrl,
+      WpFeaturedImage: data?.post?.featuredImage?.node?.sourceUrl,
       // API_URL: process.env.WORDPRESS_API_URL
       API_URL: "https://cms.trippybug.com",
     },
