@@ -153,7 +153,7 @@ export default function SinglePost({ post, comments, API_URL, recentPosts }) {
             </div>
 
             {/* Like , Comment icons */}
-            <div className="flex gap-7 items-center">
+            <div className="flex gap-8 items-center">
               <div className="flex gap-2 ">
                 <div className="h-6 w-6">{HeartIcon}</div>
               </div>
