@@ -415,7 +415,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const WpBlog = ({ post }) => {
-  // console.log(post.content);
+  console.log(post);
   return (
     <>
       <div className="pt-[150px] pb-[150px] ">
@@ -440,23 +440,6 @@ const WpBlog = ({ post }) => {
 
 export default WpBlog;
 
-export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
-
-  const paths = allPosts.edges.map(({ node }) => {
-    return {
-      params: {
-        slug: node.slug.toString(),
-      },
-    };
-  });
-
-  return {
-    paths: paths,
-    fallback: false,
-  };
-}
-
 export async function getServerSideProps({
   params,
   preview = false,
@@ -466,21 +449,11 @@ export async function getServerSideProps({
   const categories = await getCategoriesForSidebar();
   const recentPosts = await getRecentPosts();
 
-  let category, morePosts;
-  if (data.post) {
-    category =
-      data.post?.categories.edges.length && data.post.categories.edges[0].node;
-
-    if (category) {
-      morePosts = await getMorePosts(data.post.postId, category.categoryId);
-    }
-  }
   return {
     props: {
       post: data?.post,
-      // API_URL: process.env.WORDPRESS_API_URL
+
       API_URL: "https://cms.trippybug.com",
     },
-    revalidate: 10,
   };
 }
