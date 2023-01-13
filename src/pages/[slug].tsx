@@ -35,6 +35,7 @@ import { AiOutlineConsoleSql } from "react-icons/ai";
 import { features } from "process";
 import Script from "next/script";
 
+//sechma data forn SEO
 const StructuredData = ({ data }) => {
   return (
     <Head>
@@ -417,10 +418,28 @@ export async function getStaticProps({ params, preview = false, previewData }) {
   };
 }
 
+// export async function getStaticPaths() {
+//   const allPosts = await getAllPostsWithSlug();
+//   return {
+//     paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
+//     fallback: false,
+//   };
+// }
+
+//changes
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
+
+  const paths = allPosts.edges.map(({ node }) => {
+    return {
+      params: {
+        slug: node.slug.toString(),
+      },
+    };
+  });
+
   return {
-    paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
+    paths: paths,
     fallback: false,
   };
 }
