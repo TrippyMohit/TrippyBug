@@ -415,7 +415,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const WpBlog = ({ post }) => {
-  console.log(post.content);
+  // console.log(post.content);
   return (
     <>
       <div className="pt-[150px] pb-[150px] ">
@@ -429,8 +429,6 @@ const WpBlog = ({ post }) => {
       <div className="pt-[150px] pb-[150px]">
         <h1>{post.title}</h1>
         <img alt={post.title} src={post?.featuredImage?.node?.sourceUrl} />
-        {/* <span>{post.excerpt}</span>
-        <p>{post.content}</p> */}
         <article
           className="postArticle"
           dangerouslySetInnerHTML={{ __html: post?.content }}
@@ -442,7 +440,28 @@ const WpBlog = ({ post }) => {
 
 export default WpBlog;
 
-export async function getStaticProps({ params, preview = false, previewData }) {
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug();
+
+  const paths = allPosts.edges.map(({ node }) => {
+    return {
+      params: {
+        slug: node.slug.toString(),
+      },
+    };
+  });
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+export async function getServerSideProps({
+  params,
+  preview = false,
+  previewData,
+}) {
   const data = await getPostBySlug(params.slug, preview, previewData);
   const categories = await getCategoriesForSidebar();
   const recentPosts = await getRecentPosts();
@@ -463,22 +482,5 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       API_URL: "https://cms.trippybug.com",
     },
     revalidate: 10,
-  };
-}
-
-export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
-
-  const paths = allPosts.edges.map(({ node }) => {
-    return {
-      params: {
-        slug: node.slug.toString(),
-      },
-    };
-  });
-
-  return {
-    paths: paths,
-    fallback: false,
   };
 }
