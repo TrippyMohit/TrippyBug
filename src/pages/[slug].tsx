@@ -410,59 +410,75 @@ import {
   getPostBySlug,
   getRecentPosts,
 } from "../services/cms-api";
-import ErrorPage from "next/error";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import {
-  CalendarIcon,
-  ClockIcon,
-  CommentIcon,
-  FacebookIcon,
-  GlobeIcon,
-  HeartIcon,
-  HomeIcon,
-  ImageIcon,
-  LikeIcon,
-  SaveIcon,
-  ShareIcon,
-  TrendingIcon,
-  TwitterIcon,
-  WhatsappIcon,
-} from "../icons";
 import Image from "next/image";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from "../common";
-import { useSnackbar } from "notistack";
-import { formatDistance } from "date-fns";
-import { AiOutlineConsoleSql } from "react-icons/ai";
-import { features } from "process";
-import Script from "next/script";
 
 const WpBlog = ({ post }) => {
-  console.log(post);
+  console.log(post.content);
   return (
-    <div>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-      <h1>WpBlog</h1>
-    </div>
+    <>
+      <div className="pt-[150px] pb-[150px] ">
+        <h1 className="text-5xl">This page is under test mode</h1>
+        <p className="text-5xl">please compromise</p>
+        <p className="text-5xl">we will be back soon</p>
+        <p className="text-5xl">Thankyou -- trippybug</p>
+      </div>
+
+      {/* post */}
+      <div className="pt-[150px] pb-[150px]">
+        <h1>{post.title}</h1>
+        <img alt={post.title} src={post?.featuredImage?.node?.sourceUrl} />
+        {/* <span>{post.excerpt}</span>
+        <p>{post.content}</p> */}
+        <article
+          className="postArticle"
+          dangerouslySetInnerHTML={{ __html: post?.content }}
+        />
+      </div>
+    </>
   );
 };
 
 export default WpBlog;
+
+export async function getStaticProps({ params, preview = false, previewData }) {
+  const data = await getPostBySlug(params.slug, preview, previewData);
+  const categories = await getCategoriesForSidebar();
+  const recentPosts = await getRecentPosts();
+
+  let category, morePosts;
+  if (data.post) {
+    category =
+      data.post?.categories.edges.length && data.post.categories.edges[0].node;
+
+    if (category) {
+      morePosts = await getMorePosts(data.post.postId, category.categoryId);
+    }
+  }
+  return {
+    props: {
+      post: data?.post,
+      // API_URL: process.env.WORDPRESS_API_URL
+      API_URL: "https://cms.trippybug.com",
+    },
+    revalidate: 10,
+  };
+}
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug();
+
+  const paths = allPosts.edges.map(({ node }) => {
+    return {
+      params: {
+        slug: node.slug.toString(),
+      },
+    };
+  });
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
