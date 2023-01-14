@@ -75,7 +75,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-3  w-full relative min-h-[260px] rounded-md overflow-hidden ">
               <Image
                 onClick={() => setPhotoIndex(0)}
-                alt=""
+                alt="trippybug"
                 src={posts[0]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -97,7 +97,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-12  w-full relative min-h-[260px] rounded-md overflow-hidden">
               <Image
                 onClick={() => setPhotoIndex(2)}
-                alt=""
+                alt="Car hire in Bangkok"
                 src={posts[2]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -108,7 +108,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-8  w-full relative min-h-[260px] rounded-md overflow-hidden">
               <Image
                 onClick={() => setPhotoIndex(3)}
-                alt=""
+                alt="hotels in Thailand"
                 src={posts[3]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -120,7 +120,7 @@ const Gallery = ({ posts }) => {
               <div className="  col-span-9  w-full relative flex-1 min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(4)}
-                  alt=""
+                  alt=" hotels in Dubai"
                   src={posts[4]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -154,7 +154,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-9  w-full relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(0)}
-                  alt=""
+                  alt="discount coupons"
                   src={posts[0]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -166,7 +166,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-8  relative min-h-[260px] rounded-md overflow-hidden">
               <Image
                 onClick={() => setPhotoIndex(1)}
-                alt=""
+                alt="cheap flights"
                 src={posts[1]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -177,7 +177,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-4  relative min-h-[260px] rounded-md overflow-hidden">
               <Image
                 onClick={() => setPhotoIndex(2)}
-                alt=""
+                alt="cheap hotels"
                 src={posts[2]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -191,7 +191,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-12  relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(3)}
-                  alt=""
+                  alt="macy's, travelocity"
                   src={posts[3]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -202,7 +202,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-6  relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(4)}
-                  alt=""
+                  alt="honey coupons"
                   src={posts[4]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -213,7 +213,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-6  relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(5)}
-                  alt=""
+                  alt="joinhoney"
                   src={posts[5]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -228,7 +228,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-4 relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(6)}
-                  alt=""
+                  alt="promo code"
                   src={posts[6]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -239,7 +239,7 @@ const Gallery = ({ posts }) => {
               <div className="col-span-8  relative min-h-[260px] rounded-md overflow-hidden">
                 <Image
                   onClick={() => setPhotoIndex(7)}
-                  alt=""
+                  alt="target promo code"
                   src={posts[7]?.node?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"
@@ -251,7 +251,7 @@ const Gallery = ({ posts }) => {
                 <div className="  col-span-9  w-full relative flex-1 min-h-[260px] rounded-md overflow-hidden">
                   <Image
                     onClick={() => setPhotoIndex(8)}
-                    alt=""
+                    alt="honey extension"
                     src={posts[8]?.node?.featuredImage?.node?.sourceUrl}
                     objectFit="cover"
                     layout="fill"
@@ -319,7 +319,7 @@ const Gallery = ({ posts }) => {
 
                         <div className="relative h-[80vh]  w-[98%]">
                           <Image
-                            alt=""
+                            alt="trippybug"
                             src={post?.node?.featuredImage?.node?.sourceUrl}
                             objectFit="cover"
                             layout="fill"

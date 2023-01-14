@@ -81,7 +81,7 @@ export default function Register() {
     <>
       <div className="flex mt-20">
         <Image
-          alt=""
+          alt="hotels in Thailand"
           objectFit="contain"
           layout="fill"
           src="/assets/images/signup-bg.svg"
@@ -155,7 +155,7 @@ export default function Register() {
                       onClick={signInWithFacebook}
                     >
                       <Image
-                        alt=""
+                        alt="cheap flights"
                         src="/assets/images/FacebookIcon.svg"
                         width={"20px"}
                         height={"20px"}
@@ -172,7 +172,7 @@ export default function Register() {
                       onClick={signInWithGoogle}
                     >
                       <Image
-                        alt=""
+                        alt="trippybug"
                         src="/assets/images/GoogleIcon.svg"
                         width={"20px"}
                         height={"20px"}
@@ -201,7 +201,7 @@ export default function Register() {
         </div>
         <div className="bg-orange-400 flex  relative justify-center h-16 w-16 items-center rounded-full">
           <Image
-            alt=""
+            alt="cheap hotels"
             layout="intrinsic"
             objectFit="contain"
             src="/assets/images/bug-icon.png"

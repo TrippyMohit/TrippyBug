@@ -86,7 +86,12 @@ const DestinationCard = ({ featuredImage, title, link }) => {
       <div className="relative overflow-hidden tracking-wider mx-auto flex flex-col items-center h-[350px]  w-[90%]  text-white justify-end rounded-xl ">
         {featuredImage && (
           <div className="absolute w-full h-full z-10 ">
-            <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+            <Image
+              alt={title}
+              src={featuredImage}
+              objectFit="cover"
+              layout="fill"
+            />
           </div>
         )}
         <div className="absolute z-20 w-full h-full mix-blend-darken bg-gradient-to-t from-black via-transparent to-transparent opacity-100"></div>

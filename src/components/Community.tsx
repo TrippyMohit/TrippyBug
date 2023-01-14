@@ -24,7 +24,7 @@ const Community = () => {
         </div>
         <div className="relative sm:w-[0vh] lg:w-[50vh] h-96">
           <Image
-            alt=""
+            alt="trippbug"
             src="/assets/images/travel-bee.gif"
             objectFit="cover"
             layout="fill"

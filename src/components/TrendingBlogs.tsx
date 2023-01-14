@@ -44,7 +44,7 @@ const TrendingBlogs = ({ trendingBlogs }) => {
     <div className="relative lg:pb-10 p-10">
       <div className="w-full z-0 lg:flex hidden h-full">
         <Image
-          alt=""
+          alt="tirppybig"
           src="/assets/images/trending-blog-bg.svg"
           objectFit="cover"
           objectPosition={"0 0"}
@@ -52,9 +52,9 @@ const TrendingBlogs = ({ trendingBlogs }) => {
         />
       </div>
       <div className="flex items-center flex-col">
-        <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+        <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
           Trending
-        </h1>
+        </h2>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
 
@@ -118,7 +118,12 @@ const TrendingBlogCard = ({
       <Link href={link}>
         {featuredImage && (
           <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
-            <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+            <Image
+              alt={postTitle}
+              src={featuredImage}
+              objectFit="cover"
+              layout="fill"
+            />
           </div>
         )}
       </Link>

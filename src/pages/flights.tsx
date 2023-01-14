@@ -44,7 +44,7 @@ const FlightBanner = () => {
         </div> */}
         <div className="py-64 z-0 lg:flex hidden ">
           <Image
-            alt=""
+            alt="cheap flights"
             src="/assets/images/flight-banner.png"
             objectFit="cover"
             layout="fill"
@@ -52,7 +52,7 @@ const FlightBanner = () => {
         </div>
         <div className="flex lg:hidden relative w-100 rounded-tl-[50%] rounded-br-[50%] overflow-hidden">
           <Image
-            alt=""
+            alt="travelocity"
             src="/assets/images/flight-banner.png"
             objectFit="cover"
             height={3000}

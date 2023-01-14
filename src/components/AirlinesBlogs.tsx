@@ -44,7 +44,7 @@ const AirlinesBlogs = ({ airlinesBlogs }) => {
     <div className="relative lg:pb-10 p-10">
       <div className="w-full z-0 lg:flex hidden h-full">
         <Image
-          alt=""
+          alt="cheap flights"
           src="/assets/images/trending-blog-bg.svg"
           objectFit="cover"
           objectPosition={"0 0"}
@@ -118,7 +118,12 @@ const TrendingBlogCard = ({
       <Link href={link}>
         {featuredImage && (
           <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
-            <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+            <Image
+              alt={postTitle}
+              src={featuredImage}
+              objectFit="cover"
+              layout="fill"
+            />
           </div>
         )}
       </Link>

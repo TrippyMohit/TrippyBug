@@ -38,12 +38,12 @@ const TopDestination = ({ topDestinations }) => {
       {/* -----Heading----- */}
       <div className=" gap-10 flex flex-col font-bold lg:items-center items-start">
         <div className="flex flex-col">
-          <h1 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
+          <h2 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
             Top
-          </h1>
-          <h1 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
+          </h2>
+          <h2 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
             Destinations
-          </h1>
+          </h2>
         </div>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
         <p className=" text-xl font-medium text-gray-400 leading-10 container lg:text-center lg:max-w-6xl">
@@ -87,7 +87,7 @@ const DestinationCard = ({ featuredImage, title, slug }) => {
       <div className="relative overflow-hidden tracking-wider mx-auto flex flex-col items-center h-[500px]  w-[90%]  text-white justify-end rounded-xl ">
         <div className="absolute h-full w-full z-10 ">
           <Image
-            alt="featuredImage"
+            alt={title}
             src={featuredImage}
             objectFit="cover"
             layout="fill"

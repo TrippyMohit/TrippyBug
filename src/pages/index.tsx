@@ -24,7 +24,18 @@ import { Button, Modal, ButtonTabSelector } from "../common";
 import { getPostsByCategoryName } from "../services/cms-api";
 import { format } from "date-fns";
 import { TabPanel, useTabs } from "react-headless-tabs";
-
+//sechma data forn SEO
+const StructuredData = ({ data }) => {
+  return (
+    <Head>
+      <script
+        key="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+    </Head>
+  );
+};
 export default function Home({
   airlinesBlogs,
   trendingBlogs,
@@ -35,8 +46,54 @@ export default function Home({
   lookingForInspiration,
   gallery,
 }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    mainEntityOfPage: {
+      "@type": "WebSite",
+      "@id": "https://www.trippybug.com",
+    },
+    headline:
+      "Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals",
+    description:
+      "Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals",
+    image:
+      "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
+    author: {
+      "@type": "Organization",
+      name: "TrippyBug",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
+      },
+    },
+    datePublished: "2023-01-09",
+  };
+
   return (
     <>
+      <Head>
+        <link rel="canonical" href={`https://www.trippybug.com`} />
+        <meta
+          property="og:title"
+          content="Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals"
+        />
+        <meta
+          property="og:description"
+          content="Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals"
+        />
+        <meta
+          property="og:image"
+          content="https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75"
+        />
+        <meta property="og:url" content="https://www.trippybug.com" />
+        <meta property="og:locale" content="en_GB" />
+      </Head>
+      <StructuredData data={structuredData} />
       <HomePageBanner />
       <div className="flex flex-col gap-20 lg:pt-24 ">
         <TrendingBlogs trendingBlogs={trendingBlogs} />
@@ -74,7 +131,7 @@ const HomePageBanner = () => {
                 <div className="w-1/2 flex flex-col">
                   <div className=" h-20 w-20 rounded-full relative border-4 border-white">
                     <Image
-                      alt=""
+                      alt="cheap flights"
                       src="/assets/images/international_flight.png"
                       objectFit="contain"
                       layout="fill"
@@ -90,7 +147,7 @@ const HomePageBanner = () => {
                 <div className="w-1/2">
                   <div className=" h-20 w-20 rounded-full relative border-4 border-white">
                     <Image
-                      alt=""
+                      alt="hotel in Dubai"
                       src="/assets/images/hotelLogo.jpg"
                       objectFit="contain"
                       layout="fill"
@@ -117,7 +174,7 @@ const HomePageBanner = () => {
                 <div className="flex flex-col gap-14 overflow-hidden justify-center items-center">
                   <div className="bg-green-600 w-24 h-24 rounded-full relative border-4 border-white overflow-hidden">
                     <Image
-                      alt=""
+                      alt="cheap flights"
                       src="/assets/images/img-1.jpg"
                       objectFit="cover"
                       layout="fill"
@@ -126,7 +183,7 @@ const HomePageBanner = () => {
 
                   <div className="bg-green-600 w-32 h-32 rounded-full relative border-4 border-white overflow-hidden">
                     <Image
-                      alt=""
+                      alt="hotels in Thailand"
                       src="/assets/images/img-2.jpg"
                       objectFit="cover"
                       layout="fill"
@@ -135,7 +192,7 @@ const HomePageBanner = () => {
 
                   <div className="bg-green-600 w-24 h-24 rounded-full relative border-4 border-white overflow-hidden">
                     <Image
-                      alt=""
+                      alt="cheap hotels"
                       src="/assets/images/img-3.jpg"
                       objectFit="cover"
                       layout="fill"
@@ -144,7 +201,7 @@ const HomePageBanner = () => {
 
                   <div className="bg-green-600 w-16 h-16 rounded-full relative border-4 border-white overflow-hidden">
                     <Image
-                      alt=""
+                      alt="macy's travelocity"
                       src="/assets/images/girl_trip.png"
                       objectFit="cover"
                       layout="fill"
@@ -153,7 +210,7 @@ const HomePageBanner = () => {
                 </div>
               </div>
               <Image
-                alt=""
+                alt="joinhoney"
                 src="/assets/images/img-4.jpg"
                 objectFit="cover"
                 layout="fill"
@@ -162,7 +219,7 @@ const HomePageBanner = () => {
             {/* Mobile */}
             <div className="flex lg:hidden relative w-100">
               <Image
-                alt=""
+                alt="honey extension"
                 src="/assets/images/img-4.jpg"
                 objectFit="cover"
                 height={3000}

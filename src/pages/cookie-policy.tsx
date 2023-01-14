@@ -41,7 +41,7 @@ export default function CookiePolicy() {
     <div className="w-full relative ">
       <div className=" opacity-25 absolute  w-full h-52  top-[20vh] ">
         <Image
-          alt=""
+          alt="trippybug"
           objectFit="contain"
           layout="fill"
           src="/assets/images/vault.png"

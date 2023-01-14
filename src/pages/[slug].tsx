@@ -125,7 +125,7 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
                 <div className="flex flex-col gap-4 z-30">
                   <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                     <Image
-                      alt=""
+                      alt="avatar"
                       src={post?.author?.node?.avatar?.url}
                       objectFit="cover"
                       layout="fill"
@@ -221,7 +221,7 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
               {/* featured Image */}
               <div className="relative w-full h-[400px]">
                 <Image
-                  alt=""
+                  alt={post?.node?.title}
                   src={post?.featuredImage?.node?.sourceUrl}
                   objectFit="cover"
                   layout="fill"

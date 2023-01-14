@@ -97,7 +97,7 @@ export default function UserProfile({
       <div className="relative lg:min-h-[60vh] lg:items-center items-end flex-col flex mb-24">
         <div className=" py-24 z-0 flex ">
           <Image
-            alt=""
+            alt="trippybug"
             src="/assets/images/profile-banner.png"
             objectFit="cover"
             layout="fill"
@@ -202,7 +202,7 @@ const PostCard = ({ post }) => {
           <div className="flex items-center gap-5">
             <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
               <Image
-                alt=""
+                alt="hotels in Dubai"
                 src="/assets/images/share-and-express.png"
                 objectFit="cover"
                 layout="fill"
@@ -234,24 +234,23 @@ const PostCard = ({ post }) => {
           {/* <-------------------GRID----------------------------> */}
           <div className="grid grid-rows-2 grid-flow-col gap-x-2">
             <div className="row-span-2 ...">
-              {" "}
               <img
                 className="object-contain  lg:h-80 lg:w-80 h-40 w-40"
-                alt=""
+                alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="col-span-1 ...">
               <img
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20"
-                alt=""
+                alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="row-span-1 col-span-1 ...">
               <img
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20 ..."
-                alt=""
+                alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
@@ -288,7 +287,7 @@ const CommentCard = ({ comment }) => {
           <div className="flex gap-5">
             <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
               <Image
-                alt=""
+                alt="trippybug"
                 src="/assets/images/share-and-express.png"
                 objectFit="cover"
                 layout="fill"
@@ -335,7 +334,7 @@ const CommentCard = ({ comment }) => {
           <div className="flex gap-8">
             <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
               <Image
-                alt=""
+                alt="cheap flights"
                 src="/assets/images/share-and-express.png"
                 objectFit="cover"
                 layout="fill"

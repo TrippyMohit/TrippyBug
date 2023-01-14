@@ -92,7 +92,7 @@ export default function Login() {
     <>
       <div className="flex mt-20">
         <Image
-          alt=""
+          alt="trippybug"
           objectFit="contain"
           layout="fill"
           src="/assets/images/login-bg.svg"
@@ -169,7 +169,7 @@ export default function Login() {
                       onClick={signInWithFacebook}
                     >
                       <Image
-                        alt=""
+                        alt="trippybug"
                         src="/assets/images/FacebookIcon.svg"
                         width={"20px"}
                         height={"20px"}
@@ -186,7 +186,7 @@ export default function Login() {
                       onClick={signInWithGoogle}
                     >
                       <Image
-                        alt=""
+                        alt="trippybug"
                         src="/assets/images/GoogleIcon.svg"
                         width={"20px"}
                         height={"20px"}

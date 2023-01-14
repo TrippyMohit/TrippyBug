@@ -35,7 +35,7 @@ const HotelBanner = () => {
         <div className=" flex-1 flex flex-col gap-9 z-10 "></div>
         <div className="py-64 z-0 lg:flex hidden">
           <Image
-            alt=""
+            alt=" hotels in Thailand"
             src="/assets/images/hotel-banner.png"
             objectFit="cover"
             layout="fill"
@@ -43,7 +43,7 @@ const HotelBanner = () => {
         </div>
         <div className="flex lg:hidden relative w-100 rounded-tl-[50%] rounded-br-[50%] overflow-hidden">
           <Image
-            alt=""
+            alt="hotels in Dubai"
             src="/assets/images/hotel-banner.png"
             objectFit="cover"
             height={2000}

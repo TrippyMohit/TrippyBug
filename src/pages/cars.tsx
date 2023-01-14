@@ -39,7 +39,7 @@ const CarsBanner = () => {
         </div>
         <div className="py-64 z-0 lg:flex hidden">
           <Image
-            alt=""
+            alt="trippybug"
             src="/assets/images/car-banner.png"
             objectFit="cover"
             layout="fill"
@@ -48,7 +48,7 @@ const CarsBanner = () => {
         </div>
         <div className="flex lg:hidden relative w-100 rounded-tl-[50%] rounded-br-[50%] overflow-hidden">
           <Image
-            alt=""
+            alt="trippybug"
             src="/assets/images/car-banner.png"
             objectFit="cover"
             height={2000}

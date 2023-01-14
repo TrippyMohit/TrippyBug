@@ -34,7 +34,7 @@ export default function Restpassword() {
       <form onSubmit={resetPassword}>
         <div className="flex mt-20 pt-[100px] pb-[290px]">
           <Image
-            alt=""
+            alt="trippybug"
             objectFit="contain"
             layout="fill"
             src="/assets/images/login-bg.svg"

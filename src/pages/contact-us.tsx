@@ -68,7 +68,7 @@ export default function ContactUs() {
     <div className="  w-full overflow-hidden">
       <div className=" absolute w-48 h-48 top-[20vh] right-24 md:flex hidden ">
         <Image
-          alt=""
+          alt="trippybug"
           objectFit="contain"
           layout="fill"
           src="/assets/images/rectangles-rotated.png"
@@ -79,7 +79,7 @@ export default function ContactUs() {
       <div className="absolute w-1/3 h-full  top-[40vh] right-0  overflow-hidden md:flex md:float-right hidden ">
         <div className="relative w-full h-full -right-64">
           <Image
-            alt=""
+            alt="trippybug"
             objectFit="contain"
             layout="fill"
             src="/assets/images/bag-bg.png"

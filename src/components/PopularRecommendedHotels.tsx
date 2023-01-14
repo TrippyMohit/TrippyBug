@@ -98,7 +98,12 @@ const BlogCard = ({ featuredImage, title, author, index, slug }) => {
         )}
       >
         <div className="relative w-[90%] z-10 overflow-hidden  h-[400px] rounded-xl">
-          <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+          <Image
+            alt={title}
+            src={featuredImage}
+            objectFit="cover"
+            layout="fill"
+          />
         </div>
 
         <div className="flex flex-col">

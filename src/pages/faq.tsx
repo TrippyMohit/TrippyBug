@@ -27,7 +27,7 @@ export default function Profile() {
     <>
       <div className="">
         <Image
-          alt=""
+          alt="trippybug"
           objectFit="contain"
           layout="fill"
           src="/assets/images/faq-bg.svg"

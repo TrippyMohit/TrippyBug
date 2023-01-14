@@ -12,7 +12,7 @@ const WhereToStart = () => {
         <div className="relative flex w-full ">
           <div className="flex relative w-full lg:min-h-[500px] min-h-[300px] z-10">
             <Image
-              alt=""
+              alt="trippybug"
               src="/assets/images/where-to-start.png"
               objectFit="contain"
               layout="fill"
@@ -52,7 +52,7 @@ const WhereToStart = () => {
         </div>
       </div>
       <Image
-        alt=""
+        alt="trippybug"
         src="/assets/images/where-to-start-bg.svg"
         objectFit="contain"
         objectPosition={"0 0"}

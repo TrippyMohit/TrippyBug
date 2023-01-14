@@ -22,7 +22,7 @@ export const Footer = () => {
     <div className="relative mt-50 flex flex-col">
       <div className="h-[460px] relative bg-[#003531] -mt-16 ">
         <Image
-          alt=""
+          alt="trippybug"
           src="/assets/images/footer.png"
           layout="fill"
           objectFit="cover"

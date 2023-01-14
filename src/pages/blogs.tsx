@@ -31,7 +31,7 @@ const PostCard = ({ post }) => {
             {post?.node?.author?.node?.avatar?.url && (
               <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
                 <Image
-                  alt=""
+                  alt="avatar"
                   src={post?.node?.author?.node?.avatar?.url}
                   objectFit="cover"
                   layout="fill"
@@ -58,7 +58,7 @@ const PostCard = ({ post }) => {
 
           <div className="relative w-full flex-1 min-h-[200px]">
             <Image
-              alt=""
+              alt={post?.node?.title}
               src={post?.node?.featuredImage?.node?.sourceUrl}
               objectFit="cover"
               layout="fill"

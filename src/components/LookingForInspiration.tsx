@@ -43,12 +43,12 @@ const LookingForInspiration = ({ lookingForInspiration }) => {
     <div className="relative flex w-full flex-col gap-12 container pb-10 ">
       <div className=" gap-10 flex flex-col font-bold lg:items-center items-start">
         <div className="flex flex-col">
-          <h1 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
+          <h2 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
             Looking
-          </h1>
-          <h1 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
+          </h2>
+          <h2 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
             For Inspiration
-          </h1>
+          </h2>
         </div>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
@@ -98,7 +98,12 @@ const BlogCard = ({ featuredImage, title, author, index, slug }) => {
         )}
       >
         <div className="relative w-[90%] z-10 overflow-hidden  h-[400px] rounded-xl">
-          <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+          <Image
+            alt={title}
+            src={featuredImage}
+            objectFit="cover"
+            layout="fill"
+          />
         </div>
 
         <div className="flex flex-col">

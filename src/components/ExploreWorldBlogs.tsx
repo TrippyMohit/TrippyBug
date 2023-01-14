@@ -42,12 +42,12 @@ const ExploreWorldBlogs = ({ exploreTheWorld }) => {
     <div className="relative container  lg:pb-10 p-10">
       <div className=" w-full z-0 lg:flex hidden"></div>
       <div className="flex flex-col items-center">
-        <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold ">
+        <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold ">
           Explore
-        </h1>
-        <h1 className="mb-6 text-black-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold">
+        </h2>
+        <h2 className="mb-6 text-black-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold">
           The World
-        </h1>
+        </h2>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
 
@@ -112,7 +112,12 @@ const ExploreWorldBlogCard = ({
       >
         {featuredImage && (
           <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl">
-            <Image alt="" src={featuredImage} objectFit="cover" layout="fill" />
+            <Image
+              alt={postTitle}
+              src={featuredImage}
+              objectFit="cover"
+              layout="fill"
+            />
           </div>
         )}
 

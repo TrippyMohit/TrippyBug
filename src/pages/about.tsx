@@ -17,7 +17,7 @@ export default function AboutUs() {
       <div className="w-full">
         <div className=" absolute  w-full h-80  top-72 z-10  hidden lg:flex   ">
           <Image
-            alt=""
+            alt="trippybug"
             objectFit="contain"
             layout="fill"
             src="/assets/images/flight.png"
@@ -27,7 +27,7 @@ export default function AboutUs() {
         <div className="flex gap-10  flex-col">
           <div className="relative top-0 -z-50 h-96">
             <Image
-              alt=""
+              alt="trippybug"
               objectFit="cover"
               layout="fill"
               src="/assets/images/about-bg.png"
@@ -95,7 +95,7 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
           <div className="flex ">
             <div className="absolute w-full z-10 mb-24">
               <Image
-                alt=""
+                alt="trippybug"
                 width={500}
                 height={80}
                 layout="responsive"
