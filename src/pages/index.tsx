@@ -54,9 +54,9 @@ export default function Home({
       "@id": "https://www.trippybug.com",
     },
     headline:
-      "Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals",
+      "Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts",
     description:
-      "Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals",
+      "Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts",
     image:
       "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
     author: {
@@ -80,11 +80,11 @@ export default function Home({
         <link rel="canonical" href={`https://www.trippybug.com`} />
         <meta
           property="og:title"
-          content=" Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world."
+          content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
         />
         <meta
           property="og:description"
-          content=" Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world."
+          content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
         />
         <meta
           property="og:image"

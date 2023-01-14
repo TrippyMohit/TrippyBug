@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
         {!pageProps.noMeta && (
           <meta
             name="description"
-            content="Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals"
+            content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
           />
         )}
         <meta

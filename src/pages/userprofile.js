@@ -234,21 +234,21 @@ const PostCard = ({ post }) => {
           {/* <-------------------GRID----------------------------> */}
           <div className="grid grid-rows-2 grid-flow-col gap-x-2">
             <div className="row-span-2 ...">
-              <img
+              <Image
                 className="object-contain  lg:h-80 lg:w-80 h-40 w-40"
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="col-span-1 ...">
-              <img
+              <Image
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20"
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="row-span-1 col-span-1 ...">
-              <img
+              <Image
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20 ..."
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
