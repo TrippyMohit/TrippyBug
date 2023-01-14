@@ -80,11 +80,11 @@ export default function Home({
         <link rel="canonical" href={`https://www.trippybug.com`} />
         <meta
           property="og:title"
-          content="Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals"
+          content=" Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world."
         />
         <meta
           property="og:description"
-          content="Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world. We also provide information through up to date blogs and articles about places that maybe in your bucket list. If you are planning a vacation, remember Trippybug for safe, hassle free and transparent deals"
+          content=" Trippybug provides you the best deals on cheap flights and hotels to your dream destination all across the world."
         />
         <meta
           property="og:image"

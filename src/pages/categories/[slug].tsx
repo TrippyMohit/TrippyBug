@@ -91,69 +91,73 @@ export default function Categories({ posts, slug }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {posts?.map((post) => (
               <Link href={`/${post?.node?.slug}`} key={post?.node?.slug}>
-              <div className="flex flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-4 border border-gray-200 text-left">
-                <div className="flex justify-between w-full">
-                  <div className="flex gap-5">
-                    {post?.node?.author?.node?.avatar?.url && (
-                      <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
-                        <Image
-                          alt=""
-                          src={post?.node?.author?.node?.avatar?.url}
-                          objectFit="cover"
-                          layout="fill"
-                        />
-                      </div>
-                    )}
-                    <div className="flex flex-col justify-center ">
-                      <div className="font-semibold text-lg text-gray-900">
-                        {post?.node?.author?.node?.name}
-                      </div>
-                      <div className="font-normal text-sm text-gray-400">
-                        {formatDistance(new Date(post?.node?.date), new Date(), {
-                          addSuffix: true,
-                        })}
+                <div className="flex flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-4 border border-gray-200 text-left">
+                  <div className="flex justify-between w-full">
+                    <div className="flex gap-5">
+                      {post?.node?.author?.node?.avatar?.url && (
+                        <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
+                          <Image
+                            alt="avatar"
+                            src={post?.node?.author?.node?.avatar?.url}
+                            objectFit="cover"
+                            layout="fill"
+                          />
+                        </div>
+                      )}
+                      <div className="flex flex-col justify-center ">
+                        <div className="font-semibold text-lg text-gray-900">
+                          {post?.node?.author?.node?.name}
+                        </div>
+                        <div className="font-normal text-sm text-gray-400">
+                          {formatDistance(
+                            new Date(post?.node?.date),
+                            new Date(),
+                            {
+                              addSuffix: true,
+                            }
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-        
-                <div className="flex flex-col gap-2 tracking-wider  flex-1 justify-between">
-                  <div className="font-semibold text-2xl text-gray-900 ">
-                    {post?.node?.title}
-                  </div>
-        
-                  <div className="relative w-full flex-1 min-h-[200px]">
-                    <Image
-                      alt=""
-                      src={post?.node?.featuredImage?.node?.sourceUrl}
-                      objectFit="cover"
-                      layout="fill"
+
+                  <div className="flex flex-col gap-2 tracking-wider  flex-1 justify-between">
+                    <div className="font-semibold text-2xl text-gray-900 ">
+                      {post?.node?.title}
+                    </div>
+
+                    <div className="relative w-full flex-1 min-h-[200px]">
+                      <Image
+                        alt={post?.node?.title}
+                        src={post?.node?.featuredImage?.node?.sourceUrl}
+                        objectFit="cover"
+                        layout="fill"
+                      />
+                    </div>
+
+                    <div
+                      className="font-normal text-base text-gray-500"
+                      dangerouslySetInnerHTML={{ __html: post?.node?.excerpt }}
                     />
-                  </div>
-        
-                  <div
-                    className="font-normal text-base text-gray-500"
-                    dangerouslySetInnerHTML={{ __html: post?.node?.excerpt }}
-                  />
-        
-                  <div className="flex gap-7 items-center pt-4">
-                    {/* <div className="flex gap-2 ">
+
+                    <div className="flex gap-7 items-center pt-4">
+                      {/* <div className="flex gap-2 ">
                       <div className="w-6 h-6 text-gray-400">{LikeIcon}</div>
                       {0}
                     </div> */}
-        
-                    <div className="flex gap-2 ">
-                      <div className="w-6 h-6 ">{CommentIcon}</div>
-                      <div>{post?.node?.comments?.nodes?.length}</div>
-                    </div>
-                    {/* <div className="flex gap-2 ">
+
+                      <div className="flex gap-2 ">
+                        <div className="w-6 h-6 ">{CommentIcon}</div>
+                        <div>{post?.node?.comments?.nodes?.length}</div>
+                      </div>
+                      {/* <div className="flex gap-2 ">
                       <div className="w-4 h-4 ">{SaveIcon}</div>
                       <div>{0}</div>
                     </div> */}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
             ))}
           </div>
         </div>

@@ -21,16 +21,20 @@ import { useSnackbar } from "notistack";
 import { useSession } from "next-auth/react";
 import classNames from "classnames";
 
-export default function CommunityPostDetail({
-  post,
-  comments
-}) {
+export default function CommunityPostDetail({ post, comments }) {
   const router = useRouter();
   const id = router?.query?.id;
-  const { handleSubmit:handleSubmitComment, register:registerComment,reset:resetCommentForm } = useForm();
+  const {
+    handleSubmit: handleSubmitComment,
+    register: registerComment,
+    reset: resetCommentForm,
+  } = useForm();
 
-  const { handleSubmit: handleSubmitReply, register: registerReply, reset:resetReplyForm } =
-    useForm();
+  const {
+    handleSubmit: handleSubmitReply,
+    register: registerReply,
+    reset: resetReplyForm,
+  } = useForm();
   const { enqueueSnackbar } = useSnackbar();
   const [viewReplies, setViewReplies] = useState(null);
   const [reply, setReply] = useState(null);
@@ -39,7 +43,7 @@ export default function CommunityPostDetail({
   const [loadingReplies, setLoadingReplies] = useState(false);
 
   const commentRef = useRef(null);
-  
+
   useEffect(() => {
     setLoadingReplies(true);
     axios
@@ -59,124 +63,117 @@ export default function CommunityPostDetail({
   const likeCount = post?.likedBy?.length;
   const favoriteCount = post?.favoritedBy?.length;
 
-  const likePost = 
-    (post) => {
-      axios
-        .post(`/api/posts/${post?.id}/likes`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
+  const likePost = (post) => {
+    axios
+      .post(`/api/posts/${post?.id}/likes`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        router.replace(router.asPath);
+        enqueueSnackbar("Liked", {
+          variant: "success",
+        });
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
         })
-        .then(() => {
-          router.replace(router.asPath);
-          enqueueSnackbar("Liked", {
-            variant: "success",
-          });
-          
-        })
-        .catch((error) =>
-          enqueueSnackbar(error.response.data.message, {
-            variant: "error",
-          })
-        );
-    }
+      );
+  };
 
-  const favoritePost =
-    (post) => {
-      axios
-        .post(`/api/posts/${post?.id}/favorites`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
+  const favoritePost = (post) => {
+    axios
+      .post(`/api/posts/${post?.id}/favorites`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        router.replace(router.asPath);
+        enqueueSnackbar("Added to Favorites", {
+          variant: "success",
+        });
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
         })
-        .then(() => {
-          router.replace(router.asPath);
-          enqueueSnackbar("Added to Favorites", {
-            variant: "success",
-          });
-        })
-        .catch((error) =>
-          enqueueSnackbar(error.response.data.message, {
-            variant: "error",
-          })
-        );
-    }
+      );
+  };
 
-  const unlikePost = 
-    (post) => {
-      axios
-        .delete(`/api/posts/${post?.id}/likes`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
+  const unlikePost = (post) => {
+    axios
+      .delete(`/api/posts/${post?.id}/likes`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        router.replace(router.asPath);
+        enqueueSnackbar("Unliked", {
+          variant: "success",
+        });
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
         })
-        .then(() => {
-          router.replace(router.asPath);
-          enqueueSnackbar("Unliked", {
-            variant: "success",
-          });
-        })
-        .catch((error) =>
-          enqueueSnackbar(error.response.data.message, {
-            variant: "error",
-          })
-        );
-    }
-  
-  const unfavoritePost = 
-    (post) => {
-      axios
-        .delete(`/api/posts/${post?.id}/favorites`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then(() => {
-          router.replace(router.asPath);
-          enqueueSnackbar("Removed From Favorites", {
-            variant: "success",
-          });
-        })
-        .catch((error) =>
-          enqueueSnackbar(error.response.data.message, {
-            variant: "error",
-          })
-        );
-    }
-   
-    const handleCommentPost=(commentFormValues)=> {
-      const body = {
-        userId: currentUser?.user?.["userId"],
-        ...commentFormValues,
-      };
-  
-      axios
-        .post(
-          `/api/posts/${id}/comments`,
-          { ...body },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(() =>
-          {
-            resetCommentForm()
-            router.replace(router.asPath);
-            enqueueSnackbar("Your comment has been sucessfully submitted.", {
-            variant: "success",
-          })}
-        )
-        .catch((error) =>
-          enqueueSnackbar(error.response.data.message, {
-            variant: "error",
-          })
-        );
-    }
+      );
+  };
 
-  const handleCommentReply=(values)=>{
-   
+  const unfavoritePost = (post) => {
+    axios
+      .delete(`/api/posts/${post?.id}/favorites`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        router.replace(router.asPath);
+        enqueueSnackbar("Removed From Favorites", {
+          variant: "success",
+        });
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
+        })
+      );
+  };
+
+  const handleCommentPost = (commentFormValues) => {
+    const body = {
+      userId: currentUser?.user?.["userId"],
+      ...commentFormValues,
+    };
+
+    axios
+      .post(
+        `/api/posts/${id}/comments`,
+        { ...body },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        resetCommentForm();
+        router.replace(router.asPath);
+        enqueueSnackbar("Your comment has been sucessfully submitted.", {
+          variant: "success",
+        });
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
+        })
+      );
+  };
+
+  const handleCommentReply = (values) => {
     const body = {
       userId: currentUser?.user?.["userId"],
       parentId: reply,
@@ -192,24 +189,22 @@ export default function CommunityPostDetail({
           },
         }
       )
-      .then(() =>
-       { 
-        
+      .then(() => {
         router.replace(router.asPath);
-        resetReplyForm()
-        setReply(false)
-        setViewReplies(reply)
-      
+        resetReplyForm();
+        setReply(false);
+        setViewReplies(reply);
+
         enqueueSnackbar("Your reply have been submitted successfuly", {
           variant: "success",
-        })}
-      )
+        });
+      })
       .catch((error) =>
         enqueueSnackbar(error.response.data.message, {
           variant: "error",
         })
       );
-  }
+  };
 
   return (
     <div className="flex flex-col gap-10 lg:gap-16 container px-10 pt-10">
@@ -230,7 +225,7 @@ export default function CommunityPostDetail({
                   {post?.author?.image && (
                     <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                       <Image
-                        alt=""
+                        alt="trippybug"
                         src={post?.author?.image}
                         objectFit="cover"
                         layout="fill"
@@ -260,7 +255,7 @@ export default function CommunityPostDetail({
             {/* Title and Location */}
             <div className="flex flex-col gap-2 tracking-wider">
               <div className="font-semibold text-2xl text-gray-900">
-               {post?.title}
+                {post?.title}
               </div>
               {post?.location && (
                 <div className="font-normal text-sm text-gray-400 flex gap-2">
@@ -274,7 +269,7 @@ export default function CommunityPostDetail({
               {post?.featuredImage && (
                 <div className="relative w-full h-[400px]">
                   <Image
-                    alt=""
+                    alt={post?.title}
                     src={post?.featuredImage}
                     objectFit="cover"
                     layout="fill"
@@ -344,7 +339,7 @@ export default function CommunityPostDetail({
                     <div>
                       <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                         <Image
-                          alt=""
+                          alt="comment"
                           src={comment?.author?.image}
                           objectFit="cover"
                           layout="fill"
@@ -404,7 +399,7 @@ export default function CommunityPostDetail({
                             <div>
                               <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                                 <Image
-                                  alt=""
+                                  alt="trippybug user"
                                   src={currentUser?.user?.image}
                                   objectFit="cover"
                                   layout="fill"
@@ -449,7 +444,7 @@ export default function CommunityPostDetail({
                                 <div>
                                   <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                                     <Image
-                                      alt=""
+                                      alt="trippybug"
                                       src={reply?.author?.image}
                                       objectFit="cover"
                                       layout="fill"
@@ -494,16 +489,17 @@ export default function CommunityPostDetail({
 
           {/* Leave a Comment */}
           <div className="flex gap-10 w-full justify-between">
-            <div>{currentUser?.user?.image && (
-              <div className="relative overflow-hidden rounded-full w-16 h-16 ">
-                <Image
-                  alt=""
-                  src={currentUser?.user?.image}
-                  objectFit="cover"
-                  layout="fill"
-                />
-              </div>
-            )}
+            <div>
+              {currentUser?.user?.image && (
+                <div className="relative overflow-hidden rounded-full w-16 h-16 ">
+                  <Image
+                    alt="trippybug"
+                    src={currentUser?.user?.image}
+                    objectFit="cover"
+                    layout="fill"
+                  />
+                </div>
+              )}
             </div>
 
             <form
@@ -525,7 +521,6 @@ export default function CommunityPostDetail({
                 </button>
               </div>
             </form>
-
           </div>
         </div>
       </div>

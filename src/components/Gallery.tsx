@@ -67,9 +67,9 @@ const Gallery = ({ posts }) => {
     <div className="relative p-10 container">
       {/* Mobile */}
       <div className="relative flex lg:hidden flex-col gap-6">
-        <h1 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+        <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
           Gallery
-        </h1>
+        </h2>
         <div className=" relative grid grid-cols-12 gap-4">
           {posts[0]?.node?.featuredImage?.node?.sourceUrl && (
             <div className="col-span-3  w-full relative min-h-[260px] rounded-md overflow-hidden ">
@@ -86,7 +86,7 @@ const Gallery = ({ posts }) => {
             <div className="col-span-9  w-full relative min-h-[260px] rounded-md overflow-hidden">
               <Image
                 onClick={() => setPhotoIndex(1)}
-                alt=""
+                alt="trippybug"
                 src={posts[1]?.node?.featuredImage?.node?.sourceUrl}
                 objectFit="cover"
                 layout="fill"
@@ -141,9 +141,9 @@ const Gallery = ({ posts }) => {
       </div>
       {/* Large Device */}
       <div className="flex flex-col items-center">
-        <h1 className=" pb-4 font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+        <h2 className=" pb-4 font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
           Gallery
-        </h1>
+        </h2>
         <div className="mb-6 w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
 
@@ -292,9 +292,9 @@ const Gallery = ({ posts }) => {
                 <div className=" relative z-50 flex flex-col items-center  text-center w-full">
                   {currentPost && (
                     <div className="max-w-6xl flex flex-col gap-4">
-                      <h1 className=" text-gray-900 text-center text-2xl lg:text-4xl font-bold ">
+                      <h2 className=" text-gray-900 text-center text-2xl lg:text-4xl font-bold ">
                         {currentPost?.node?.title}
-                      </h1>
+                      </h2>
                       <div
                         className="tracking-wider lg:text-xl text-base text-gray-400"
                         dangerouslySetInnerHTML={{

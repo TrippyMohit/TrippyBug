@@ -14,9 +14,9 @@ const Editor = dynamic<EditorProps>(
   { ssr: false }
 );
 
-import { EditorState } from 'draft-js';
-import { convertToRaw } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
+import { EditorState } from "draft-js";
+import { convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
 import { getCommunityPostTypes } from "../../../services/api";
 import { useSession } from "next-auth/react";
 import { useSnackbar } from "notistack";
@@ -28,31 +28,34 @@ export default function NewPost({ postTypes }) {
     register,
     formState: { isSubmitting: isPosting },
   } = useForm();
-  const { enqueueSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar();
   const { data: currentUser } = useSession();
   const router = useRouter();
 
-
   async function onSubmit(values) {
-    let image=null
-    if(file)
-    {
-      const putUrl=await axios.post("/api/upload/image",
-    { "filename": file[0].name },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      }
+    let image = null;
+    if (file) {
+      const putUrl = await axios.post(
+        "/api/upload/image",
+        { filename: file[0].name },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      image = await fetch(putUrl?.data?.putUrl, {
+        method: "put",
+        headers: { "Content-Type": "application/octet-stream" },
+        body: file[0],
+      });
     }
-  )
-  image=await fetch(putUrl?.data?.putUrl, { method: 'put', headers: { "Content-Type": "application/octet-stream" }, body: file[0] })
-}
     const body = {
       userId: currentUser?.user["userId"],
       content: content,
-      featuredImage:image?.url?.split('?')[0],
-      ...values
-    }
+      featuredImage: image?.url?.split("?")[0],
+      ...values,
+    };
     axios
       .post(
         "/api/posts",
@@ -65,23 +68,22 @@ export default function NewPost({ postTypes }) {
       )
       .then(() => {
         enqueueSnackbar("Your post has been submitted successfully", {
-          variant: 'success'
-        }
-
-        )
-        router.replace('/community/posts')
-      }
-      )
-      .catch((error) => enqueueSnackbar(error.response.data.message, {
-        variant: 'error'
-      }));
+          variant: "success",
+        });
+        router.replace("/community/posts");
+      })
+      .catch((error) =>
+        enqueueSnackbar(error.response.data.message, {
+          variant: "error",
+        })
+      );
   }
 
-  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const onEditorStateChange = (editorState) => {
-    setEditorState(editorState)
-  }
+    setEditorState(editorState);
+  };
 
   const content = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
@@ -132,9 +134,11 @@ export default function NewPost({ postTypes }) {
               {...register("postTypeId")}
             >
               <option value="">Add Post Type</option>
-              {postTypes.map((postType) =>
-                <option value={postType.id} key={postType.id}>{postType.postTypeName}</option>
-              )}
+              {postTypes.map((postType) => (
+                <option value={postType.id} key={postType.id}>
+                  {postType.postTypeName}
+                </option>
+              ))}
             </select>
           </div>
           <div className="font-normal text-sm text-gray-400 flex max-w-sm items-center gap-2">
@@ -158,12 +162,11 @@ export default function NewPost({ postTypes }) {
                   <div className="relative h-full w-full overflow-hidden object-cover">
                     <Image
                       src={preview}
-                      alt=""
+                      alt="trippybug"
                       layout="fill"
                       objectFit="cover"
                       objectPosition={"50% 50%"}
                     />
-
                   </div>
                 </>
               ) : (
@@ -172,21 +175,22 @@ export default function NewPost({ postTypes }) {
                   <p>Featured Image</p>
                 </>
               )}
-
             </div>
-            {file &&
-
-              <div className="flex  justify-center items-center" >
+            {file && (
+              <div className="flex  justify-center items-center">
                 <div className="flex">
-                  <Button onClick={() => setFile(null)} variant="secondary">Remove Featured Image</Button>
+                  <Button onClick={() => setFile(null)} variant="secondary">
+                    Remove Featured Image
+                  </Button>
                 </div>
               </div>
-
-            }
+            )}
           </div>
           <div className=" w-full  border px-2 min-h-96">
-            <Editor placeholder="Click here to add post content" onEditorStateChange={onEditorStateChange} editorState={editorState}
-
+            <Editor
+              placeholder="Click here to add post content"
+              onEditorStateChange={onEditorStateChange}
+              editorState={editorState}
               toolbar={{
                 inline: { inDropdown: true },
                 list: { inDropdown: true },
@@ -208,11 +212,11 @@ export default function NewPost({ postTypes }) {
   );
 }
 
-export async function getServerSideProps({ }) {
+export async function getServerSideProps({}) {
   const postTypes = await getCommunityPostTypes();
   return {
     props: {
       postTypes: postTypes?.postTypes,
-    }
+    },
   };
 }

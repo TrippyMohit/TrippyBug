@@ -12,11 +12,9 @@ import {
   SearchIcon,
   PostIcon,
 } from "../../../icons";
-import {
-  getAllCommunityPosts
-} from "../../../services/api";
+import { getAllCommunityPosts } from "../../../services/api";
 export default function CommunityPosts({ posts }) {
-  const {data:currentUser}=useSession()
+  const { data: currentUser } = useSession();
 
   return (
     <div className="flex flex-col gap-10 lg:gap-16 ">
@@ -39,7 +37,7 @@ export default function CommunityPosts({ posts }) {
                             {post?.author?.image ? (
                               <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                                 <Image
-                                  alt=""
+                                  alt="trippybug"
                                   src={post?.author?.image}
                                   objectFit="cover"
                                   layout="fill"
@@ -48,7 +46,7 @@ export default function CommunityPosts({ posts }) {
                             ) : (
                               <div className="relative overflow-hidden rounded-full w-16 h-16 ">
                                 <Image
-                                  alt=""
+                                  alt="trippybug"
                                   src={"/assets/images/logo.png"}
                                   objectFit="contain"
                                   layout="fill"
@@ -82,12 +80,14 @@ export default function CommunityPosts({ posts }) {
                         <div className="font-semibold text-2xl text-gray-900">
                           {post.title}
                         </div>
-                        {post?.location &&<div className="font-normal text-sm text-gray-400 flex gap-2">
-                          <div className="w-5 h-5 text-gray-400">
-                            {MapPinIcon}
+                        {post?.location && (
+                          <div className="font-normal text-sm text-gray-400 flex gap-2">
+                            <div className="w-5 h-5 text-gray-400">
+                              {MapPinIcon}
+                            </div>
+                            {post?.location}
                           </div>
-                          {post?.location}
-                        </div>}
+                        )}
                       </div>
                       {/*  excerpt and featured image*/}
 
@@ -115,28 +115,33 @@ export default function CommunityPosts({ posts }) {
                       {/* Like Comment */}
                       <div className="flex gap-7 items-center">
                         <div className="flex gap-2 ">
-                        <div className={classNames("w-6 h-6 ",{
-                          "text-orange-500":post?.likedBy?.map((user)=>user?.id== currentUser?.user?.["userId"]),
-                          "text-gray-600":!post?.likedBy?.map((user)=>user?.id== currentUser?.user?.["userId"])
-                        })}>{LikeIcon}
-                  </div>
-                  <div>
-                  {post?.likedBy?.length || '0'}
-                  </div>
+                          <div
+                            className={classNames("w-6 h-6 ", {
+                              "text-orange-500": post?.likedBy?.map(
+                                (user) =>
+                                  user?.id == currentUser?.user?.["userId"]
+                              ),
+                              "text-gray-600": !post?.likedBy?.map(
+                                (user) =>
+                                  user?.id == currentUser?.user?.["userId"]
+                              ),
+                            })}
+                          >
+                            {LikeIcon}
+                          </div>
+                          <div>{post?.likedBy?.length || "0"}</div>
                         </div>
                         <div className="flex gap-2   items-center">
-                        <div className="w-6 h-6 text-gray-600">{CommentIcon}
-                  </div>
-                  <div>
-                  {post?.commentLength || '0'}
-                  </div>
+                          <div className="w-6 h-6 text-gray-600">
+                            {CommentIcon}
+                          </div>
+                          <div>{post?.commentLength || "0"}</div>
                         </div>
                         <div className="flex gap-2 items-center">
-                        <div className="w-4 h-4 text-gray-600">{SaveIcon}
-                  </div>
-                  <div>
-                  {post?.favoritedBy?.length || '0'}
-                  </div>
+                          <div className="w-4 h-4 text-gray-600">
+                            {SaveIcon}
+                          </div>
+                          <div>{post?.favoritedBy?.length || "0"}</div>
                         </div>
                       </div>
                     </div>
@@ -202,7 +207,7 @@ const CommunityBanner = () => {
       <div className="absolute w-full h-full left-0 top-0 z-10 bg-gradient-to-r from-[#958677] via-[#958677] to-transparent"></div>
       <div className="z-0 flex">
         <Image
-          alt=""
+          alt="trippybug"
           src="/assets/images/hotel-banner.png"
           objectFit="cover"
           objectPosition={"100% 100%"}

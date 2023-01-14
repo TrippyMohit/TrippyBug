@@ -305,9 +305,9 @@ export default function Gallery({ posts }) {
                 <div className=" relative z-50 flex flex-col items-center  text-center w-full">
                   {currentPost && (
                     <div className="max-w-6xl flex flex-col gap-4">
-                      <h1 className=" text-gray-900 text-center text-2xl lg:text-4xl font-bold ">
+                      <h2 className=" text-gray-900 text-center text-2xl lg:text-4xl font-bold ">
                         {currentPost?.node?.title}
-                      </h1>
+                      </h2>
                       <div
                         className="tracking-wider lg:text-xl text-base text-gray-400"
                         dangerouslySetInnerHTML={{
