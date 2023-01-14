@@ -97,7 +97,6 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
     datePublished: post?.date,
   };
 
-  console.log(post);
   return (
     <>
       <Head>

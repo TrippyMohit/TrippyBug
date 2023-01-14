@@ -66,6 +66,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="alternate" href="https://www.trippybug.com/" hrefLang="en" />
         <meta charSet="UTF-8" />
         <meta
+          name="p:domain_verify"
+          content="f0bb3a2c41f6936741568f1831a7ac03"
+        />
+
+        <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=0"
         />
