@@ -115,12 +115,8 @@ export const AppHeader = () => {
     setIsAvatarMenuOpen(false);
   }, [route.asPath]);
 
-  console.log(user);
-  console.log(user?.photoURL);
-
   return (
     <>
-      {user?.photoURL}
       <nav
         className={classNames(
           "z-50 sticky flex justify-between lg:py-4 gap-20 lg:px-28 items-center h-24 overflow-visible",
@@ -242,7 +238,7 @@ export const AppHeader = () => {
                         <RxAvatar className="h-[50px] w-[50px]" />
                       ) : (
                         <Image
-                          src={user.photoURL}
+                          src={user?.photoURL}
                           layout="fill"
                           objectFit="cover"
                           className="order-2 border-white rounded-full"
@@ -263,11 +259,11 @@ export const AppHeader = () => {
                     <div className="bg-white shadow-lg border border-gray-200 flex w-96 flex-col gap-4 items-center overflow-hidden justify-start p-6 rounded-lg">
                       <div className="relative">
                         <div className=" relative w-24 h-24  overflow-hidden">
-                          {!user.photoURL ? (
+                          {!user?.photoURL ? (
                             <RxAvatar className="h-[85px] w-[85px]" />
                           ) : (
                             <Image
-                              src={user.photoURL}
+                              src={user?.photoURL}
                               layout="fill"
                               objectFit="cover"
                               className="order-2 border-white rounded-full"
@@ -276,8 +272,8 @@ export const AppHeader = () => {
                         </div>
                       </div>
                       <div className="flex flex-col ">
-                        <div className="font-semibold">{user.displayName}</div>
-                        <div className="font-normal">{user.email}</div>
+                        <div className="font-semibold">{user?.displayName}</div>
+                        <div className="font-normal">{user?.email}</div>
                       </div>
 
                       <div className="flex items-start flex-col gap-4 w-full justify-center font-normal">

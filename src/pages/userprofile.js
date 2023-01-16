@@ -31,6 +31,7 @@ import classNames from "classnames";
 import { useEffect } from "react";
 import { setTokenSourceMapRange } from "typescript";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { set } from "lodash";
 export default function UserProfile({
   yourPosts,
   likedPosts,
@@ -38,6 +39,7 @@ export default function UserProfile({
   savedPosts,
 }) {
   const [is, setIsOpen] = useState(false);
+  const [userImage, setUserImage] = useState("");
   const [selectedTab, setSelectedTab] = useTabs([
     "your-posts",
     "liked",
@@ -62,8 +64,9 @@ export default function UserProfile({
   function handle4(e) {
     setSelectedTab("setting"), setIsOpen(!is);
   }
-
-  console.log(user);
+  useEffect(() => {
+    setUserImage(user?.photoURL);
+  }, []);
 
   return (
     <>
@@ -84,7 +87,7 @@ export default function UserProfile({
                 <RxAvatar className="h-[85px] w-[85px]" />
               ) : (
                 <Image
-                  src={user?.photoURL}
+                  src={userImage}
                   layout="fill"
                   objectFit="cover"
                   className="order-2 border-white rounded-full"
