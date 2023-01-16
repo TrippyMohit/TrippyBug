@@ -39,7 +39,6 @@ export default function UserProfile({
   savedPosts,
 }) {
   const [is, setIsOpen] = useState(false);
-  const [userImage, setUserImage] = useState("");
   const [selectedTab, setSelectedTab] = useTabs([
     "your-posts",
     "liked",
@@ -64,12 +63,10 @@ export default function UserProfile({
   function handle4(e) {
     setSelectedTab("setting"), setIsOpen(!is);
   }
-  useEffect(() => {
-    setUserImage(user?.photoURL);
-  }, []);
-
+  console.log(user);
   return (
     <>
+      <p> {user?.photoURL}</p>
       <div className="relative lg:min-h-[60vh] lg:items-center items-end flex-col flex mb-24">
         <div className=" py-24 z-0 flex ">
           <Image
@@ -87,7 +84,7 @@ export default function UserProfile({
                 <RxAvatar className="h-[85px] w-[85px]" />
               ) : (
                 <Image
-                  src={userImage}
+                  src={user?.photoURL}
                   layout="fill"
                   objectFit="cover"
                   className="order-2 border-white rounded-full"
