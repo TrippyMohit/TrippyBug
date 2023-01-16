@@ -115,8 +115,12 @@ export const AppHeader = () => {
     setIsAvatarMenuOpen(false);
   }, [route.asPath]);
 
+  console.log(user);
+  console.log(user?.photoURL);
+
   return (
     <>
+      {user?.photoURL}
       <nav
         className={classNames(
           "z-50 sticky flex justify-between lg:py-4 gap-20 lg:px-28 items-center h-24 overflow-visible",
