@@ -66,7 +66,6 @@ export default function UserProfile({
   console.log(user);
   return (
     <>
-      <p> {user?.photoURL}</p>
       <div className="relative lg:min-h-[60vh] lg:items-center items-end flex-col flex mb-24">
         <div className=" py-24 z-0 flex ">
           <Image
