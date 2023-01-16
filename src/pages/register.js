@@ -7,47 +7,59 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
-
 import { useRouter } from "next/router";
 import app from "../../firebase";
-import { useSelector, useDispatch } from "react-redux";
-import { userLoggedIn, userLoggedOut } from "../../slices/authenticationSlice";
-import { userInfo } from "../../slices/userInfoSlice";
+import { auth } from "../../firebase";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpIcon } from "../icons";
+import { toast } from "react-toastify";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { async } from "@firebase/util";
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 export default function Register() {
-  const [user, setUser] = useState({});
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [userEmail, setUserEmail] = useState("");
-  const [userName, setUserName] = useState("");
+  const [state, setState] = useState(initialState);
   const [errorState, setErrorState] = useState(false);
   const [error, setError] = useState("");
-  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
-  const dispatch = useDispatch();
-  //sign up
-  const signUp = (e) => {
+
+  const { firstName, lastName, email, password, confirmPassword } = state;
+  //on change
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  //signUp
+  const signUp = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setEmail(user.email);
-        setUserName(email.slice(0, email.indexOf("@")));
-        dispatch(userLoggedIn());
-        dispatch(userInfo({ email }));
-        router.push("/");
-      })
-      .catch((error) => {
-        setErrorState(true);
-        if ((error.code = "auth/email-already-in-use")) {
-          setError("user already exist with this email id");
-        }
-      });
+    if (password !== confirmPassword) {
+      return toast.error("Password don't match");
+    } else if (firstName && lastName && email && password && confirmPassword) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+          updateProfile(auth.currentUser, {
+            displayName: `${firstName} ${lastName}`,
+          });
+          router.push("/");
+        })
+        .catch((error) => {
+          if ((error.code = "auth/email-already-in-use")) {
+            toast.error("user already exist with this email account");
+          }
+        });
+    } else {
+      return toast.error("All fields are mandatory to fill");
+    }
   };
 
   // sign in with google
@@ -55,7 +67,6 @@ export default function Register() {
     signInWithPopup(auth, provider)
       .then((result) => {
         router.push("/");
-        dispatch(userLoggedIn());
       })
       .catch((error) => {
         alert(error.message);
@@ -68,9 +79,6 @@ export default function Register() {
     signInWithPopup(auth, facebokoProvider)
       .then((result) => {
         router.push("/");
-        setUserName(result.user.displayName);
-        setUserEmail(result.user.email);
-        dispatch(userLoggedIn());
       })
       .catch((err) => {
         console.log(err.message);
@@ -97,17 +105,50 @@ export default function Register() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 ">
+                  <div className="flex gap-4">
+                    <div className="flex flex-col gap-1.5 w-full">
+                      <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
+                        First Name
+                      </label>
+                      <input
+                        className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                        required
+                        type="text"
+                        placeholder=" First name"
+                        name="firstName"
+                        value={firstName}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1.5 w-full">
+                      <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
+                        Last Name
+                      </label>
+                      <input
+                        className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                        autocomplete="off"
+                        required
+                        type="text"
+                        placeholder="Last name"
+                        name="lastName"
+                        value={lastName}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-1.5">
                     <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
                       Email
                     </label>
                     <input
                       className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                      autocomplete="off"
                       required
                       type="email"
-                      placeholder="Enter your email"
-                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Email"
+                      name="email"
                       value={email}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
@@ -115,12 +156,29 @@ export default function Register() {
                       Password
                     </label>
                     <input
+                      autocomplete="off"
                       type="password"
                       className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
                       required
                       placeholder="Enter your Password"
-                      onChange={(e) => setPassword(e.target.value)}
+                      name="password"
                       value={password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className=" text-gray-500 font-semibold text-sm uppercase  tracking-[2.78px] ">
+                      Confirm Password
+                    </label>
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
+                      required
+                      placeholder=" Confirm Password"
+                      name="confirmPassword"
+                      value={confirmPassword}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -142,6 +200,7 @@ export default function Register() {
                 )}
               </div>
             </form>
+
             <div>
               <p className="font-medium text-sm text-[#9A9A9A] text-center ">
                 --- Or login with ---

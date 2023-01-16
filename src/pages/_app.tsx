@@ -19,7 +19,8 @@ import {
   WhatsappIcon,
   YouTubeIcon,
 } from "../icons";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
   const hideFooter =
@@ -101,6 +102,7 @@ function MyApp({ Component, pageProps }) {
           {pageProps.title || "TrippyBug - Book cheap flights & hotels"}
         </title>
       </Head>
+      <ToastContainer />
       <div className="max-h-screen" id="top">
         {!hideHeader && <AppHeader />}
         <div className="flex flex-col" onClick={() => setOpenRightMenu(false)}>

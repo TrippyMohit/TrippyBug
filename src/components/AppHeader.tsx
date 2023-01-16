@@ -22,18 +22,15 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Script from "next/script";
 import { getAuth, signOut } from "firebase/auth";
-import app from "../../firebase";
+import { auth } from "../../firebase";
 import { AiOutlineConsoleSql } from "react-icons/ai";
+import { RxAvatar } from "react-icons/rx";
+import { useAuthState } from "react-firebase-hooks/auth";
 export const AppHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
-  const [authState, setAuthState] = useState(false);
-  const [user, setUser] = useState({});
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState("/assets/images/bug-icon.png");
+  const [user] = useAuthState(auth);
   const route = useRouter();
-  const auth = getAuth(app);
   const menu = [
     {
       label: "Services",
@@ -106,7 +103,6 @@ export const AppHeader = () => {
   const signOutFunction = () => {
     signOut(auth)
       .then(() => {
-        setAuthState(false);
         route.push("/");
       })
       .catch((error) => {
@@ -114,24 +110,6 @@ export const AppHeader = () => {
         alert(error.message);
       });
   };
-
-  // auth state changed
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setAuthState(true);
-        setUser(user);
-        setUserName(
-          user.displayName || user?.email.slice(0, user.email.indexOf("@"))
-        );
-        setUserEmail(user.email);
-        setUserImage(user?.photoURL || userImage);
-        console.log(user);
-      } else {
-        setAuthState(false);
-      }
-    });
-  }, []);
 
   useEffect(() => {
     setIsAvatarMenuOpen(false);
@@ -248,15 +226,24 @@ export const AppHeader = () => {
 
         <div className="w-3/12 flex justify-end gap-4 leading-7">
           <>
-            {authState ? (
+            {user ? (
               <>
                 <button
                   className="flex gap-4 items-center relative pr-10"
                   onClick={() => setIsAvatarMenuOpen(!isAvatarMenuOpen)}
                 >
                   <div className="relative">
-                    <div className=" relative w-12 h-12 border-2 border-white rounded-full overflow-hidden ">
-                      <Image src={userImage} layout="fill" objectFit="cover" />
+                    <div className=" relative w-12 h-12  overflow-hidden ">
+                      {!user?.photoURL ? (
+                        <RxAvatar className="h-[50px] w-[50px]" />
+                      ) : (
+                        <Image
+                          src={user.photoURL}
+                          layout="fill"
+                          objectFit="cover"
+                          className="order-2 border-white rounded-full"
+                        />
+                      )}
                     </div>
                   </div>
 
@@ -271,17 +258,22 @@ export const AppHeader = () => {
                   >
                     <div className="bg-white shadow-lg border border-gray-200 flex w-96 flex-col gap-4 items-center overflow-hidden justify-start p-6 rounded-lg">
                       <div className="relative">
-                        <div className=" relative w-24 h-24 border-2 border-white rounded-full overflow-hidden">
-                          <Image
-                            src={userImage}
-                            layout="fill"
-                            objectFit="cover"
-                          />
+                        <div className=" relative w-24 h-24  overflow-hidden">
+                          {!user.photoURL ? (
+                            <RxAvatar className="h-[85px] w-[85px]" />
+                          ) : (
+                            <Image
+                              src={user.photoURL}
+                              layout="fill"
+                              objectFit="cover"
+                              className="order-2 border-white rounded-full"
+                            />
+                          )}
                         </div>
                       </div>
                       <div className="flex flex-col ">
-                        <div className="font-semibold">{userName}</div>
-                        <div className="font-normal">{userEmail}</div>
+                        <div className="font-semibold">{user.displayName}</div>
+                        <div className="font-normal">{user.email}</div>
                       </div>
 
                       <div className="flex items-start flex-col gap-4 w-full justify-center font-normal">
@@ -318,7 +310,7 @@ export const AppHeader = () => {
                 </button>
               </Link>
             )}
-            {authState ? (
+            {user ? (
               <button
                 onClick={signOutFunction}
                 className="px-9 lg:bg-orange-500 rounded-2xl lg:text-white font-bold bg-transparent text-orange-500"

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import app from "../../firebase";
+import { auth } from "../../firebase";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -13,24 +13,14 @@ import {
   FacebookAuthProvider,
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { userLoggedIn, userLoggedOut } from "../../slices/authenticationSlice";
 import { useRouter } from "next/router";
-
+import { toast } from "react-toastify";
 export default function Login() {
-  const [user, setUser] = useState({});
   const [email, setEmail] = useState();
-  const [name, setName] = useState();
   const [password, setPassword] = useState();
-  const [userEmail, setUserEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [error, setError] = useState("");
-  const [errorState, setErrorState] = useState(false);
   const provider = new GoogleAuthProvider();
-  const auth = getAuth(app);
   const router = useRouter();
-  const firebaseUser = auth.currentUser;
-  // const authState = useSelector((state) => state.authentication.authState);
-  const disptach = useDispatch();
+
   // sign in with email
   const signIn = (e) => {
     e.preventDefault();
@@ -38,24 +28,22 @@ export default function Login() {
       .then((userCredential) => {
         if (userCredential != null) {
           // User is signed in
-          disptach(userLoggedIn());
           router.push("/");
         }
       })
       .catch((error) => {
-        setErrorState(true);
         switch (error.code) {
           case "auth/missing-email":
-            setError("dude fill the detail first");
+            toast.error("dude fill the detail first");
             break;
           case "auth/user-not-found":
-            setError("no email register with this email, try signing up");
+            toast.error("No email register with this email, try signing up");
             break;
           case "auth/wrong-password":
-            setError("wrong password");
+            toast.error("wrong password");
             break;
-          case "auth/internal-error":
-            setError("fill password");
+          case "auth/internal-errorr":
+            toast.error("fill password");
             break;
         }
       });
@@ -66,10 +54,9 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then((result) => {
         router.push("/");
-        disptach(userLoggedIn());
       })
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -79,12 +66,9 @@ export default function Login() {
     signInWithPopup(auth, facebokoProvider)
       .then((result) => {
         router.push("/");
-        disptach(userLoggedIn());
-        setName(result.user.displayName);
-        setEmail(result.user.email);
       })
       .catch((err) => {
-        console.log(err.message);
+        toast.error(err.message);
       });
   };
 
@@ -147,14 +131,14 @@ export default function Login() {
               >
                 Sign In
               </button>
-              {errorState && (
+              {/* {errorState && (
                 <div
                   className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                   role="alert"
                 >
                   <span className="font-medium">{error} </span>
                 </div>
-              )}
+              )} */}
             </form>
             <div>
               <p className="font-medium text-sm text-[#9A9A9A] text-center ">

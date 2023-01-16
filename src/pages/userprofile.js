@@ -7,9 +7,9 @@ import { TabSelector } from "../common";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
 import { useState } from "react";
-import { getAuth } from "firebase/auth";
-import app from "../../firebase";
 import { useRouter } from "next/router";
+import { RxAvatar } from "react-icons/rx";
+import { auth } from "../../firebase";
 import {
   CarIcon,
   FlightIcon,
@@ -27,11 +27,10 @@ import {
   GearIcon,
   LogoutIcon,
 } from "../icons";
-
 import classNames from "classnames";
 import { useEffect } from "react";
 import { setTokenSourceMapRange } from "typescript";
-
+import { useAuthState } from "react-firebase-hooks/auth";
 export default function UserProfile({
   yourPosts,
   likedPosts,
@@ -46,11 +45,7 @@ export default function UserProfile({
     "saved",
     "setting",
   ]);
-  const [authState, setAuthState] = useState(false);
-  const [user, setUser] = useState({});
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState("/assets/images/bug-icon.png");
+  const [user] = useAuthState(auth);
   const router = useRouter();
   function handle(e) {
     setSelectedTab("your-posts"), setIsOpen(false);
@@ -68,29 +63,7 @@ export default function UserProfile({
     setSelectedTab("setting"), setIsOpen(!is);
   }
 
-  const auth = getAuth(app);
-  // auth state changed
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setAuthState(true);
-        setUser(user);
-        setUserName(
-          user.displayName || user?.email.slice(0, user.email.indexOf("@"))
-        );
-        setUserEmail(user.email);
-        setUserImage(user?.photoURL || userImage);
-      } else if (!authState) {
-        router.push("/login");
-      } else {
-        setAuthState(false);
-        setUser("");
-        setUserName("");
-        setUserEmail("");
-        setUserImage(userImage);
-      }
-    });
-  }, []);
+  console.log(user);
 
   return (
     <>
@@ -106,18 +79,23 @@ export default function UserProfile({
         <div className=" bottom-0 flex flex-col  w-full items-center justify-end  h-[100%] text-black z-20">
           <div className="flex flex-col items-center gap-4 bg-white p-24 shadow-lg -mb-24 rounded-[10%]  overflow-hidden z-30">
             <div className="relative overflow-hidden rounded-full w-24 h-24 ">
-              <Image
-                alt="user profile picture"
-                src={userImage}
-                objectFit="cover"
-                layout="fill"
-              />
+              {/* userProfile picture */}
+              {!user?.photoURL ? (
+                <RxAvatar className="h-[85px] w-[85px]" />
+              ) : (
+                <Image
+                  src={user?.photoURL}
+                  layout="fill"
+                  objectFit="cover"
+                  className="order-2 border-white rounded-full"
+                />
+              )}
             </div>
             <h1 className=" text-orange-400 lg:text-center text-center lg:text-5xl  text-3xl">
-              {userName}
+              {user?.displayName}
             </h1>
             <h3 className="text-gray-600 lg:text-2xl  text-1xl ">
-              {userEmail}
+              {user?.email}
             </h3>
           </div>
         </div>
@@ -169,22 +147,22 @@ export default function UserProfile({
           <div className="p-4">
             <TabPanel hidden={selectedTab !== "your-posts"}>
               <div className="grid grid-cols-1 lg:grid-cols-2  lg:mx-44 ">
-                <PostCard />
+                <PostCard user={user} />
               </div>
             </TabPanel>
             <TabPanel hidden={selectedTab !== "liked"}>
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-44">
-                <PostCard />
+                <PostCard user={user} />
               </div>
             </TabPanel>
             <TabPanel hidden={selectedTab !== "comments"}>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:mx-44">
-                <CommentCard />
+                <CommentCard user={user} />
               </div>
             </TabPanel>
             <TabPanel hidden={selectedTab !== "saved"}>
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-44">
-                <PostCard />
+                <PostCard user={user} />
               </div>
             </TabPanel>
           </div>
@@ -194,29 +172,35 @@ export default function UserProfile({
   );
 }
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, user }) => {
   return (
     <>
       <div className="flex flex-col gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-5">
             <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
-              <Image
-                alt="hotels in Dubai"
-                src="/assets/images/share-and-express.png"
-                objectFit="cover"
-                layout="fill"
-              />
+              {/* article image */}
+              {!user?.photoURL ? (
+                <RxAvatar className="h-[40px] w-[40px] lg:h-[50px] lg:w-[50px] " />
+              ) : (
+                <Image
+                  src={user?.photoURL}
+                  layout="fill"
+                  objectFit="cover"
+                  className="order-2 border-white rounded-full"
+                />
+              )}
             </div>
 
             <div className="flex flex-col justify-center ">
               <div className="font-semibold text-lg text-gray-900">
-                username
+                {user?.displayName}
               </div>
               <div className="font-normal text-sm text-gray-400">
                 {/* {formatDistance(new Date(post?.createdAt), new Date(), {
-                        addSuffix: true,
-                      })} */}
+                  addSuffix: true,
+                })} */}
+                {/* for Date */}
               </div>
             </div>
           </div>
@@ -234,21 +218,21 @@ const PostCard = ({ post }) => {
           {/* <-------------------GRID----------------------------> */}
           <div className="grid grid-rows-2 grid-flow-col gap-x-2">
             <div className="row-span-2 ...">
-              <Image
+              <img
                 className="object-contain  lg:h-80 lg:w-80 h-40 w-40"
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="col-span-1 ...">
-              <Image
+              <img
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20"
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
               />
             </div>
             <div className="row-span-1 col-span-1 ...">
-              <Image
+              <img
                 className="object-contain lg:h-40 lg:w-40 h-20 w-20 ..."
                 alt="trippybug"
                 src="/assets/images/share-and-express.png"
@@ -279,24 +263,28 @@ const PostCard = ({ post }) => {
   );
 };
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, user }) => {
   return (
     <>
       <div className="flex flex-col gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
         <div className="flex justify-between w-full">
           <div className="flex gap-5">
             <div className="relative overflow-hidden  bg-white w-12 h-12 rounded-full items-center">
-              <Image
-                alt="trippybug"
-                src="/assets/images/share-and-express.png"
-                objectFit="cover"
-                layout="fill"
-              />
+              {!user?.photoURL ? (
+                <RxAvatar className="h-[50px] w-[50px]" />
+              ) : (
+                <Image
+                  src={user?.photoURL}
+                  layout="fill"
+                  objectFit="cover"
+                  className="order-2 border-white rounded-full"
+                />
+              )}
             </div>
 
             <div className="flex flex-col justify-center ">
               <div className="font-semibold text-lg text-gray-900">
-                username
+                {user?.displayName}
               </div>
               <div className="font-normal text-sm text-gray-400">
                 {/* {formatDistance(new Date(post?.createdAt), new Date(), {
@@ -344,7 +332,7 @@ const CommentCard = ({ comment }) => {
             <div className="border pb-4 border-gray-200 w-full rounded-2xl  text-left">
               <div className="flex pl-4 pt-2 flex-col justify-center ">
                 <div className=" font-semibold text-lg text-gray-900">
-                  username
+                  {user?.displayName}
                 </div>
                 <div className="text-sm text-gray-900">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.

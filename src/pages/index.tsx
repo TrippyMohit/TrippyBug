@@ -24,6 +24,7 @@ import { Button, Modal, ButtonTabSelector } from "../common";
 import { getPostsByCategoryName } from "../services/cms-api";
 import { format } from "date-fns";
 import { TabPanel, useTabs } from "react-headless-tabs";
+
 //sechma data forn SEO
 const StructuredData = ({ data }) => {
   return (
@@ -93,6 +94,7 @@ export default function Home({
         <meta property="og:url" content="https://www.trippybug.com" />
         <meta property="og:locale" content="en_GB" />
       </Head>
+
       <StructuredData data={structuredData} />
       <HomePageBanner />
       <div className="flex flex-col gap-20 lg:pt-24 ">
