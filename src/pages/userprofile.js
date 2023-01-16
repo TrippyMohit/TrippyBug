@@ -63,7 +63,7 @@ export default function UserProfile({
   function handle4(e) {
     setSelectedTab("setting"), setIsOpen(!is);
   }
-  console.log(user);
+  console.log(user?.photoURL);
   return (
     <>
       <div className="relative lg:min-h-[60vh] lg:items-center items-end flex-col flex mb-24">
@@ -83,6 +83,7 @@ export default function UserProfile({
                 <RxAvatar className="h-[85px] w-[85px]" />
               ) : (
                 <Image
+                  alt={user.displayName}
                   src={user?.photoURL}
                   layout="fill"
                   objectFit="cover"

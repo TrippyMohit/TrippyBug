@@ -11,7 +11,7 @@ const nextConfig = {
       "minio-s3.dev.demo22.co",
       "upload.wikimedia.org",
       "lh3.googleusercontent.com",
-      "https://graph.facebook.com",
+      "graph.facebook.com",
     ],
   },
   async redirects() {
