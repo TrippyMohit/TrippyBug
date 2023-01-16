@@ -126,7 +126,6 @@ export default function Register() {
                       </label>
                       <input
                         className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
-                        autocomplete="off"
                         required
                         type="text"
                         placeholder="Last name"
@@ -142,7 +141,6 @@ export default function Register() {
                     </label>
                     <input
                       className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
-                      autocomplete="off"
                       required
                       type="email"
                       placeholder="Email"
@@ -156,7 +154,6 @@ export default function Register() {
                       Password
                     </label>
                     <input
-                      autocomplete="off"
                       type="password"
                       className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
                       required
@@ -171,7 +168,6 @@ export default function Register() {
                       Confirm Password
                     </label>
                     <input
-                      autocomplete="off"
                       type="password"
                       className="border-2 focus:outline-none focus:shadow-outline px-3 py-3 border-gray-300 text-gray-700 leading-tight w-full rounded-md"
                       required
