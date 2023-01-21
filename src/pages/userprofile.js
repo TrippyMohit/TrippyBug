@@ -63,7 +63,7 @@ export default function UserProfile({
   function handle4(e) {
     setSelectedTab("setting"), setIsOpen(!is);
   }
-  console.log(user?.photoURL);
+
   return (
     <>
       <div className="relative lg:min-h-[60vh] lg:items-center items-end flex-col flex mb-24">

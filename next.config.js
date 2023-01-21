@@ -12,27 +12,20 @@ const nextConfig = {
       "upload.wikimedia.org",
       "lh3.googleusercontent.com",
       "graph.facebook.com",
+      "firebasestorage.googleapis.com",
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/community",
-        destination: "/community/posts",
-        permanent: true,
-      },
-      {
-        source: "/dashboard",
-        destination: "/dashboard/profile",
-        permanent: true,
-      },
-      {
-        source: "/categories",
-        destination: "/categories/trending",
-        permanent: true,
-      },
-    ];
-  },
+  // direct redirects
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/community",
+  //       destination: "/community/posts",
+  //       permanent: true,
+  //     },
+  //
+  //   ];
+  // },
 };
 
 module.exports = nextConfig;

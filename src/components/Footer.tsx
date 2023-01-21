@@ -50,7 +50,7 @@ export const Footer = () => {
             <div className="flex flex-col gap-1">
               <div className="font-bold tracking-wide leading-10">COMPANY</div>
               <div>
-                <Link href={"/community/posts"}> Community</Link>
+                <Link href={"/community"}> Community</Link>
               </div>
               <div>
                 <Link href={"/about"}> About</Link>

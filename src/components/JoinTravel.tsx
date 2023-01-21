@@ -1,7 +1,12 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../common";
+import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 const JoinTravel = () => {
+  const [user] = useAuthState(auth);
   return (
     <div className="relative">
       <div className="relative flex">
@@ -14,9 +19,15 @@ const JoinTravel = () => {
               Share your stories or chat with travellers around the world.
             </div>
             <div className="lg:w-60 w-60 ">
-              <Link href="/register">
-                <Button>Join Now</Button>
-              </Link>
+              {user ? (
+                <Link href="/community">
+                  <Button>Join Now</Button>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <Button>Join Now</Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
