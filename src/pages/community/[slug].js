@@ -352,10 +352,10 @@ export default function SinglePost({
           </div>
           {/* Comments */}
           <div>
-            {/* <CommentUserArticle
+            <CommentUserArticle
               id={articleId}
               userProfilePicture={userProfilePicture}
-            /> */}
+            />
           </div>
         </div>
       </div>

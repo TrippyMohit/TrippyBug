@@ -50,11 +50,3 @@
 //     </div>
 //   );
 // }
-
-import React from "react";
-
-const LikeUserArticle = () => {
-  return <div>LikeUserArticle</div>;
-};
-
-export default LikeUserArticle;
