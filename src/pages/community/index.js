@@ -258,12 +258,12 @@ const PostCard = ({
               </div>
               <p className="pt-1">{likes?.length}</p>
             </div>
-            {/* <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
+            <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
               <div className="w-6 h-6">
                 <Link href={`/community/${articleId}`}>{CommentIcon}</Link>
               </div>
               {comments?.length}
-            </div> */}
+            </div>
             {/* save icons */}
             {/* <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
               <div className="w-4 h-4">{SaveIcon}</div>3
