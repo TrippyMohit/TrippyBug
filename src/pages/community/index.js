@@ -270,11 +270,11 @@ const PostCard = ({
             </div> */}
           </div>
           {/* delete icon */}
-          {/* {user && user.uid === userId && (
+          {user && user.uid === userId && (
             <div>
               <DeleteUserArticle articleId={articleId} imageUrl={imageUrl} />
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </>
