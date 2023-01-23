@@ -3,7 +3,7 @@ import { doc, onSnapshot, getDoc, collection, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../firebase";
-import LikeUserArticle from "./LikeUserArticle";
+// import LikeUserArticle from "./LikeUserArticle";
 import CommentUserArticle from "./CommentUserArticle";
 import Link from "next/link";
 import { RxAvatar } from "react-icons/rx";
@@ -281,14 +281,14 @@ export default function SinglePost({
           {/* Like Comment */}
           <div className="flex gap-7 items-center">
             <div className="flex gap-2 ">
-              <div
+              {/* <div
                 className="w-6 h-6 first-letter:
                "
               >
                 {user && (
                   <LikeUserArticle articleId={articleId} likes={likes} />
                 )}
-              </div>
+              </div> */}
               <p className="pt-1">{likes?.length}</p>
             </div>
             <div className="flex gap-2   items-center">
