@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../firebase";
 import LikeUserArticle from "./LikeUserArticle";
-// import CommentUserArticle from "./CommentUserArticle";
+import CommentUserArticle from "./CommentUserArticle";
 import Link from "next/link";
 import { RxAvatar } from "react-icons/rx";
 import {
@@ -118,7 +118,7 @@ export default function SinglePost() {
           {/* Like Comment */}
           <div className="flex gap-7 items-center">
             <div className="flex gap-2 ">
-              {/* <div
+              <div
                 className="w-6 h-6 first-letter:
                "
               >
@@ -128,14 +128,14 @@ export default function SinglePost() {
                     likes={article?.likes}
                   />
                 )}
-              </div> */}
-              {/* <p className="pt-1">{article?.likes?.length}</p> */}
+              </div>
+              <p className="pt-1">{article?.likes?.length}</p>
             </div>
             <div className="flex gap-2   items-center">
               <Link href="#comment">
                 <div className="flex gap-2 items-center">
                   <div className="h-6 w-6">{CommentIcon}</div>
-                  {/* <div className="text-lg">{article?.comments?.length}</div> */}
+                  <div className="text-lg">{article?.comments?.length}</div>
                 </div>
               </Link>
             </div>
@@ -192,10 +192,10 @@ export default function SinglePost() {
           </div>
           {/* Comments */}
           <div>
-            {/* <CommentUserArticle
+            <CommentUserArticle
               id={articleId}
               userProfilePicture={article?.userProfilePicture}
-            /> */}
+            />
           </div>
         </div>
       </div>
