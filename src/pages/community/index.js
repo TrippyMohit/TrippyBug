@@ -248,33 +248,33 @@ const PostCard = ({
           {/* like comment share button */}
           <div className="flex gap-7 items-center">
             <div className="cursor-pointer  flex align-center  gap-2 hover:scale-125 transition-all ">
-              <div
+              {/* <div
                 className="w-6 h-6 first-letter:
                "
               >
                 {user && (
                   <LikeUserArticle articleId={articleId} likes={likes} />
                 )}
-              </div>
-              <p className="pt-1">{likes?.length}</p>
+              </div> */}
+              {/* <p className="pt-1">{likes?.length}</p> */}
             </div>
-            <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
+            {/* <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
               <div className="w-6 h-6">
                 <Link href={`/community/${articleId}`}>{CommentIcon}</Link>
               </div>
               {comments?.length}
-            </div>
+            </div> */}
             {/* save icons */}
             {/* <div className="cursor-pointer flex gap-2 items-center hover:scale-125 transition-all">
               <div className="w-4 h-4">{SaveIcon}</div>3
             </div> */}
           </div>
           {/* delete icon */}
-          {user && user.uid === userId && (
+          {/* {user && user.uid === userId && (
             <div>
               <DeleteUserArticle articleId={articleId} imageUrl={imageUrl} />
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </>

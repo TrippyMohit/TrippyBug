@@ -289,7 +289,7 @@ export default function SinglePost({
                   <LikeUserArticle articleId={articleId} likes={likes} />
                 )}
               </div> */}
-              <p className="pt-1">{likes?.length}</p>
+              {/* <p className="pt-1">{likes?.length}</p> */}
             </div>
             <div className="flex gap-2   items-center">
               <Link href="#comment">
@@ -352,10 +352,10 @@ export default function SinglePost({
           </div>
           {/* Comments */}
           <div>
-            <CommentUserArticle
+            {/* <CommentUserArticle
               id={articleId}
               userProfilePicture={userProfilePicture}
-            />
+            /> */}
           </div>
         </div>
       </div>
