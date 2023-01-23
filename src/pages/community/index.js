@@ -38,11 +38,6 @@ export default function TrippyCommunity({ titles }) {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
   const router = useRouter();
-  useEffect(() => {
-    if (!user) {
-      router.push("login");
-    }
-  }, []);
 
   // getting data from firebase DB
   useEffect(() => {
@@ -291,14 +286,16 @@ const DeleteUserArticle = ({ articleId, imageUrl }) => {
   const storage = getStorage();
   //deleting article
   const handleDelete = async () => {
-    try {
-      await deleteDoc(doc(db, "Articles", articleId));
-      toast("Article deleted successfully", { type: "success" });
-      const storageRef = ref(storage, imageUrl);
-      await deleteObject(storageRef);
-    } catch (error) {
-      toast("Error deleting article", { type: "error" });
-      console.log(error);
+    if (window.confirm("Are you sure you want to delete this article?")) {
+      try {
+        await deleteDoc(doc(db, "Articles", articleId));
+        toast("Article deleted successfully", { type: "success" });
+        const storageRef = ref(storage, imageUrl);
+        await deleteObject(storageRef);
+      } catch (error) {
+        toast("Error deleting article", { type: "error" });
+        console.log(error);
+      }
     }
   };
 
