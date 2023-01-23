@@ -59,7 +59,6 @@ export default function SinglePost() {
       });
     };
     getArticle();
-    console.log(article);
   }, [articleId]);
 
   return (
