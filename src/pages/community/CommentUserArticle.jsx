@@ -49,20 +49,6 @@
 //     }
 //   };
 
-//   // const handleChangeComment = (e) => {
-//   //   if (comment.length == 0) {
-//   //     toast.warning("bhai phale comment toh likh le");
-//   //   } else if (e.key === "Enter") {
-//   //     addCommment();
-//   //   } else {
-//   //     return;
-//   //   }
-
-//   //   // if (e.key === "Enter" && comment.length !== 0) {
-//   //   //   addCommment();
-//   //   // }
-//   // };
-
 //   // delete comment function
 //   const handleDeleteComment = (comment) => {
 //     updateDoc(commentRef, {

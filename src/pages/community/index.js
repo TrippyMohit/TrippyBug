@@ -24,8 +24,7 @@ import {
   PostIcon,
 } from "../../icons";
 import { auth, db, storage } from "../../../firebase";
-// import DeleteUserArticle from "./DeleteUserArticle";
-// import LikeUserArticle from "./LikeUserArticle";
+import LikeUserArticle from "./LikeUserArticle";
 // import CommentUserArticle from "./CommentUserArticle";
 import { title } from "process";
 // import { doc, deleteDoc } from "firebase/firestore";
@@ -159,7 +158,7 @@ const LeftSideBar = () => {
           share their experiences and inspire others to explore the world.
         </p>
       </div>
-      <Link href="/">
+      <Link href="/addBlog">
         <div className="flex gap-6 items-center cursor-pointer">
           <div className="w-8 h-8 text-orange-400 bg-orange-100 rounded-full p-2">
             {PostIcon}
