@@ -57,23 +57,39 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../firebase";
-import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import {
+  arrayRemove,
+  arrayUnion,
+  collection,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+
 import { AiFillLike, AiOutlineConsoleSql } from "react-icons/ai";
 const LikeUserArticle = ({ articleId }) => {
   const [user] = useAuthState(auth);
-  const likesRef = doc(db, "Articles", articleId);
+  const [likeRef, setLikeRef] = useState();
+  useEffect(() => {
+    const getLikeRef = () => {
+      const likesRef = doc(db, "Articles", articleId);
+      setLikeRef(likesRef);
+    };
+    getLikeRef();
+  }, [articleId]);
+
   const handleClicked = () => {
-    updateDoc(likesRef, {
+    updateDoc(likeRef, {
       likes: arrayUnion(user.uid),
     })
       .then(() => {
         console.log("liked");
+        console.log(likeRef);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  console.log(likeRef);
   return (
     <div>
       <button onClick={handleClicked}>Like</button>
