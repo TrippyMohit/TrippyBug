@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../firebase";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
@@ -6,12 +6,17 @@ import { AiFillLike, AiOutlineConsoleSql } from "react-icons/ai";
 
 export default function LikeUserArticle({ articleId, likes }) {
   const [user] = useAuthState(auth);
+  const [userUid, setUserUid] = useState();
+  useEffect(() => {
+    setUserUid(user.uid);
+  });
   const likesRef = doc(db, "Articles", articleId);
+  console.log(userUid);
   // updating data in already existing data in firebase DB
   const handleLike = () => {
-    if (likes?.includes(user.uid)) {
+    if (likes?.includes(userUid)) {
       updateDoc(likesRef, {
-        likes: arrayRemove(user.uid),
+        likes: arrayRemove(userUid),
       })
         .then(() => {
           console.log("unliked");
@@ -21,7 +26,7 @@ export default function LikeUserArticle({ articleId, likes }) {
         });
     } else {
       updateDoc(likesRef, {
-        likes: arrayUnion(user.uid),
+        likes: arrayUnion(userUid),
       })
         .then(() => {
           console.log(articleId);
@@ -36,10 +41,10 @@ export default function LikeUserArticle({ articleId, likes }) {
     <div>
       <button
         onClick={handleLike}
-        className={`fa fa-heart${!likes?.includes(user.uid) ? "-o" : ""} fa-lg`}
+        className={`fa fa-heart${!likes?.includes(userUid) ? "-o" : ""} fa-lg`}
         style={{
           cursor: "pointer",
-          color: likes?.includes(user.uid) ? "red" : null,
+          color: likes?.includes(userUid) ? "red" : null,
         }}
       >
         <AiFillLike className="h-[25px] w-[25px] " />
