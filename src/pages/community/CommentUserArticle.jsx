@@ -59,15 +59,17 @@ export default function CommentUserArticle({ id, userProfilePicture }) {
 
   // delete comment function
   const handleDeleteComment = (comment) => {
-    updateDoc(commentRef, {
-      comments: arrayRemove(comment),
-    })
-      .then((e) => {
-        console.log("comment deleted");
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      updateDoc(commentRef, {
+        comments: arrayRemove(comment),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((e) => {
+          console.log("comment deleted");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
