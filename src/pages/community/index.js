@@ -62,18 +62,18 @@ export default function TrippyCommunity() {
           <div className=" grid grid-cols-1 lg:grid-cols-2 lg:pl-28 lg:pr-28  pb-[100px]">
             {articles?.map((article) => (
               <PostCard
-                key={article.id}
-                userId={article.UserId}
-                createdBy={article.createdBy}
-                createdAt={article.createdAt}
-                imageUrl={article.imageUrl}
-                title={article.title}
-                description={article.description}
-                userProfilePicture={article.userProfilePicture}
+                key={article?.id}
+                userId={article?.UserId}
+                createdBy={article?.createdBy}
+                createdAt={article?.createdAt}
+                imageUrl={article?.imageUrl}
+                title={article?.title}
+                description={article?.description}
+                userProfilePicture={article?.userProfilePicture}
                 user={user}
-                articleId={article.id}
-                likes={article.likes}
-                comments={article.comments}
+                articleId={article?.id}
+                likes={article?.likes}
+                comments={article?.comments}
               />
             ))}
           </div>
@@ -185,7 +185,6 @@ const PostCard = ({
   likes,
   comments,
 }) => {
-  console.log(comments);
   return (
     <>
       <div className=" relative flex flex-col gap-4 bg-white shadow-lg rounded-2xl m-4 p-8  border border-gray-200 text-left">
