@@ -67,9 +67,11 @@ const Gallery = ({ posts }) => {
     <div className="relative p-10 container">
       {/* Mobile */}
       <div className="relative flex lg:hidden flex-col gap-6">
-        <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
-          Gallery
-        </h2>
+        <Link href="/newGallery">
+          <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
+            Gallery
+          </h2>
+        </Link>
         <div className=" relative grid grid-cols-12 gap-4">
           {posts[0]?.node?.featuredImage?.node?.sourceUrl && (
             <div className="col-span-3  w-full relative min-h-[260px] rounded-md overflow-hidden ">
@@ -162,6 +164,7 @@ const Gallery = ({ posts }) => {
               </div>
             )}
           </div>
+          posts{" "}
           {posts[1]?.node?.featuredImage?.node?.sourceUrl && (
             <div className="col-span-8  relative min-h-[260px] rounded-md overflow-hidden">
               <Image

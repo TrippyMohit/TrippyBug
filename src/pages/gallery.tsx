@@ -146,7 +146,7 @@ export default function Gallery({ posts }) {
                       onClick={() => setPhotoIndex(index * 9 + 0)}
                       alt=" cheap flights"
                       src={
-                        posts[index * 9 + 0]?.node?.featuredImage?.node
+                        posts[index * 25 + 0]?.node?.featuredImage?.node
                           ?.sourceUrl
                       }
                       objectFit="cover"
