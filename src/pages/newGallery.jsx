@@ -12,14 +12,12 @@ const NewGallery = ({ post }) => {
       // let html = post?.content?.rendered;
       let html = post?.content?.rendered;
       let parser = new DOMParser();
-
       let doc = parser.parseFromString(html, "text/html");
       let imgs = Array.from(doc.getElementsByTagName("img"));
       // let imgSources = imgs.map((img) => img.alt);
       let imgSources = imgs.map((img) =>
         img.getAttribute("srcset").split(",")[0].trim()
       );
-
       let urls = imgSources.map((item) => item.match(/^(https:\/\/[^\s]+)/)[0]);
       setImageSrc(urls);
     };
@@ -28,14 +26,11 @@ const NewGallery = ({ post }) => {
 
   const handleDownload = (e) => {
     const imageUrl = e.target.dataset.src;
-    FileSaver.saveAs(
-      "https://cms.trippybug.com/wp-content/uploads/2023/01/image-168.png",
-      "image.png"
-    );
+    FileSaver.saveAs(imageUrl, "image.png");
   };
 
   return (
-    <div className="py-[100px]">
+    <div className="py-[100px] flex">
       {imageSrc?.map((src) => (
         <div key="src">
           <button data-src={src} onClick={handleDownload}>
