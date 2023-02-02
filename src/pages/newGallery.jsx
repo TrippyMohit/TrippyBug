@@ -1,12 +1,17 @@
-import { getPostsByCategoryName } from "../services/cms-api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createRef } from "react";
+import { BsCloudDownload } from "react-icons/bs";
 import axios from "axios";
 import FileSaver from "file-saver";
 import { saveAs } from "file-saver";
 const { DOMParser } = require("xmldom");
+import Slider from "react-slick";
+import classNames from "classnames";
+import { RxCross1 } from "react-icons/rx";
 const NewGallery = ({ post }) => {
   const [imageSrc, setImageSrc] = useState();
   const [imageUrl, setImageUrl] = useState(null);
+  const [setCarousel, setSetCarousel] = useState(true);
+  // to get only images sources
   useEffect(() => {
     const getImagesUrl = async () => {
       // let html = post?.content?.rendered;
@@ -28,18 +33,76 @@ const NewGallery = ({ post }) => {
     const imageUrl = e.target.dataset.src;
     FileSaver.saveAs(imageUrl, "image.png");
   };
+  const imageClick = (src) => {
+    window.open(src, "_blank", "toolbar=0,location=0,menubar=0");
+    // setSetCarousel(!setCarousel);
+  };
+
+  const carouselSettings = {
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 1000,
+    dots: true,
+    arrows: true,
+    centermode: true,
+    infinite: true,
+    lazyLoad: "ondemand",
+    touchThreshold: 100,
+    swipeToSlide: true,
+    focusOnSelect: true,
+    draggable: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
-    <div className="py-[100px] flex">
-      {imageSrc?.map((src) => (
-        <div key="src">
-          <button data-src={src} onClick={handleDownload}>
-            Download
-          </button>
-          <img src={src} alt="trippybug" />
+    <>
+      {setCarousel ? (
+        <div className="py-[50px] grid grid-col-2 lg:grid-cols-4 gap-2 items-start ">
+          {imageSrc?.map((src) => (
+            <div className="relative" key="src">
+              <BsCloudDownload
+                data-src={src}
+                onClick={handleDownload}
+                className="h-[23px] w-[23px] absolute right-2 bottom-8 font-bold text-white hover:scale-125 cursor-pointer transition-all "
+              />
+              <img
+                className="h-full w-auto object-contain cursor-grab  transition-all  "
+                src={src}
+                alt="trippybug"
+                onClick={() => {
+                  imageClick(src);
+                }}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <>
+          <RxCross1 className="h-[20px] w-[20px] absolute right-10 lg:right-[250px] cursor-pointer  " />
+
+          <div className="py-6 px-6 relative">
+            <Slider {...carouselSettings}>
+              {imageSrc?.map((src) => (
+                <img
+                  className="h-[500px] w-full object-contain cursor-grab  transition-all  "
+                  src={src}
+                  alt="trippybug"
+                  // onClick={() => setSetCarousel(!setCarousel)}
+                />
+              ))}
+            </Slider>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

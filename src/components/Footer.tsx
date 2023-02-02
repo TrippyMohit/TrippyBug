@@ -129,7 +129,7 @@ export const Footer = () => {
               </div>
               <div>
                 <a
-                  href={"https://www.linkedin.com/in/trippybug/"}
+                  href={"https://www.linkedin.com/{in/trippybug/"}
                   target="_blank"
                   rel="noreferrer"
                 >

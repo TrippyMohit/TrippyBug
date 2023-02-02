@@ -144,7 +144,7 @@ const Gallery = ({ posts }) => {
       {/* Large Device */}
       <div className="flex flex-col items-center">
         <h2 className=" pb-4 font-caveat text-orange-400 lg:text-center text-center lg:text-9xl  text-5xl">
-          Gallery
+          <Link href="newGallery">Gallery</Link>
         </h2>
         <div className="mb-6 w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>

@@ -25,6 +25,17 @@ module.exports = {
       container: {
         center: true,
       },
+      backgroundImage: {
+        cities: "url('/assets/images/cities.jpg')",
+        beach: "url('/assets/images/beach.jpg')",
+        forest: "url('/assets/images/forest.jpg')",
+        island: "url('/assets/images/island.jpg')",
+        landscape: "url('/assets/images/landscape.jpg')",
+        mountains: "url('/assets/images/mountains.jpg')",
+        skyscrapers: "url('/assets/images/skyscrapers.jpg')",
+        wildlife: "url('/assets/images/wildlife.jpg')",
+        nature: "url('/assets/images/nature.jpg')",
+      },
     },
     plugins: [require("@tailwindcss/line-clamp")],
   },

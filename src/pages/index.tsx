@@ -10,7 +10,7 @@ import ExploreWorldBlogs from "../components/ExploreWorldBlogs";
 import WhereToStart from "../components/WhereToStart";
 import Gallery from "../components/Gallery";
 import JoinTravel from "../components/JoinTravel";
-
+import GalleyCategories from "./gallery/GalleyCategories";
 import {
   CarIcon,
   ChevronLeftIcon,
@@ -99,7 +99,8 @@ export default function Home({
       <HomePageBanner />
       <div className="flex flex-col gap-20 lg:pt-24 ">
         <TrendingBlogs trendingBlogs={trendingBlogs} />
-        <Gallery posts={gallery} />
+        {/* <Gallery posts={gallery} /> */}
+        <GalleyCategories />
         <TopDestinationBlogs topDestinations={topDestinations} />
         <ExploreWorldBlogs exploreTheWorld={exploreTheWorld} />
         <LookingForInspiration lookingForInspiration={lookingForInspiration} />
