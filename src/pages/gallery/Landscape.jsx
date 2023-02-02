@@ -4,8 +4,6 @@ import axios from "axios";
 import FileSaver from "file-saver";
 import { saveAs } from "file-saver";
 const { DOMParser } = require("xmldom");
-import Slider from "react-slick";
-import classNames from "classnames";
 
 const Landscape = ({ post }) => {
   const [imageSrc, setImageSrc] = useState();
