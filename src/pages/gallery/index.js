@@ -4,7 +4,7 @@ import GalleyCategories from "./GalleyCategories";
 const Gallery = () => {
   return (
     <>
-      <GalleyCategories />
+      <h1>Gallery</h1>
     </>
   );
 };
