@@ -111,7 +111,7 @@ export const Footer = () => {
               </div>
               <div>
                 <a
-                  href={"https://www.youtube.com/@trippybug2314/featured"}
+                  href={"https://www.youtube.com/@trippybug"}
                   target="_blank"
                   rel="noreferrer"
                 >
