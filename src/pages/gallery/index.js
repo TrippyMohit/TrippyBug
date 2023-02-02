@@ -1,12 +1,11 @@
 import React from "react";
-import GalleyCategories from "./GalleyCategories";
 
-const Gallery = () => {
+const index = () => {
   return (
     <>
-      <h1>Gallery</h1>
+      <h1>Jello</h1>
     </>
   );
 };
 
-export default Gallery;
+export default index;
