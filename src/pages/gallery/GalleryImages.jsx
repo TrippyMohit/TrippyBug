@@ -52,7 +52,10 @@ const GalleryImages = ({ post }) => {
       {/* Gallery navbar */}
       <div className="flex flex-wrap justify-around align-baseline items-center">
         {galleryNavLinks.map((galleryLink) => (
-          <span className="font-medium p-2 text-lg lg:text-xl text-orange-900 hover:border-b-2 border-gray-600">
+          <span
+            key={galleryLink}
+            className="font-medium p-2 text-lg lg:text-xl text-orange-900 hover:border-b-2 border-gray-600"
+          >
             <Link href={`/gallery/${galleryLink}`}>{galleryLink}</Link>
           </span>
         ))}
