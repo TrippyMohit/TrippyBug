@@ -1,11 +1,27 @@
-import React from "react";
+import axios from "axios";
 
-const index = () => {
+import GalleryImages from "./GalleryImages";
+const index = ({ post }) => {
   return (
     <>
-      <h1>Jello</h1>
+      <div>
+        <GalleryImages post={post} />
+      </div>
     </>
   );
 };
 
 export default index;
+
+export async function getServerSideProps(context) {
+  const res = await axios.get(
+    "https://cms.trippybug.com/wp-json/wp/v2/posts/4745"
+  );
+  const post = res.data;
+
+  return {
+    props: {
+      post,
+    },
+  };
+}
