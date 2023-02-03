@@ -54,7 +54,7 @@ const GalleryImages = ({ post }) => {
         {galleryNavLinks.map((galleryLink) => (
           <span
             key={galleryLink}
-            className="font-medium p-2 text-lg lg:text-xl text-orange-900 hover:border-b-2 border-gray-600"
+            className="font-medium font-caveat text-orange-400 p-2 text-xl lg:text-3xl hover:border-b-2 border-gray-600"
           >
             <Link href={`/gallery/${galleryLink}`}>{galleryLink}</Link>
           </span>
