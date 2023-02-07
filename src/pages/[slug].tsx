@@ -24,6 +24,7 @@ import {
   TrendingIcon,
   TwitterIcon,
   WhatsappIcon,
+  ChevronLeftIcon,
 } from "../icons";
 import Image from "next/image";
 import axios from "axios";
@@ -117,6 +118,11 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
       </Head>
       <StructuredData data={structuredData} />
       <div className="container flex lg:flex-row flex-col pt-10 gap-10">
+        <Link href="/blogs">
+          <div className="w-10 h-10 hidden lg:block text-orange-400 bg-orange-100 rounded-full p-2 cursor-pointer">
+            {ChevronLeftIcon}
+          </div>
+        </Link>
         <div className="w-full lg:w-3/4">
           <div className=" flex flex-col w-full gap-4">
             {/* Header proflie avatar head */}
