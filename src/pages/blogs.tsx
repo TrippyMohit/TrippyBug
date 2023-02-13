@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { async } from "@firebase/util";
 export default function Blogs({ blogPosts }) {
+  // console.log(blogPosts);
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 p-10 container">

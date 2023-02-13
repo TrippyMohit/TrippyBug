@@ -13,6 +13,9 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "graph.facebook.com",
       "firebasestorage.googleapis.com",
+      // added to nee domain for trenstreet
+      "terndstreet.com",
+      "1.gravatar.com",
     ],
   },
   // direct redirects

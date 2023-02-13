@@ -1,5 +1,5 @@
 // const API_URL = process.env.WORDPRESS_API_URL
-const API_URL = "https://cms.trippybug.com";
+const API_URL = "http://terndstreet.com";
 
 async function fetchAPI(query = "", { variables } = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -77,7 +77,7 @@ export async function getAllCategoriesWithSlug() {
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `query AllPosts {
-      posts(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: 100 , where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             title
