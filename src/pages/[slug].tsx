@@ -323,7 +323,7 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
                       key={post?.id}
                       dangerouslySetInnerHTML={{ __html: post?.node?.excerpt }}
                     />
-                    <button className="font-medium text-base text-orange-500 text-left">
+                    <button className="pb-2 font-medium text-base text-orange-500 text-left">
                       Read more
                     </button>
                   </div>
