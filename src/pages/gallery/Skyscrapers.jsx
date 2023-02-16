@@ -9,7 +9,7 @@ export default Skyscrapers;
 
 export async function getServerSideProps(context) {
   const res = await axios.get(
-    "https://cms.trippybug.com/wp-json/wp/v2/posts/4736"
+    "https://terndstreet.com/wp-json/wp/v2/posts/4736"
   );
   const post = res.data;
 

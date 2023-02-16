@@ -12,7 +12,7 @@ export default Landscape;
 
 export async function getServerSideProps(context) {
   const res = await axios.get(
-    "https://cms.trippybug.com/wp-json/wp/v2/posts/4725"
+    "https://terndstreet.com/wp-json/wp/v2/posts/4725"
   );
   const post = res.data;
 
