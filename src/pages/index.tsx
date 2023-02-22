@@ -93,6 +93,7 @@ export default function Home({
         />
         <meta property="og:url" content="https://www.trippybug.com" />
         <meta property="og:locale" content="en_GB" />
+        <meta name="yandex-verification" content="14c09afa2bbb6813" />
       </Head>
 
       <StructuredData data={structuredData} />
