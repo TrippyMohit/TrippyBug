@@ -74,6 +74,7 @@ export default function Login() {
 
   return (
     <>
+      <h1>Test run </h1>
       <div className="flex mt-20">
         <Image
           alt="trippybug"
