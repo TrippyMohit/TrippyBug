@@ -95,13 +95,15 @@ const PostCard = ({ post }) => {
 };
 
 export async function getStaticProps() {
-  // const blogPosts = await getPostsByCategoryName("trending");
-  // const blogPosts = await getAllPostsWithSlug();
-  const blogPosts = await getAllPostsForHome();
+  const firstPagePosts = await getAllPostsForHome();
+  const secondPagePosts = await getAllPostsForHome(
+    false,
+    firstPagePosts?.pageInfo?.endCursor
+  );
 
   return {
     props: {
-      blogPosts: blogPosts?.edges,
+      blogPosts: [...firstPagePosts?.edges, ...secondPagePosts?.edges],
     },
     revalidate: 10,
   };

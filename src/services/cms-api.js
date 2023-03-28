@@ -74,38 +74,85 @@ export async function getAllCategoriesWithSlug() {
   return data?.categories;
 }
 
-export async function getAllPostsForHome(preview) {
+//original getAllPostsForHome gives only 100 blogs
+// export async function getAllPostsForHome(preview) {
+//   const data = await fetchAPI(
+//     `query AllPosts {
+//       posts(first: 100 , where: { orderby: { field: DATE, order: DESC } }) {
+//         edges {
+//           node {
+//             title
+//             excerpt
+//             slug
+//             date
+//             featuredImage {
+//               node {
+//                 sourceUrl(size:MEDIUM )
+//               }
+//             }
+//             author {
+//               node {
+//                 name
+//                 firstName
+//                 lastName
+//                 avatar {
+//                   url
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `,
+//     {
+//       variables: {
+//         onlyEnabled: !preview,
+//         preview,
+//       },
+//     }
+//   );
+
+//   return data?.posts;
+// }
+//modified to get all blogs
+export async function getAllPostsForHome(preview, after) {
   const data = await fetchAPI(
-    `query AllPosts {
-      posts(first: 100 , where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
-          node {
-            title
-            excerpt
-            slug
-            date
-            featuredImage {
-              node {
-                sourceUrl(size:MEDIUM )
-              }
-            }
-            author {
-              node {
-                name
-                firstName
-                lastName
-                avatar {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `,
+    `query AllPosts($after: String) {
+		posts(first: 100, after: $after, where: { orderby: { field: DATE, order: DESC } }) {
+		  pageInfo {
+			hasNextPage
+			endCursor
+		  }
+		  edges {
+			node {
+			  title
+			  excerpt
+			  slug
+			  date
+			  featuredImage {
+				node {
+				  sourceUrl(size:MEDIUM )
+				}
+			  }
+			  author {
+				node {
+				  name
+				  firstName
+				  lastName
+				  avatar {
+					url
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+	`,
     {
       variables: {
+        after,
         onlyEnabled: !preview,
         preview,
       },
