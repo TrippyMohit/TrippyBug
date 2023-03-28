@@ -115,7 +115,7 @@ export async function getAllCategoriesWithSlug() {
 
 //   return data?.posts;
 // }
-//modified to get all blogs
+//modified to get all blogs in blogs page
 export async function getAllPostsForHome(preview, after) {
   const data = await fetchAPI(
     `query AllPosts($after: String) {

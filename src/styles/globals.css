@@ -84,3 +84,20 @@ html {
 }
 
 /* <----------------- Artilce Styles----------------------> */
+
+/* <----------------- blogs page Styles----------------------> */
+
+.blogHeading {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.blogText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+/* <----------------- blogs page Styles----------------------> */

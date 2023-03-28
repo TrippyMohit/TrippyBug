@@ -37,6 +37,5 @@ module.exports = {
         nature: "url('/assets/images/nature.jpg')",
       },
     },
-    plugins: [require("@tailwindcss/line-clamp")],
   },
 };

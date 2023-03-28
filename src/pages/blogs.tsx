@@ -14,7 +14,7 @@ export default function Blogs({ blogPosts }) {
   // console.log(blogPosts);
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 p-10 container">
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:p-10 lg:p-10 container">
         {blogPosts?.map((post) => {
           return <PostCard post={post} key={post?.id} />;
         })}
@@ -26,8 +26,8 @@ export default function Blogs({ blogPosts }) {
 const PostCard = ({ post }) => {
   return (
     <Link href={`/${post?.node?.slug}`}>
-      <a>
-        <div className="flex cursor-pointer flex-col  justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
+      <a className="w-full">
+        <div className="flex cursor-pointer flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
           <div className="flex justify-between w-full">
             <div className="flex gap-5">
               {post?.node?.author?.node?.avatar?.url && (
@@ -54,7 +54,7 @@ const PostCard = ({ post }) => {
           </div>
 
           <div className="flex flex-col gap-2 tracking-wider  flex-1 justify-between">
-            <h1 className="font-semibold text-2xl text-gray-900 ">
+            <h1 className="blogHeading font-semibold text-2xl text-gray-900 ">
               {post?.node?.title}
             </h1>
 
@@ -68,25 +68,26 @@ const PostCard = ({ post }) => {
             </div>
 
             <div
-              className="font-normal text-base text-gray-500"
+              className="blogText font-normal text-base text-gray-500"
               dangerouslySetInnerHTML={{ __html: post?.node?.excerpt }}
             />
-
-            <div className="flex gap-7 items-center pt-4">
-              {/* <div className="flex gap-2 ">
-              <div className="w-6 h-6 text-gray-400">{LikeIcon}</div>
-              {0}
-            </div> */}
+            {/* like comment share icons */}
+            {/* <div className="flex gap-7 items-center pt-4">
+              <div className="flex gap-2 ">
+                <div className="w-6 h-6 text-gray-400">{LikeIcon}</div>
+                {0}
+              </div>
 
               <div className="flex gap-2 ">
                 <div className="w-6 h-6 ">{CommentIcon}</div>
                 <div>{post?.node?.comments?.nodes?.length}</div>
               </div>
-              {/* <div className="flex gap-2 ">
-              <div className="w-4 h-4 ">{SaveIcon}</div>
-              <div>{0}</div>
+
+              <div className="flex gap-2 ">
+                <div className="w-4 h-4 ">{SaveIcon}</div>
+                <div>{0}</div>
+              </div>
             </div> */}
-            </div>
           </div>
         </div>
       </a>
