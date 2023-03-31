@@ -3,7 +3,7 @@ import React from "react";
 const Sitemap = () => {
   return (
     <div
-      className="mr-[50px] py-16 lg:ml-[250px]"
+      className="mr-[50px] sm:mt-2 md:pt-[55px] sm:mb-116px lg:py-16 lg:ml-[250px]"
       dangerouslySetInnerHTML={{
         __html: `
   <!DOCTYPE HTML>
