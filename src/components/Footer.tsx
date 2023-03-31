@@ -79,6 +79,9 @@ export const Footer = () => {
               <div>
                 <Link href={"/cookie-policy"}> Cookie Policy</Link>
               </div>
+              <div>
+                <Link href={"/sitemap"}>Sitemap</Link>
+              </div>
             </div>
             {/* social media icons */}
             <div className="pt-8 lg:pt-0 lg:mt-[-25px] flex flex-row lg:flex-col justify-center items-end gap-10">
