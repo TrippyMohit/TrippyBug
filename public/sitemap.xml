@@ -9,67 +9,642 @@
 
 <url>
   <loc>https://www.trippybug.com/</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/flights</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/flights/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/hotels</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/hotels/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/cars</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/cars/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/about</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/community/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/contact-us</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/blogs/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/gallery</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/10-best-travel-hacks-for-saving-extra-money/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/blogs</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/kiwi-form/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/faq</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/addBlog/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/privacy-policy</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/10-best-rooftop-bars-in-chicago/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/terms-of-service</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/the-10-best-brunch-spots-in-nyc/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/cookie-policy</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.trippybug.com/everything-you-need-to-know-about-masai-mara/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.trippybug.com/kiwi-form</loc>
-  <lastmod>2022-12-15T10:52:15+00:00</lastmod>
+  <loc>https://www.trippybug.com/list-of-10-best-resorts-in-bangalore/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/10-best-things-to-do-in-florence-italy/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-things-to-do-in-new-mexico/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/your-personal-guide-to-joshua-tree-national-park/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-8-best-places-to-visit-in-august-in-india/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-most-dangerous-amusement-park-rides/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-hawaii/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-things-to-do-in-chicago/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/10-best-cheapest-car-rental-companies-in-las-vegas/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/vietnam-history-culture-people/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-best-hotels-in-leh/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/10-best-cheapest-car-rental-in-europe/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-cruise-trips-in-india/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-top-6-valentines-day-ideas/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-cambodia/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/maingallery/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/wildlife/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/skyscrapers/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/nature/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/mountains/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/landscape/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/island/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/forest/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/cities/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-mexican-restaurants-in-lafayette/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-things-to-do-in-shillong/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-heritage-hotels-in-india/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-germany/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-places-to-visit-in-pondicherry/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-15-best-hotels-in-cape-town/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-best-things-to-do-in-ooty/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/10-best-dishes-you-should-try-in-bhutan/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/how-to-find-cheap-car-hires-in-bangkok/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/how-to-find-cheap-car-rental-in-dubai/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-reasons-why-you-should-visit-poland/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-best-all-inclusive-resorts-in-cancun/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/13-best-hotels-in-pondicherry/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-10-best-new-years-festivals/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-tricks-to-book-cheap-flight-tickets/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-top-15-airlines-in-the-world/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/everything-you-need-to-know-about-hanukkah/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-tropical-destinations-to-cross-over-into-the-new-years/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-best-diy-outdoor-christmas-decorations/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-cheap-hotels-in-chicago/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-15-most-haunted-places-in-america/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-15-best-places-to-visit-in-japan/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-luxury-hotels-in-goa/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-20-best-halloween-games-you-can-play/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-best-5-star-hotels-in-new-delhi/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-travel-movies-to-spark-the-wanderlust-in-you/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-the-10-safest-countries-in-the-world/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-best-beaches-in-europe/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/things-to-do-in-gokarna/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-japanese-restaurants-in-midland/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-hidden-gems-of-kashmir-valley/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-new-zealand/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/meghalaya-tourism-list-of-most-underrated-places-to-visit/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-top-10-tallest-mountains-in-the-world/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-places-to-visit-in-kerala/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-cheap-hotels-in-amsterdam/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/how-did-halloween-start-and-where/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-cabin-rentals-in-pigeon-forge/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/a-detailed-guide-to-the-inside-of-sydney-opera-house/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-20-cheap-hotels-in-nyc/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-top-20-hotels-in-lonavala/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/what-are-the-kunlun-mountains/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/a-complete-guide-to-skidaway-island-state-park/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/everything-to-know-about-the-guca-trumpet-festival/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-bestthings-to-do-in-calgary/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-rome-find-the-popular-the-must-visits-and-the-hidden-gems-of-the-eternal-city/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-best-things-to-do-in-krabi/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-top-20-best-greek-islands/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-best-time-to-visit-zion-national-park/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/albania-history-culture-people/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-10-best-beaches-in-california/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-things-to-do-in-phuket-city/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-best-places-to-visit-in-october/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-massage-places-in-san-diego/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-hotels-in-orlando-florida/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-goa/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/everything-you-need-to-know-about-the-museum-of-natural-history-nyc/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-workation-destinations-in-india/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-hotels-with-private-jacuzzi-in-room/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-best-things-to-do-in-shoreditch-home-to-the-cool-the-quirky/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-top-10-pet-friendly-hotels-in-helen-ga/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/history-of-shanti-stupa-leh-ladakh-2022/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-ubud-bali/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-visa-free-countries-on-indian-passport/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-hotels-in-istanbul-turkey-2022/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-best-things-to-do-in-pattaya-thailand/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-incredible-places-to-visit-in-december/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-hotels-in-las-vegas-2022/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/most-beautiful-cities-in-italy-the-most-famous-and-the-most-underrated/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/pride-month-what-it-is-and-where-you-can-experience-it/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-tourist-attractions-in-dubai/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-best-national-parks-in-the-world-the-famous-the-uderrated-and-the-hidden-gems/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-hotels-in-amsterdam/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-things-to-do-in-cairo/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-places-to-visit-in-mexico/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-hotels-near-disneyland/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/15-best-solo-trips-for-women/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/the-best-hotels-in-london-luxury-to-budget-friendly-ones/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-hotels-in-phuket/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/20-most-extreme-adventures-for-adrenaline-junkies-and-thrill-seekers/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-20-caves-in-india/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-couple-retreats/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/summer-camps-2022/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-places-to-visit-in-florida/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-10-countries-to-visit-in-july/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-places-to-visit-in-istanbul-turkey-in-2022/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/top-15-free-things-to-do-in-las-vegas/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/northern-lights-or-aurora-borealis/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/best-places-to-visit-in-the-caribbean/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/7-wonders-of-the-world/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/list-of-awesome-things-you-must-do-in-seychelles/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.trippybug.com/seychelles-islands-culture-history-people/</loc>
+  <lastmod>2023-03-31T06:30:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
