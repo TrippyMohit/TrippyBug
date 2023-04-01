@@ -11,3 +11,6 @@ Disallow: /login
 Disallow: /register
 Disallow: /user/logout/
 Disallow: /userprofile
+
+
+Sitemap: https://www.trippybug.com/sitemap.xml
