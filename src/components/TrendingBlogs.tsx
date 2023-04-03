@@ -9,17 +9,17 @@ import { FormControlUnstyled } from "@mui/base";
 const TrendingBlogs = ({ trendingBlogs }) => {
   const trendingCarouselSettings = {
     slidesToShow: 4,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
-    speed: 1000,
-    dots: false,
-    arrows: false,
-    centermode: true,
+    // speed: 1000,
+    // dots: false,
+    // arrows: false,
+    // centermode: true,
     infinite: true,
-    lazyLoad: "ondemand",
-    touchThreshold: 100,
+    // lazyLoad: "ondemand",
+    // touchThreshold: 100,
     swipeToSlide: true,
-    focusOnSelect: true,
+    // focusOnSelect: true,
     draggable: true,
     responsive: [
       {

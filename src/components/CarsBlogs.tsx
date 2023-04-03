@@ -9,18 +9,17 @@ import { format } from "date-fns";
 const CarsBlogs = ({ carsBlogs }) => {
   const CarsBlogsCarouselSettings = {
     slidesToShow: 4,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
-    speed: 1000,
-    dots: false,
-    arrows: false,
-    centermode: true,
+    // speed: 1000,
+    // dots: false,
+    // arrows: false,
+    // centermode: true,
     infinite: true,
-    lazyLoad: "ondemand",
-    touchThreshold: 100,
+    // lazyLoad: "ondemand",
+    // touchThreshold: 100,
     swipeToSlide: true,
-    focusOnSelect: true,
-    draggable: true,
+    // focusOnSelect: true,
     responsive: [
       {
         breakpoint: 1024,
