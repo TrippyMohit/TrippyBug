@@ -102,7 +102,7 @@ export default function Home({
         <TrendingBlogs trendingBlogs={trendingBlogs} />
         {/* <Gallery posts={gallery} /> */}
         <GalleyCategories />
-        <TopDestinationBlogs topDestinations={topDestinations} />
+        {/* <TopDestinationBlogs topDestinations={topDestinations} /> */}
         <ExploreWorldBlogs exploreTheWorld={exploreTheWorld} />
         <LookingForInspiration lookingForInspiration={lookingForInspiration} />
         <JoinTravel />

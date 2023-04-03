@@ -122,11 +122,11 @@ const ExploreWorldBlogCard = ({
         )}
 
         <div className="flex flex-col gap-2 w-[90%]">
-          <h3 className="font-semibold text-gray-900 text-xl hover:text-orange-500">
+          <h3 className="cardsTitle font-semibold text-gray-900 text-xl hover:text-orange-500">
             {postTitle}
           </h3>
           <div
-            className=" text-gray-500"
+            className="cardsDescription text-gray-500"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
           <div className="font-medium text-orange-500 cursor-pointer">

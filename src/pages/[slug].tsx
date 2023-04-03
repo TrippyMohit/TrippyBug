@@ -57,8 +57,10 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
 
   // content for comment
   const [content, setContent] = useState("");
-
   const router = useRouter();
+
+  const { pathname } = router;
+  console.log(router.back);
 
   useEffect(() => {
     const errors = () => {
@@ -118,11 +120,13 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
       </Head>
       <StructuredData data={structuredData} />
       <div className="container flex lg:flex-row flex-col pt-10 gap-10">
-        <Link href="/blogs">
-          <div className="w-10 h-10 hidden lg:block text-orange-400 bg-orange-100 rounded-full p-2 cursor-pointer">
-            {ChevronLeftIcon}
-          </div>
-        </Link>
+        <div
+          onClick={() => router.back()}
+          className="w-10 h-10 hidden lg:block text-orange-400 bg-orange-100 rounded-full p-2 cursor-pointer"
+        >
+          {ChevronLeftIcon}
+        </div>
+
         <div className="w-full lg:w-3/4">
           <div className=" flex flex-col w-full gap-4">
             {/* Header proflie avatar head */}
@@ -251,7 +255,7 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
                   value={content}
                 ></textarea>
                 <div className="flex">
-                  <div className="flex pb-16 ">
+                  <div className="flex pb-[100px] ">
                     <Button>Add a Comment</Button>
                   </div>
                 </div>

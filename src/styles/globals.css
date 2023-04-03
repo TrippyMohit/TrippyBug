@@ -102,6 +102,19 @@ html {
 }
 /* <----------------- blogs page Styles----------------------> */
 
-/* <----------------- sitemap page Styles----------------------> */
+/* <----------------- Cards Styles----------------------> */
+.cardsTitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
 
-/* <----------------- sitemap page Styles----------------------> */
+.cardsDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* <----------------- Cards Styles----------------------> */
