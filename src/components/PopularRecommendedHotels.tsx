@@ -107,7 +107,9 @@ const BlogCard = ({ featuredImage, title, author, index, slug }) => {
         </div>
 
         <div className="flex flex-col">
-          <h3 className="font-semibold text-gray-900 text-lg px-2">{title}</h3>
+          <h3 className="font-semibold text-gray-900 text-lg px-2 hover:text-orange-500 cursor-pointer">
+            {title}
+          </h3>
           <p className="font-medium text-gray-500 px-2">{author}</p>
         </div>
       </div>

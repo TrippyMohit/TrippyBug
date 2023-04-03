@@ -164,11 +164,11 @@ export const AppHeader = () => {
                 <Link href="/">
                   <a>
                     <Image
-                      src="/assets/images/logo.png"
+                      src="/assets/images/newLogo.png"
                       width={203}
                       height={88}
                       objectFit="contain"
-                      alt="TrippyBug logo"
+                      alt="TrippyBug"
                     />
                   </a>
                 </Link>
