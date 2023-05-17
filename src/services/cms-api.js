@@ -1,8 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-const API_URL = process.env.WORDPRESS_API_URL;
-console.log(API_URL);
-
 async function fetchAPI(query = "", { variables } = {}) {
   const headers = { "Content-Type": "application/json" };
 
@@ -13,7 +8,7 @@ async function fetchAPI(query = "", { variables } = {}) {
   }
 
   // WPGraphQL Plugin must be enabled
-  const res = await fetch(`${API_URL}/graphql`, {
+  const res = await fetch(`${process.env.WORDPRESS_API_URL}/graphql`, {
     headers,
     method: "POST",
     body: JSON.stringify({

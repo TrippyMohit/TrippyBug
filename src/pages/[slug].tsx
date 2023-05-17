@@ -424,7 +424,7 @@ export async function getServerSideProps({
       comments: data?.post?.comments,
       postId: data?.post?.postId,
 
-      API_URL: "https://cms.trippybug.com",
+      API_URL: `{process.env.WORDPRESS_API_URL}`,
     },
   };
 }
