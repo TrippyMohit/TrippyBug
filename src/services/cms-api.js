@@ -8,7 +8,7 @@ async function fetchAPI(query = "", { variables } = {}) {
   }
 
   // WPGraphQL Plugin must be enabled
-  const res = await fetch(`${process.env.WORDPRESS_API_URL}/graphql`, {
+  const res = await fetch(`https://cms.trippybug.com/graphql`, {
     headers,
     method: "POST",
     body: JSON.stringify({
