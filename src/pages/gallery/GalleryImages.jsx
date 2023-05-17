@@ -29,8 +29,10 @@ const GalleryImages = ({ post }) => {
 
   const handleDownload = (e) => {
     const imageUrl = e.target.dataset.src;
+    console.log(imageUrl);
     FileSaver.saveAs(imageUrl, "image.png");
   };
+
   const imageClick = (src) => {
     window.open(src, "_blank", "toolbar=0,location=0,menubar=0");
   };
@@ -63,14 +65,14 @@ const GalleryImages = ({ post }) => {
       {/* Image */}
       <div className="py-[50px] grid grid-col-2 lg:grid-cols-4 gap-2 items-start ">
         {imageSrc?.map((src) => (
-          <div className="relative" key="src">
+          <div className="relative h-[100%] w-[100%]" key="src">
             <BsCloudDownload
               data-src={src}
               onClick={handleDownload}
-              className="bg-orange-500 rounded-lg p-1 h-[23px] w-[23px] absolute right-2 bottom-8 font-bold text-white hover:scale-125 cursor-pointer transition-all "
+              className="bg-orange-500 z-30 rounded-lg p-1 h-[23px] w-[23px] absolute right-2 bottom-8 font-bold text-white hover:scale-125 cursor-pointer transition-all "
             />
             <img
-              className="h-full w-auto object-contain cursor-grab  transition-all  "
+              className="h-full w-full z-0 object-cover cursor-grab  transition-all  "
               src={src}
               alt="trippybug"
               onClick={() => {

@@ -1,5 +1,7 @@
-// const API_URL = process.env.WORDPRESS_API_URL
-const API_URL = "https://terndstreet.com";
+import dotenv from "dotenv";
+dotenv.config();
+const API_URL = process.env.WORDPRESS_API_URL;
+console.log(API_URL);
 
 async function fetchAPI(query = "", { variables } = {}) {
   const headers = { "Content-Type": "application/json" };

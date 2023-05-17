@@ -13,8 +13,8 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "graph.facebook.com",
       "firebasestorage.googleapis.com",
-      // added to nee domain for trenstreet now cms is on terndstreet
-      "terndstreet.com",
+      // added to new domain for trenstreet now cms is on cms.trippybug.com
+      "cms.trippybug.com",
       "1.gravatar.com",
     ],
   },
