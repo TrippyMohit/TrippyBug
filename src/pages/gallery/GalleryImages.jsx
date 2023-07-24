@@ -52,7 +52,7 @@ const GalleryImages = ({ post }) => {
   return (
     <>
       {/* Gallery navbar */}
-      <div className="flex flex-wrap justify-around align-baseline items-center">
+      <div className="flex flex-wrap justify-around align-baseline items-center p-2">
         {galleryNavLinks.map((galleryLink) => (
           <span
             key={galleryLink}
@@ -63,13 +63,13 @@ const GalleryImages = ({ post }) => {
         ))}
       </div>
       {/* Image */}
-      <div className="py-[50px] grid grid-col-2 lg:grid-cols-4 gap-2 items-start ">
+      <div className=" p-4 sm:py-[50px] grid grid-col-2 lg:grid-cols-4 gap-2 items-start ">
         {imageSrc?.map((src) => (
-          <div className="relative h-[100%] w-[100%]" key="src">
+          <div className="relative h-[100%] w-[100%] rounded-lg overflow-hidden" key="src">
             <BsCloudDownload
               data-src={src}
               onClick={handleDownload}
-              className="bg-orange-500 z-30 rounded-lg p-1 h-[23px] w-[23px] absolute right-2 bottom-8 font-bold text-white hover:scale-125 cursor-pointer transition-all "
+              className="bg-orange-500 z-30 rounded-lg p-1 h-[23px] w-[23px] absolute right-2 bottom-8 font-bold text-white hover:scale-125 cursor-pointer transition-all"
             />
             <img
               className="h-full w-full z-0 object-cover cursor-grab  transition-all  "

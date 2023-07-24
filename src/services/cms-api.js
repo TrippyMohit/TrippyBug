@@ -313,13 +313,17 @@ export async function getMorePosts(postId = "", categoryId) {
 
 export async function getPostBySlug(slug, preview, previewData) {
   const postPreview = preview && previewData?.post;
+
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
+
   const isSamePost = isId
     ? Number(slug) === postPreview.id
     : slug === postPreview.slug;
+
   const isDraft = isSamePost && postPreview?.status === "draft";
   const isRevision = isSamePost && postPreview?.status === "publish";
+
   const data = await fetchAPI(
     `
     fragment AuthorFields on User {

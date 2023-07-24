@@ -12,6 +12,7 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -83,6 +84,7 @@ export default function Login() {
         />
         <div className="md:container w-full md:w-full lg:w-1/3 2xl:w-1/2">
           <div className="flex flex-col w-full md:w-full lg:w-full 2xl:w-1/2 relative justify-center gap-6 p-10 bg-white rounded-3xl md:shadow-[0_3px_25px_-10px_rgba(0,0,0,0.3)] ">
+
             <form onSubmit={signIn} className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl font-bold md:text-center text-gray-600">
@@ -140,6 +142,8 @@ export default function Login() {
                 </div>
               )} */}
             </form>
+
+            
             <div>
               <p className="font-medium text-sm text-[#9A9A9A] text-center ">
                 --- Or login with ---

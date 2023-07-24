@@ -38,7 +38,7 @@ const ExploreWorldBlogs = ({ exploreTheWorld }) => {
   };
 
   return (
-    <div className="relative container  lg:pb-10 p-10">
+    <div className="relative container px-2 sm:px-8 pt-10 lg:pb-10">
       <div className=" w-full z-0 lg:flex hidden"></div>
       <div className="flex flex-col items-center">
         <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold ">
@@ -50,7 +50,7 @@ const ExploreWorldBlogs = ({ exploreTheWorld }) => {
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
 
-      <div className="relative z-0 flex container w-full mx-auto pt-16 pb-8 gap-10 lg:flex-row items-center flex-col overflow-hidden">
+      <div className="relative flex container w-full mx-auto pt-16 pb-8 gap-10 lg:flex-row-reverse items-center flex-col ">
         <div className="flex flex-1 justify-between w-full">
           <div className="relative w-full ">
             <Slider {...exploreCarouselSettings} ref={explorerWorldRef}>
@@ -76,13 +76,13 @@ const ExploreWorldBlogs = ({ exploreTheWorld }) => {
           </div>
 
           <button
-            className=" items-center justify-center bg-gray-200 lg:flex w-16 h-16 rounded-full absolute  z-50 top-[250px] left-0 text-3xl text-gray-600"
+            className=" items-center justify-center bg-opacity-70 sm:bg-opacity-100 bg-gray-200 lg:flex w-10 h-10 sm:w-16 sm:h-16 rounded-full  absolute z-50 top-[35%]  left-0 sm:ml-[-20px]  text-3xl text-gray-600"
             onClick={previousSlide}
           >
             &lt;
           </button>
           <button
-            className="items-center justify-center lg:flex bg-gray-200 w-16 h-16 rounded-full absolute z-50 top-[250px] right-0  text-3xl text-gray-600"
+            className="items-center justify-center  lg:flex bg-opacity-70 sm:bg-opacity-100 bg-gray-200 w-10 h-10 sm:w-16 sm:h-16 rounded-full absolute z-50 top-[35%] right-0 sm:mr-[-20px] text-3xl text-gray-600"
             onClick={nextSlide}
           >
             &gt;
@@ -105,12 +105,12 @@ const ExploreWorldBlogCard = ({
     <Link href={link}>
       <div
         className={classNames(
-          "flex flex-col gap-6 items-start justify-between w-full cursor-pointer",
+          "flex flex-col gap-6 items-start justify-between mx-2 cursor-pointer",
           { "lg:pt-0": index % 2 == 0 }
         )}
       >
         {featuredImage && (
-          <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl">
+          <div className="relative  w-[100%] z-10 overflow-hidden h-[350px] rounded-xl">
             <Image
               alt={postTitle}
               src={featuredImage}
@@ -120,7 +120,7 @@ const ExploreWorldBlogCard = ({
           </div>
         )}
 
-        <div className="flex flex-col gap-2 w-[90%]">
+        <div className="flex flex-col gap-2 w-[100%]">
           <h3 className="cardsTitle font-semibold text-gray-900 text-xl hover:text-orange-500">
             {postTitle}
           </h3>

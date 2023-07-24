@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -9,15 +11,17 @@ import {
   onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
-import { useRouter } from "next/router";
 import app from "../../firebase";
 import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { async } from "@firebase/util";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpIcon } from "../icons";
 import { toast } from "react-toastify";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { async } from "@firebase/util";
+
+
 const initialState = {
   firstName: "",
   lastName: "",
@@ -34,6 +38,7 @@ export default function Register() {
   const router = useRouter();
 
   const { firstName, lastName, email, password, confirmPassword } = state;
+  
   //on change
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });

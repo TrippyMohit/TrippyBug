@@ -19,17 +19,8 @@ export default function TermsOfService() {
   ];
   return (
     <div className="w-full relative ">
-      <div className=" opacity-25 absolute  w-full h-96  top-[20vh] ">
-        <Image
-          alt="trippybug"
-          objectFit="contain"
-          layout="fill"
-          src="/assets/images/terms-and-conditions.png"
-          objectPosition={"100% 0"}
-        />
-      </div>
       <div>
-        <div className=" z-30 relative w-full min-h-screen gap-10 m-auto flex flex-col-reverse lg:flex-row lg:mt-10 container px-10 lg:p-0">
+        <div className=" z-30 relative w-full min-h-screen gap-10 m-auto flex flex-col-reverse lg:flex-row lg:mt-10 container px-4 sm:px-10 lg:p-0">
           <div className="lg:w-1/4 w-full lg:border-r-2 lg:border-r-gray-400 ">
             <div className="font-bold text-2xl pt-7 font-sans">
               Table of Contents
@@ -50,14 +41,14 @@ export default function TermsOfService() {
               </ul>
             </div>
           </div>
-          <div className=" flex flex-col lg:w-3/4 w-full gap-14 mt-7 overflow-scroll scroll max-h-screen scrollbar-hide pb-10">
+          <div className=" flex flex-col lg:w-3/4 w-full gap-14 mt-7 overflow-scroll scroll sm:max-h-screen scrollbar-hide pb-10">
             <div>
               <div className="relative -mt-24 " id="terms-of-services"></div>
-              <h1 className="font-sans mt-24 font-bold text-4xl">
+              <h1 className="font-sans mt-24 font-bold  text-3xl sm:text-4xl">
                 Terms of Service
               </h1>
               <div className=" text-xl mt-4 text-gray-400">
-                <p>
+                <p className="text-sm sm:text-lg">
                   Protection and embezzlement purposes, such as retaining a
                   subset of your payment information, such as the last four
                   digits of your credit card and your IP address, to track where
@@ -68,7 +59,7 @@ export default function TermsOfService() {
                   blocking the transaction or us
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   Using information such as internet browser, OS version,
                   locale, dialect information, and site layout activity, as well
                   as any particular comments you may provide from time to time,
@@ -76,7 +67,7 @@ export default function TermsOfService() {
                   for improvement
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   Offering you customer support or assistance in response to any
                   queries or problems you may have while utilising our services.
                   Although the ultimate Travel Supplier is responsible to you
@@ -86,7 +77,7 @@ export default function TermsOfService() {
                   we'll need to use some of your personal data to help you.
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   Analysing and examining how, when, and why people use
                   Trippybug to deliver, evaluate, improve, and optimise the
                   delivery of our services. Consider the following scenario for
@@ -96,7 +87,7 @@ export default function TermsOfService() {
                   corresponding travel alternatives being picked
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   You are solely responsible for any User Content you post, and
                   you represent and agree that you will not share anything for
                   which you do not have the permission or right to share or for
@@ -104,7 +95,7 @@ export default function TermsOfService() {
                   paragraph 2 below.
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   Although you or your licensors own all intellectual property
                   rights in any User Content, and you are always free to share
                   your User Content with others, you hereby grant TrippyBug and
@@ -122,13 +113,13 @@ export default function TermsOfService() {
                   within 48 hours.
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   We have no duty to keep, maintain, publish, or make available
                   any User Content you contribute, and you are solely
                   responsible for backing up your own User Content.
                 </p>
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   If you offer us any suggestions, comments, improvements,
                   ideas, or other feedback ("Input"), you thus irrevocably
                   assign to us all intellectual property rights in that feedback
@@ -144,23 +135,23 @@ export default function TermsOfService() {
                 <br />
 
                 <ul className=" pt-10 list-disc  pl-10 flex flex-col gap-10 ">
-                  <li>
+                  <li className="text-sm sm:text-lg">
                     Delivering you emails for items you've requested, such as
                     Pricing Notifications.
                   </li>
-                  <li>
+                  <li className="text-sm sm:text-lg">
                     Showing you online marketing messages via email, push
                     notification, or other means if you've agreed to.
                   </li>
-                  <li>
+                  <li className="text-sm sm:text-lg">
                     Collecting certain cookies on your devices if you have given
                     your agreement to do so.
                   </li>
-                  <li>
+                  <li className="text-sm sm:text-lg">
                     collecting and analyzing your input if you accept to
                     participate in one-on-one user testing.
                   </li>
-                  <li>
+                  <li className="text-sm sm:text-lg">
                     You can withdraw your agreement at any time if we process
                     your personal information solely based on your consent,
                     either by utilizing the facility offered within the
@@ -174,7 +165,7 @@ export default function TermsOfService() {
                 </b>
                 <br />
                 <br />
-                <p>
+                <p className="text-sm sm:text-lg">
                   Your information may be retained and used in connection with
                   lawsuits, as well as for compliance, regulatory, and auditing
                   purposes. For instance, we may keep data if we are compelled
@@ -188,9 +179,11 @@ export default function TermsOfService() {
             </div>
 
             <div id="contact-us">
-              <h1 className="font-sans font-bold text-4xl mt-5">Contact Us</h1>
+              <h2 className="font-sans font-bold text-3xl sm:text-4xl mt-5">
+                Contact Us
+              </h2>
               <div className="text-xl mt-4 flex flex-col gap-7 text-gray-400">
-                <p>
+                <p className="text-sm sm:text-lg">
                   If you have questions about these Privacy Policy, please send
                   an e-mail to bugtrippy@gmail.com
                 </p>

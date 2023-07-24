@@ -4,12 +4,15 @@ import {
   getAllPostsWithSlug,
   getAllPostsForHome,
 } from "../services/cms-api";
+
 import { formatDistance } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import { async } from "@firebase/util";
+
 export default function Blogs({ blogPosts }) {
   // console.log(blogPosts);
   return (
@@ -51,7 +54,7 @@ const PostCard = ({ post }) => {
     <div className={`${showBlog}`}>
       <Link href={`/${post?.node?.slug}`}>
         <a className="w-full ">
-          <div className="flex cursor-pointer flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-8 border border-gray-200 text-left">
+          <div className="flex cursor-pointer flex-col justify-between gap-4 bg-white shadow-lg rounded-2xl m-4 p-4 sm:p-8 border border-gray-200 text-left">
             <div className="flex justify-between w-full">
               <div className="flex gap-5">
                 {post?.node?.author?.node?.avatar?.url && (
@@ -65,7 +68,7 @@ const PostCard = ({ post }) => {
                   </div>
                 )}
                 <div className="flex flex-col justify-center ">
-                  <div className="font-semibold text-lg text-gray-900  ">
+                  <div className="font-semibold sm:text-lg text-gray-900  ">
                     {post?.node?.author?.node?.name}
                   </div>
                   <div className="font-normal text-sm text-gray-400">
@@ -78,9 +81,9 @@ const PostCard = ({ post }) => {
             </div>
 
             <div className="flex flex-col gap-2 tracking-wider  flex-1 justify-between">
-              <h1 className="blogHeading font-semibold text-2xl text-gray-900 hover:text-orange-500 ">
+              <h3 className="blogHeading font-semibold text-xl sm:text-2xl text-gray-900 hover:text-orange-500 ">
                 {post?.node?.title}
-              </h1>
+              </h3>
               <div className="relative w-full flex-1 min-h-[200px]">
                 <Image
                   alt={post?.node?.title}

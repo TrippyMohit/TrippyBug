@@ -122,7 +122,7 @@ const HomePageBanner = () => {
           <div className="flex-1 flex flex-col gap-9  lg:w-1/2 w-full lg:pt-8">
             <div className="lg:px-24 px-6 lg:py-28 flex flex-col gap-16 ">
               <div className="flex flex-col">
-                <h1 className="text-4xl lg:text-7xl  lg:font-bold font-normal pb-8 font-salsa">
+                <h1 className="text-4xl lg:text-7xl  lg:font-bold font-normal pb-8 font-salsa text-center sm:text-left">
                   Plan your Trip with Trippy
                   <span className="text-orange-500">Bug</span>
                 </h1>
@@ -232,9 +232,9 @@ const HomePageBanner = () => {
             </div>
           </div>
         </div>
-        <div className="  w-full flex flex-col gap-4 lg:gap-0 z-30 container -mt-32 ">
+        <div className="w-full flex flex-col gap-4 lg:gap-0 z-30 container sm:-mt-32 ">
           {/* <-------buttons------> */}
-          <div className="pt-[25px] pb-[5px] flex justify-center ml-0  lg:justify-start lg:ml-0 w-full ">
+          <div className="pt-[25px] pb-[5px] flex justify-center gap-2 ml-0  lg:justify-start lg:ml-0 w-full ">
             <ButtonTabSelector
               isActive={selectedTab === "flights"}
               onClick={() => setSelectedTab("flights")}
@@ -254,7 +254,7 @@ const HomePageBanner = () => {
               Cars
             </ButtonTabSelector>
           </div>
-          <div className="bg-gray-400 bg-opacity-30 ring-opacity-30 ring-white  ring-4 ring-offset-4 container shadow-lg p-8 rounded-3xl ">
+          <div className="sm:bg-gray-400 sm:bg-opacity-30 sm:ring-opacity-30 sm:ring-white  sm:ring-4 ring-offset-4 container shadow-lg px-4 sm:p-8 rounded-3xl ">
             <TabPanel hidden={selectedTab !== "flights"}>
               <div className="bg-blue thirdScreen:mb-[-210px] thirdScreen:h-[350px]  ">
                 <iframe

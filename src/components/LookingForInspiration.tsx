@@ -39,47 +39,49 @@ const LookingForInspiration = ({ lookingForInspiration }) => {
   };
 
   return (
-    <div className="relative flex w-full flex-col gap-12 container pb-10 ">
-      <div className=" gap-10 flex flex-col font-bold lg:items-center items-start">
-        <div className="flex flex-col">
-          <h2 className="font-caveat text-orange-400 lg:text-center text-left lg:text-7xl text-5xl">
-            Looking
-          </h2>
-          <h2 className=" text-gray-900 lg:text-center text-left lg:text-7xl text-4xl">
-            For Inspiration
-          </h2>
-        </div>
+    <div className="relative container px-2 sm:px-8 pt-10 lg:pb-10">
+      <div className="flex flex-col items-center">
+        <h2 className="font-caveat text-orange-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold ">
+          Looking
+        </h2>
+        <h2 className="mb-6 text-black-400 lg:text-center text-center lg:text-8xl  text-3xl font-bold">
+          For Inspiration
+        </h2>
         <div className="w-12 h-6 bg-teal-300 rounded-full hidden lg:flex"></div>
       </div>
-      <div className="relative lg:px-32">
-        <Slider
-          {...LookingForInspirationCarouselSettings}
-          ref={LookingForInspirationRef}
-        >
-          {lookingForInspiration?.map((post) => (
-            <BlogCard
-              key={post?.node?.slug}
-              index={0}
-              featuredImage={post?.node?.featuredImage?.node?.sourceUrl}
-              title={post?.node?.title}
-              author={post?.node?.author?.node?.name}
-              slug={post?.node?.slug}
-            />
-          ))}
-        </Slider>
+      <div className="relative flex container w-full mx-auto pt-16 pb-8 gap-10 lg:flex-row-reverse items-center flex-col ">
+        <div className="flex flex-1 justify-between w-full">
+          <div className="relative w-full ">
+            <Slider
+              {...LookingForInspirationCarouselSettings}
+              ref={LookingForInspirationRef}
+            >
+              {lookingForInspiration?.map((post) => (
+                <BlogCard
+                  key={post?.node?.slug}
+                  index={0}
+                  featuredImage={post?.node?.featuredImage?.node?.sourceUrl}
+                  title={post?.node?.title}
+                  author={post?.node?.author?.node?.name}
+                  slug={post?.node?.slug}
+                />
+              ))}
+            </Slider>
+          </div>
+          <button
+            className=" items-center justify-center bg-opacity-70 sm:bg-opacity-100 bg-gray-200 lg:flex w-10 h-10 sm:w-16 sm:h-16 rounded-full  absolute z-50 top-[55%] sm:top-[40%]  left-0 sm:ml-[-20px]  text-3xl text-gray-600"
+            onClick={previousSlide}
+          >
+            &lt;
+          </button>
+          <button
+            className=" items-center justify-center  lg:flex bg-opacity-70 sm:bg-opacity-100 bg-gray-200 w-10 h-10 sm:w-16 sm:h-16 rounded-full absolute z-50 top-[55%] sm:top-[40%] right-0 sm:mr-[-20px] text-3xl text-gray-600"
+            onClick={nextSlide}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
-      <button
-        className="items-center justify-center bg-gray-200 lg:flex w-16 h-16 rounded-full  absolute z-50 top-[400px] left-0 lg:left-10 ml-[-25px] lg:ml-[0px]  text-3xl text-gray-600"
-        onClick={previousSlide}
-      >
-        &lt;
-      </button>
-      <button
-        className="items-center justify-center lg:flex bg-gray-200 w-16 h-16 rounded-full absolute z-50 top-[400px] right-2 lg:right-14 text-3xl text-gray-600"
-        onClick={nextSlide}
-      >
-        &gt;
-      </button>
     </div>
   );
 };
@@ -89,14 +91,14 @@ const BlogCard = ({ featuredImage, title, author, index, slug }) => {
     <Link href={slug}>
       <div
         className={classNames(
-          "flex flex-col-reverse gap-6 items-start justify-between ",
+          "flex flex-col-reverse gap-6 items-start justify-between mx-2",
           {
             "lg:flex-col-reverse": index % 2 == 1,
             "lg:flex-col": index % 2 == 0,
           }
         )}
       >
-        <div className="relative w-[90%] z-10 overflow-hidden  h-[400px] rounded-xl">
+        <div className="relative w-[100%] z-10 overflow-hidden  h-[400px] rounded-xl">
           <Image
             alt={title}
             src={featuredImage}

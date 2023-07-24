@@ -30,7 +30,6 @@ import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "../common";
-import { useSnackbar } from "notistack";
 import { formatDistance } from "date-fns";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { features } from "process";
@@ -119,7 +118,7 @@ export default function SinglePost({ post, API_URL, recentPosts }) {
         />
       </Head>
       <StructuredData data={structuredData} />
-      <div className="container flex lg:flex-row flex-col pt-10 gap-10">
+      <div className="container flex lg:flex-row flex-col px-4 pt-10 gap-10">
         <div
           onClick={() => router.back()}
           className="w-10 h-10 hidden lg:block text-orange-400 bg-orange-100 rounded-full p-2 cursor-pointer"
@@ -397,6 +396,42 @@ const CategoryCard = ({ icon, name, link }) => {
 // change getStaticPaths and getStaticProps into getServerSideProps
 // <------------------------------------------------------------>
 
+// export async function getServerSideProps({
+//   params,
+//   preview = false,
+//   previewData,
+// }) {
+//   const data = await getPostBySlug(params.slug, preview, previewData);
+//   const categories = await getCategoriesForSidebar();
+//   const recentPosts = await getRecentPosts();
+//   let category, morePosts;
+
+//   if (data.post) {
+//     category =
+//       data.post?.categories.edges.length && data.post.categories.edges[0].node;
+
+//     if (category) {
+//       morePosts = await getMorePosts(data.post.postId, category.categoryId);
+//     }
+//   }
+//   return {
+//     props: {
+//       categories: categories || null,
+//       category,
+//       post: data?.post || null,
+//       recentPosts: recentPosts || null,
+//       noMeta: true,
+//       comments: data?.post?.comments || null,
+//       postId: data?.post?.postId || null,
+
+//       API_URL: `https://cms.trippybug.com`,
+//     },
+//   };
+// }
+
+
+
+
 export async function getServerSideProps({
   params,
   preview = false,
@@ -406,6 +441,7 @@ export async function getServerSideProps({
   const categories = await getCategoriesForSidebar();
   const recentPosts = await getRecentPosts();
   let category, morePosts;
+
   if (data.post) {
     category =
       data.post?.categories.edges.length && data.post.categories.edges[0].node;
@@ -414,15 +450,21 @@ export async function getServerSideProps({
       morePosts = await getMorePosts(data.post.postId, category.categoryId);
     }
   }
+  
+  // Check if category is undefined and set it to null if it is
+  if (typeof category === 'undefined') {
+    category = null;
+  }
+
   return {
     props: {
-      categories: categories,
+      categories: categories || null,
       category,
-      post: data?.post,
-      recentPosts: recentPosts,
+      post: data?.post || null,
+      recentPosts: recentPosts || null,
       noMeta: true,
-      comments: data?.post?.comments,
-      postId: data?.post?.postId,
+      comments: data?.post?.comments || null,
+      postId: data?.post?.postId || null,
 
       API_URL: `https://cms.trippybug.com`,
     },

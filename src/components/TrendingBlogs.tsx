@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import classNames from "classnames";
 import { createRef } from "react";
 import { format } from "date-fns";
-import { FormControlUnstyled } from "@mui/base";
 const TrendingBlogs = ({ trendingBlogs }) => {
   const trendingCarouselSettings = {
     slidesToShow: 4,
@@ -41,7 +40,7 @@ const TrendingBlogs = ({ trendingBlogs }) => {
   };
 
   return (
-    <div className="relative lg:pb-10 p-10">
+    <div className="relative px-2 sm:px-8 pt-10 lg:pb-10">
       <div className="w-full z-0 lg:flex hidden h-full">
         <Image
           alt="tirppybig"
@@ -83,13 +82,13 @@ const TrendingBlogs = ({ trendingBlogs }) => {
             </Slider>
           </div>
           <button
-            className="items-center justify-center bg-gray-200 lg:flex  w-16 h-16 rounded-full  absolute z-50 top-[400px]  left-0 ml-[-20px]  text-3xl text-gray-600"
+            className=" items-center justify-center bg-opacity-70 sm:bg-opacity-100 bg-gray-200 lg:flex w-10 h-10 sm:w-16 sm:h-16 rounded-full  absolute z-50 top-[35%]  left-0 sm:ml-[-20px]  text-3xl text-gray-600"
             onClick={previousSlide}
           >
             &lt;
           </button>
           <button
-            className="items-center justify-center  lg:flex bg-gray-200 w-16 h-16 rounded-full absolute z-50 top-[400px] right-2 text-3xl text-gray-600"
+            className=" items-center justify-center  lg:flex bg-opacity-70 sm:bg-opacity-100 bg-gray-200 w-10 h-10 sm:w-16 sm:h-16 rounded-full absolute z-50 top-[35%] right-0 sm:mr-[-20px] text-3xl text-gray-600"
             onClick={nextSlide}
           >
             &gt;
@@ -111,13 +110,13 @@ const TrendingBlogCard = ({
   return (
     <div
       className={classNames(
-        "flex flex-col gap-6 items-start justify-between w-full ",
+        "flex flex-col gap-6 items-start justify-between mx-2 ",
         { "lg:pt-0": index % 2 == 1 }
       )}
     >
       <Link href={link}>
         {featuredImage && (
-          <div className="relative  w-[90%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
+          <div className="relative  w-[100%] z-10 overflow-hidden h-[350px] rounded-xl cursor-pointer">
             <Image
               alt={postTitle}
               src={featuredImage}
@@ -128,7 +127,7 @@ const TrendingBlogCard = ({
         )}
       </Link>
 
-      <div className="flex flex-col gap-2 w-[90%]">
+      <div className="flex flex-col gap-2 w-[100%] ">
         <Link href={link}>
           <h3 className=" cardsTitle font-semibold text-gray-900 text-xl hover:text-orange-500 cursor-pointer">
             {postTitle}

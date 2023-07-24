@@ -35,7 +35,7 @@ export const Footer = () => {
             className="w-full flex lg:flex-row flex-col 
            gap-4  justify-between relative "
           >
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 items-center sm:items-start">
               <div className="font-bold tracking-wide leading-10">PRODUCT</div>
               <div>
                 <Link href={"/flights"}> Flights</Link>
@@ -47,7 +47,7 @@ export const Footer = () => {
                 <Link href={"/cars"}> Cars</Link>
               </div>
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 items-center sm:items-start">
               <div className="font-bold tracking-wide leading-10">COMPANY</div>
               <div>
                 <Link href={"/community"}> Community</Link>
@@ -68,7 +68,7 @@ export const Footer = () => {
                 <Link href={"/faq"}> FAQ</Link>
               </div>
             </div>
-            <div className="flex flex-col leading-6 gap-1">
+            <div className="flex flex-col leading-6 gap-1 items-center sm:items-start">
               <div className="font-bold tracking-wide leading-10">LEGAL</div>
               <div>
                 <Link href={"/privacy-policy"}> Privacy Policy</Link>
@@ -84,7 +84,7 @@ export const Footer = () => {
               </div>
             </div>
             {/* social media icons */}
-            <div className="pt-8 lg:pt-0 lg:mt-[-25px] flex flex-row lg:flex-col justify-center items-end gap-10">
+            <div className="pt-8 lg:pt-0 lg:mt-[-25px] flex flex-row lg:flex-col justify-center items-end gap-5 sm:gap-10">
               <div>
                 <a
                   href={"https://www.facebook.com/Trippy-bug-103271632296237"}

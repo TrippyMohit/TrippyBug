@@ -17,7 +17,7 @@ export default function Hotels({ popularRecommendedHotels }) {
     <>
       <div className="flex flex-col gap-16 ">
         <HotelBanner />
-        <div className="flex flex-col gap-16 lg:gap-36 lg:px-16 px-8">
+        <div className="flex flex-col gap-16 lg:gap-36 lg:px-16 px-2">
           <PopularRecommendedHotels
             popularRecommendedHotels={popularRecommendedHotels}
           />
@@ -31,7 +31,7 @@ export default function Hotels({ popularRecommendedHotels }) {
 const HotelBanner = () => {
   return (
     <div className="flex flex-col">
-      <div className="relative lg:min-h-[60vh] lg:mx-24 mx-8 lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 lg:p-16">
+      <div className="relative lg:min-h-[60vh] lg:mx-24 mx-3 lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 lg:p-16">
         <div className=" flex-1 flex flex-col gap-9 z-10 "></div>
         <div className="py-64 z-0 lg:flex hidden">
           <Image
@@ -41,7 +41,7 @@ const HotelBanner = () => {
             layout="fill"
           />
         </div>
-        <div className="flex lg:hidden relative w-100 rounded-tl-[50%] rounded-br-[50%] overflow-hidden">
+        <div className="flex lg:hidden relative w-100 sm:rounded-tl-[50%] rounded-br-[5%] rounded-bl-[5%] overflow-hidden">
           <Image
             alt="hotels in Dubai"
             src="/assets/images/hotel-banner.png"
@@ -51,9 +51,9 @@ const HotelBanner = () => {
           />
         </div>
       </div>
-      <div className="w-full flex flex-col z-30 container -mt-32 ">
-        <div className="bg-gray-200 bg-opacity-70 ring-opacity-30 ring-offset-4 container shadow-lg p-8 rounded-3xl">
-          <div className="bg-blue thirdScreen:mb-[-210px] thirdScreen:h-[350px]">
+      <div className="w-full flex flex-col z-30 container mt-4 sm:-mt-32 ">
+        <div className="sm:bg-gray-200 bg-opacity-70 sm:ring-opacity-30 sm:ring-offset-4 container shadow-lg sm:p-8 sm:rounded-3xl">
+          <div className="bg-blue  thirdScreen:mb-[-210px] thirdScreen:h-[350px]">
             <iframe
               // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[104px] "
               // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[164px] fourthScreen:h-[164px] fifthScreen:h-[200px]"

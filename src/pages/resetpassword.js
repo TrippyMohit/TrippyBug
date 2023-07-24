@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import app from "../../firebase";
-import { useRouter } from "next/router";
 import { errorPrefix } from "@firebase/util";
+
+import { useRouter } from "next/router";
+
+
 export default function Restpassword() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [errorState, setErrorState] = useState(false);
 
   const auth = getAuth(app);
+
   const router = useRouter;
+
   // restPassword
   const resetPassword = (e) => {
     e.preventDefault();
+    
     sendPasswordResetEmail(auth, email)
       .then(() => {
         // Password reset email sent!

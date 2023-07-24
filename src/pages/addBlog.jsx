@@ -4,12 +4,17 @@ import Link from "next/link";
 import { Button } from "../common";
 import { ChevronLeftIcon, ImageIcon, MapPinIcon } from "../icons";
 import React, { useState, useEffect } from "react";
+
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, auth } from "../../firebase";
-import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+
+
 const AddBlog = () => {
   const router = useRouter();
   const [user] = useAuthState(auth);

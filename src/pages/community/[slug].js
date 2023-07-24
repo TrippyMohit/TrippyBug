@@ -1,12 +1,15 @@
-import { useRouter } from "next/router";
-import { doc, onSnapshot, getDoc, collection, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+import { doc, onSnapshot, getDoc, collection, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../firebase";
+
 import LikeUserArticle from "./LikeUserArticle";
 import CommentUserArticle from "./CommentUserArticle";
-import Link from "next/link";
 import { RxAvatar } from "react-icons/rx";
+
 import {
   CommentIcon,
   GlobeIcon,
@@ -20,9 +23,12 @@ import {
   WhatsappIcon,
   SaveIcon,
 } from "../../icons";
+
 import Image from "next/image";
 import { Button } from "../../common";
 import DeleteUserArticle from "./DeleteUserArticle";
+
+
 export default function SinglePost() {
   //   {
   //   articleId,

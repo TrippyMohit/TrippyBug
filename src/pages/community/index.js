@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 import {
   doc,
   onSnapshot,
@@ -9,8 +11,9 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { getStorage, ref, deleteObject } from "firebase/storage";
-import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, storage } from "../../../firebase";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -23,8 +26,8 @@ import {
   SearchIcon,
   PostIcon,
 } from "../../icons";
-import { auth, db, storage } from "../../../firebase";
 import LikeUserArticle from "./LikeUserArticle";
+
 // import CommentUserArticle from "./CommentUserArticle";
 import { title } from "process";
 // import { doc, deleteDoc } from "firebase/firestore";
@@ -42,11 +45,13 @@ export default function TrippyCommunity({ titles }) {
   useEffect(() => {
     const articleRef = collection(db, "Articles");
     const q = query(articleRef, orderBy("createdAt", "desc"));
+
     onSnapshot(q, (snapshot) => {
       const articles = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
+
       setArticles(articles);
     });
   }, [articles.length]);
@@ -88,14 +93,17 @@ const CommunityBanner = () => {
     <div className="relative lg:mx-24 mx-8  lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 p-6">
       <div className=" flex-1 flex flex-col gap-9 z-30 ">
         <div className="flex flex-col w-full">
-          <h1 className="text-xs tracking-wider lg:text-lg text-white font-bold flex gap-1">
-            Trippy<span className="text-orange-500">Bug</span>
-          </h1>
-          <h1 className="text-xl tracking-wider lg:text-4xl font-bold text-white">
-            Community
-          </h1>
-          <h1 className="font-caveat font-bold z-0 text-5xl tracking-wider lg:text-9xl text-gray-100 -mt-4 opacity-30">
-            travel is in our DNA
+          <h1 className="flex flex-col">
+            <span className="text-xs tracking-wider lg:text-lg text-white font-bold flex gap-1">
+              {" "}
+              Trippy<span className="text-orange-500">Bug</span>
+            </span>
+            <span className="text-xl tracking-wider lg:text-4xl font-bold text-white">
+              Community
+            </span>
+            <span className="font-caveat font-bold z-0 text-5xl tracking-wider lg:text-9xl text-gray-100 -mt-4 opacity-30">
+              travel is in our DNA
+            </span>
           </h1>
         </div>
         <div className=" lg:flex hidden flex-col lg:items-end items-center">
@@ -150,9 +158,9 @@ const LeftSideBar = () => {
   return (
     <div className="flex flex-col px-6 gap-6 w-full">
       <div className="flex flex-col gap-2.5 ">
-        <h1 className="font-bold tracking-wider lg:text-xl">
+        <h2 className="font-bold tracking-wider lg:text-xl">
           Have something to say?
-        </h1>
+        </h2>
         <p className="tracking-wider text-sm lg:text-base ">
           Welcome to the Travel Community section, where fellow adventurers can
           share their experiences and inspire others to explore the world.

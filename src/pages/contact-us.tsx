@@ -163,7 +163,7 @@ export default function ContactUs() {
 
         <div className="flex flex-col gap-10">
           <div>
-            <h1 className="  font-bold text-4xl text-gray-600  ">Contact us</h1>
+            <h3 className="  font-bold text-4xl text-gray-600  ">Contact us</h3>
             <p className="text-base font-normal flex  text-gray-400">
               Let’s have a talk.
             </p>
@@ -178,7 +178,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <div className="mt-[250px] pb-[-100px]">
+      <div className="sm:mt-[250px] sm:pb-[-100px]">
         <Community />
       </div>
     </div>

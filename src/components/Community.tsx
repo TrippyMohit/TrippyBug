@@ -7,11 +7,11 @@ const Community = () => {
     <div className="relative">
       <div className="relative flex">
         <div className="relative flex-1  bg-orange-300 bg-opacity-30 flex justify-center">
-          <div className="lg:w-6/12 mx-8 mt-24 w-full flex flex-col gap-2">
-            <div className="font-bold  tracking-wider text-2xl">
+          <div className="lg:w-6/12 w-full flex flex-col justify-center items-center p-6 gap-2">
+            <div className="font-bold  tracking-wider text-2xl text-center sm:text-left">
               Join Our Community
             </div>
-            <div className="  tracking-wider text-xl">
+            <div className="  tracking-wider text-sm sm:text-xl text-center sm:text-left">
               Get in touch and let our team help you put things together and
               plan your travel.
             </div>

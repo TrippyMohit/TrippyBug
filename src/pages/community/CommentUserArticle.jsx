@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 import {
   arrayRemove,
   arrayUnion,
@@ -5,15 +7,16 @@ import {
   onSnapshot,
   updateDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { v4 as uuidv4 } from "uuid";
 import { auth, db } from "../../../firebase";
+
+import { v4 as uuidv4 } from "uuid";
 import { Button } from "../../common";
 import Image from "next/image";
 import { RxAvatar } from "react-icons/rx";
-import { TextField } from "@mui/material";
 import { toast } from "react-toastify";
+
+
 export default function CommentUserArticle({ id, userProfilePicture }) {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);

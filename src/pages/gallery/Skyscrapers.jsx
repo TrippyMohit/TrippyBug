@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import GalleryImages from "./GalleryImages";
+
+
 const Skyscrapers = ({ post }) => {
   return <GalleryImages post={post} />;
 };

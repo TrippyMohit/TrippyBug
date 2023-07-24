@@ -9,7 +9,10 @@ import { formatDistance } from "date-fns";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { RxAvatar } from "react-icons/rx";
+
 import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 import {
   CarIcon,
   FlightIcon,
@@ -27,11 +30,13 @@ import {
   GearIcon,
   LogoutIcon,
 } from "../icons";
+
 import classNames from "classnames";
 import { useEffect } from "react";
 import { setTokenSourceMapRange } from "typescript";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { set } from "lodash";
+
+
 export default function UserProfile({
   yourPosts,
   likedPosts,
@@ -48,6 +53,7 @@ export default function UserProfile({
   ]);
   const [user] = useAuthState(auth);
   const router = useRouter();
+  
   function handle(e) {
     setSelectedTab("your-posts"), setIsOpen(false);
   }

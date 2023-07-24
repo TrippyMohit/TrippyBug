@@ -18,7 +18,7 @@ export default function Flights({
   return (
     <div className="flex flex-col gap-16 ">
       <FlightBanner />
-      <div className="flex flex-col gap-16 lg:gap-36 lg:px-16 px-8">
+      <div className="flex flex-col gap-16 lg:gap-36">
         <AirlinesBlogs airlinesBlogs={airlinesBlogs} />
         <JoinTravel />
       </div>
@@ -28,8 +28,8 @@ export default function Flights({
 
 const FlightBanner = () => {
   return (
-    <div className="flex flex-col">
-      <div className="relative lg:min-h-[60vh] lg:mx-24 mx-8 lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 lg:p-16">
+    <div className="flex flex-col px-4 sm:px-8">
+      <div className="relative lg:min-h-[60vh] lg:mx-24  lg:items-center items-start lg:rounded-3xl overflow-hidden lg:border-2 lg:flex-row flex-col  flex lg:shadow-lg  gap-10 lg:p-16">
         {/* <div className="flex flex-col lg:w-2/3 w-full gap-6 relative z-10">
           <h1 className="text-3xl tracking-wider lg:text-6xl lg:leading-[70px] lg:text-gray-900 font-bold ">
             The best tours in just
@@ -50,7 +50,7 @@ const FlightBanner = () => {
             layout="fill"
           />
         </div>
-        <div className="flex lg:hidden relative w-100 rounded-tl-[50%] rounded-br-[50%] overflow-hidden">
+        <div className="flex lg:hidden relative w-100 sm:rounded-tl-[50%] rounded-bl-3xl rounded-br-3xl overflow-hidden">
           <Image
             alt="travelocity"
             src="/assets/images/flight-banner.png"
@@ -60,8 +60,8 @@ const FlightBanner = () => {
           />
         </div>
       </div>
-      <div className="w-full flex flex-col z-30 container -mt-32 ">
-        <div className="bg-gray-200 bg-opacity-70 ring-opacity-30 ring-offset-4 container shadow-lg p-8 rounded-3xl">
+      <div className="w-full flex flex-col z-30 container mt-4 sm:-mt-32 ">
+        <div className="bg-gray-200 bg-opacity-70 ring-opacity-30 ring-offset-4 container shadow-lg sm:p-8 rounded-3xl">
           <div className="bg-blue thirdScreen:mb-[-210px] thirdScreen:h-[350px]  ">
             <iframe
               // className="w-full h-[410px] firstScreen:h-[347px] secondScreen:h-[224px] thirdScreen:h-[160px] fourthScreen:h-[164px] fifthScreen:h-[104px]"

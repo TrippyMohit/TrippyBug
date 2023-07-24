@@ -21,16 +21,22 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Script from "next/script";
+
+
 import { getAuth, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
-import { useAuthState } from "react-firebase-hooks/auth";
+
 export const AppHeader = () => {
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
   const [user] = useAuthState(auth);
   const route = useRouter();
+  
   const menu = [
     {
       label: "Services",
@@ -242,6 +248,7 @@ export const AppHeader = () => {
                           layout="fill"
                           objectFit="cover"
                           className="order-2 border-white rounded-full"
+                          alt="image"
                         />
                       )}
                     </div>
@@ -267,6 +274,7 @@ export const AppHeader = () => {
                               layout="fill"
                               objectFit="cover"
                               className="order-2 border-white rounded-full"
+                              alt="image"
                             />
                           )}
                         </div>

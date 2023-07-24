@@ -21,6 +21,8 @@ import {
 } from "../icons";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
   const hideFooter =
@@ -31,6 +33,7 @@ function MyApp({ Component, pageProps }) {
     route.pathname == "/new-password" ||
     route.pathname == "/confirm-otp" ||
     route.pathname == "/kiwi-form";
+    
   const hideHeader = route.pathname == "/kiwi-form";
   const [openRightmenu, setOpenRightMenu] = useState(false);
   const size = useWindowSize();

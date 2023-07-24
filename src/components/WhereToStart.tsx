@@ -21,7 +21,7 @@ const WhereToStart = () => {
         </div>
         <div className="relative z-20 flex flex-col tracking-wider gap-3 my-auto w-full">
           <div className="w-full flex lg:flex-row flex-col justify-end items-start font-extrabold gap-4">
-            <div className="flex gap-4 justify-end w-full">
+            <div className="flex gap-4 justify-center sm:justify-end w-full">
               <div className="flex font-caveat lg:text-6xl">not</div>
               <div className="flex lg:text-9xl text-3xl ">SURE</div>
               <div className="flex flex-col lg:text-4xl text-xs lg:pt-3">

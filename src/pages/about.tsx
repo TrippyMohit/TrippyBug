@@ -32,30 +32,30 @@ export default function AboutUs() {
               layout="fill"
               src="/assets/images/about-bg.png"
             />
-            <div className="absolute   text-6xl text-white  font-sans font-bold bottom-12  w-full ">
-              <div className="container">About Us</div>
+            <div className="absolute text-center text-5xl sm:text-6xl text-white  font-sans font-bold bottom-12  w-full ">
+              <h1>About Us</h1>
             </div>
           </div>
         </div>
-        <div className="gap-10 flex flex-col -mt-4 pt-16 bg-white lg:rounded-none rounded-2xl">
+        <div className="gap-10 flex flex-col -mt-4 p-6 pt-16 bg-white lg:rounded-none rounded-2xl">
           <div className="container m-auto ">
             <div className="flex flex-col font-sans gap-5 text-xl text-gray-400 text-justify">
-              <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
+              <h3 className=" font-Poppins font-bold text-3xl text-center sm:text-start sm:text-5xl  text-gray-900  ">
                 PLAN YOUR WAY
-              </h1>
+              </h3>
 
-              <p>
+              <p className=" text-sm sm:text-lg">
                 {`Trippybug, an idea evolved from travel enthusiastic fascinated with visiting and exploring lots of different genres, this site took a time lap to create a variety in one place, designing an effortless alternative and pathways  minimise to maximise things showcasing prices, products, possibilities for those visiting us. 
 But it isn’t ending here. When it's about planning the days of an aromatic destination the work and the steps has the definite aura which is a trill and breathtaking, and thai site shows you the places where you can satisfy your thirst of travelling with practical factual information.
 Trippybug says, give us the chance to unload all the minute baggage of every travel buddy and rely on us on tickets and beautiful discounts and stories and ideas about several destinations. 
 
   `}
               </p>
-              <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
+              <h3 className=" font-Poppins font-bold text-3xl text-center sm:text-start sm:text-5xl  text-gray-900   ">
                 DESIGN WITH CHILL
-              </h1>
+              </h3>
 
-              <p>
+              <p className=" text-sm sm:text-lg">
                 {`Unfold the travel destinations with trippybug. Come rely on us, with all options on exotic places all over the globe and which has lots of craze and off road destinations all the minutes. 
 Trippybug, is a site which shows all the prices of tickets, hotels, cars with suitable discounts, products and coupons along with fascinating stories , blogs of breath-taking and mouth watering honey streaming destinations and pathways to satisfy your hunger of travel. 
   `}
@@ -82,17 +82,17 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
 
           <div>
             <div className="flex flex-col font-sans gap-2 text-xl container m-auto  text-gray-400 text-justify">
-              <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
+              <h3 className=" font-Poppins font-bold text-3xl text-center sm:text-5xl sm:text-start  text-gray-900  ">
                 What we do?
-              </h1>
-              <p>
+              </h3>
+              <p className=" text-sm sm:text-lg">
                 {`
            We help you reach your destination. We guide through each steps of your journey          
   `}
               </p>
             </div>
           </div>
-          <div className="flex ">
+          <div className="flex">
             <div className="absolute w-full z-10 mb-24">
               <Image
                 alt="trippybug"
@@ -103,7 +103,7 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
               />
             </div>
 
-            <div className="grid grid-flow-col  m-auto gap-20 p-6 overflow-x-auto  2xl:overflow-visible container z-50">
+            <div className="grid grid-flow-row sm:grid-flow-col  m-auto gap-20 p-6 overflow-x-auto  2xl:overflow-visible container z-50">
               <WhatWeDoCard
                 icon={HotelIcon}
                 title="Hotel"
@@ -124,10 +124,10 @@ Trippybug, is a site which shows all the prices of tickets, hotels, cars with su
           </div>
           <div className="container m-auto pb-8 ">
             <div className="flex flex-col font-sans gap-2 text-xl mt-16 text-gray-400 text-justify">
-              <h1 className=" font-Poppins font-bold text-5xl  text-gray-900  ">
+              <h3 className=" font-Poppins font-bold text-3xl text-center sm:text-5xl  text-gray-900 sm:text-start  ">
                 Why Choose Us
-              </h1>
-              <p>
+              </h3>
+              <p className=" text-sm sm:text-lg">
                 {`
          When it comes to travel, it’s not only searching for options and scrolls, it’s about comparing different websites, checking the suitable details of the destination and finalising things effortlessly step by step. 
          We avoid the haphazard ways and also provide 24X7 support to all who join us. 
