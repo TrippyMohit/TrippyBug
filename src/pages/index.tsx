@@ -100,9 +100,7 @@ export default function Home({
       <HomePageBanner />
       <div className="flex flex-col gap-20 lg:pt-24 ">
         <TrendingBlogs trendingBlogs={trendingBlogs} />
-        {/* <Gallery posts={gallery} /> */}
         <GalleyCategories />
-        {/* <TopDestinationBlogs topDestinations={topDestinations} /> */}
         <ExploreWorldBlogs exploreTheWorld={exploreTheWorld} />
         <LookingForInspiration lookingForInspiration={lookingForInspiration} />
         <JoinTravel />
