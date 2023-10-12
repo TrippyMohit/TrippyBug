@@ -91,6 +91,7 @@ export default function Home({
           property="og:image"
           content="https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75"
         />
+        <meta name="verify-admitad" content="d2bffd2e97" />
         <meta property="og:url" content="https://www.trippybug.com" />
         <meta property="og:locale" content="en_GB" />
         <meta name="yandex-verification" content="14c09afa2bbb6813" />
