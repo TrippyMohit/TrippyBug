@@ -13,6 +13,7 @@ export const Button=({
   disabled=false,
   children
 }:ButtonProps)=> {
+  /////////
   return (
     
     <button onClick={onClick} type="submit" disabled={disabled} className={classNames('w-full px-9 py-3 rounded-md lg:font-semibold font-medium  lg:text-base text-[14px]',{
@@ -21,6 +22,7 @@ export const Button=({
       'cursor-not-allowed bg-opacity-50':disabled,
       'bg-white text-orange-500 border border-orange-500':variant==='secondary-outlined'
     })}>{children}</button>
+
     
   )
 }
