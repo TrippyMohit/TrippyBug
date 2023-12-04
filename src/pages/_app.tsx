@@ -22,7 +22,6 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
   const hideFooter =
@@ -33,7 +32,7 @@ function MyApp({ Component, pageProps }) {
     route.pathname == "/new-password" ||
     route.pathname == "/confirm-otp" ||
     route.pathname == "/kiwi-form";
-    
+
   const hideHeader = route.pathname == "/kiwi-form";
   const [openRightmenu, setOpenRightMenu] = useState(false);
   const size = useWindowSize();
@@ -73,9 +72,8 @@ function MyApp({ Component, pageProps }) {
           name="p:domain_verify"
           content="f0bb3a2c41f6936741568f1831a7ac03"
         />
-        {/* // */}
-<meta name="fo-verify" content="74ee3f5b-5c21-4f79-b213-5bb4c0f73e4a" />
-{/* //// */}
+        <meta name="fo-verify" content="74ee3f5b-5c21-4f79-b213-5bb4c0f73e4a" />
+
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=0"
