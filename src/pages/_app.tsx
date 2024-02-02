@@ -66,6 +66,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <html lang="en" />
         <link rel="alternate" href="https://www.trippybug.com/" hrefLang="en" />
         <meta charSet="UTF-8" />
         <meta
@@ -83,12 +84,12 @@ function MyApp({ Component, pageProps }) {
         {!pageProps.noMeta && (
           <meta
             name="description"
-            content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
+            content="Trippybug is an affordable traveling website that offers hotel booking, cheap cars on rent,  and airline tickets for your hassle-free journey."
           />
         )}
         <meta
           name="keywords"
-          content="Cheap flights,cheap flight tickets,air tickets,flight ticket,airline tickets,cheap flights to dubai,flights,cheap hotels,flight booking,cheapest days to fly,best days to book flights,holiday packages,cheap flights to New York,cheap flights to India,cheap flights to California,cheap flights to Texas,cheap flights to London,cheap flights to Chicago,cheap flights to Canada,cheap flights to Michigan,cheap flights to Orlando, hotels in las vegas,hotels in Dubai,hotels in Thailand,hotels in Pattaya,hotels in Italy,hotels in London,hotels in Paris,hotels in Goa,cheap hotels in,best things to do in, top things to do in, best places to visit in,"
+          content="car on rent, cheap cars for rent, car to rent near me,rental car expedia, rent a car for a day, cheapest car hire near me, hire a car for a day, rent cars with debit card, hotel booking, hotel booking, expedia hotels, cheap hotels, booking com hotels, last minute hotels, hotwire hotels, hotel booking sites, kayak hotels, cheap hotels, flight booking, cheap flights, airline tickets, flight ticket booking, expedia flights, airline tickets, plane tickets, cheap airline tickets, cheap flight tickets, last minute flights, delta airlines reservations, united airlines reservations, cheap plane tickets. "
         />
         <meta
           name="google-site-verification"
@@ -103,7 +104,8 @@ function MyApp({ Component, pageProps }) {
         />
 
         <title>
-          {pageProps.title || "TrippyBug - Book cheap flights & hotels"}
+          {pageProps.title ||
+            "Find cheap flights, hotels, airline tickets, and cars on rent | Trippybug"}
         </title>
       </Head>
       <ToastContainer />
