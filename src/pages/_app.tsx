@@ -66,7 +66,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <html lang="en" />
         <link rel="alternate" href="https://www.trippybug.com/" hrefLang="en" />
         <meta charSet="UTF-8" />
         <meta
