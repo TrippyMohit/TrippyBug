@@ -47,32 +47,58 @@ export default function Home({
   lookingForInspiration,
   gallery,
 }) {
+  
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    mainEntityOfPage: {
-      "@type": "WebSite",
-      "@id": "https://www.trippybug.com",
-    },
-    headline:
-      "Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts",
+    "@type": "Organization",
+    name: "Trippybug",
+    alternateName: "Travel Agency",
+    url: "https://www.trippybug.com/",
+    logo: "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
+    sameAs: [
+      "https://www.facebook.com/bugtrippyy",
+      "https://twitter.com/bug_trippy",
+      "https://www.instagram.com/trippybugofficial/",
+      "https://in.pinterest.com/Official_TrippyBug/",
+    ],
     description:
-      "Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts",
-    image:
-      "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
-    author: {
-      "@type": "Organization",
-      name: "TrippyBug",
+      "Trippybug is the most affordable traveling website which offers hotel booking, cheap cars on rent, airline tickets, and flight booking. Whether you are going for a family vacation or honeymoon, we provide a wide range of affordable holiday tour packages.",
+    email: "bugtrippy@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "New York",
+      addressRegion: "United States",
+      postalCode: "10007",
     },
-    publisher: {
-      "@type": "Organization",
-      name: "",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.trippybug.com/_next/image?url=%2Fassets%2Fimages%2FnewLogo.png&w=3840&q=75",
-      },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Blogs",
+          item: "https://www.trippybug.com/blogs/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Flight Booking",
+          item: "https://www.trippybug.com/flights/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Hotel Booking",
+          item: "https://www.trippybug.com/hotels/",
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Car on rent",
+          item: "https://www.trippybug.com/cars/",
+        },
+      ],
     },
-    datePublished: "2023-01-09",
   };
 
   return (
@@ -81,11 +107,11 @@ export default function Home({
         <link rel="canonical" href={`https://www.trippybug.com`} />
         <meta
           property="og:title"
-          content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
+          content="Trippybug is the most affordable traveling website which offers hotel booking, cheap cars on rent, airline tickets, and flight booking. Whether you are going for a family vacation or honeymoon, we provide a wide range of affordable holiday tour packages."
         />
         <meta
           property="og:description"
-          content="Trippybug gives the most authentic deals of rates on worldwide hotels and flights to the destinations as well as we provide car rentals, coupons, and discounts"
+          content="Find budget-free hotel booking and airline tickets on Trippybug, which is the cheapest website that also offers cheap cars on rent."
         />
         <meta
           property="og:image"
