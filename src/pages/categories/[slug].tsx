@@ -25,7 +25,7 @@ export default function Categories({ posts, slug }) {
       label: "Explore",
       slug: "explore-the-world",
     },
-    {
+    { 
       icon: HomeIcon,
       label: "Popular",
       slug: "popular-recommended-hotels",
